@@ -81,7 +81,7 @@
 
 <body class="d-flex flex-column min-vh-100 dark" data-bs-theme="light">
     <div class="parallax"></div>
-    <div class="container my-5">
+    <div class="container mt-3 mb-2">
         <div class="d-flex justify-content-center flex-column align-items-center">
             <img src="{{ asset('PGA 2023.png') }}" alt="PGA LOGO" class="img-fluid" style="max-width: 150px;" />
             <h1 class="fw-light my-5 text-center" style="color: #000">
@@ -89,7 +89,7 @@
             </h1>
         </div>
 
-        <div id="wrapper_pair_list" class="row mt-1 mb-5">
+        <div id="wrapper_pair_list" class="row mt-1 mb-1">
             <div class="col-sm-12">
                 <div class="card border-dark">
                     <div class="card-header bg-dark bg-gradient fw-bold text-center text-white">
@@ -432,10 +432,10 @@
         <footer class="d-flex justify-content-center border-top my-4 flex-wrap pt-3">
             <div class="col-8 d-flex align-items-center">
                 <a href="/" class="mb-md-0 text-muted text-decoration-none lh-1 mb-3 me-2">
-                    <img src="https://bnetfit.id/apjii/logo-apjii white simple.png" style="width: 80px" />
+                    <img src="{{ asset('PGA_2023_white.png') }}" style="width: 40px" alt="Logo PGA" />
                 </a>
-                <span class="mb-md-0 mb-3 text-white">
-                    © Copyright 2023. Asosiasi Penyelenggara Jasa Internet Indonesia.
+                <span class="mb-md-0 mb-3 text-white fw-bold">
+                    © Copyright 2023. Persatuan Golf APJII.
                 </span>
             </div>
 
@@ -443,18 +443,18 @@
                 <li class="ms-3">
                     <a href="https://www.facebook.com/profile.php?id=100078846007523" target="_blank"
                         class="text-white">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-facebook-f fw-bold"></i>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://www.instagram.com/apjii/" target="_blank" class="text-white">
-                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram fw-bold"></i>
                     </a>
                 </li>
                 <li class="ms-3">
                     <a href="https://www.youtube.com/channel/UC-PJ7U_CUfA0dzwMXvFm6ag" target="_blank"
                         class="text-white">
-                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-youtube fw-bold"></i>
                     </a>
                 </li>
             </ul>
