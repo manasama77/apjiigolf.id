@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap");
+
+body {
+    font-family: "Exo 2", sans-serif;
+    background-image: url("../../public/pexels-nadim-shaikh-7758348.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.img-overlay-card {
+    filter: blur(3px) opacity(55.13%);
+    -webkit-filter: blur(3px) opacity(55.13%);
+    -moz-filter: blur(3px) opacity(55.13%);
+}
