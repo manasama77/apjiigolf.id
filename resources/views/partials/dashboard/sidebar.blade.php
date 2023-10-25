@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
-        {{-- <img src="{{ asset('storage/smpn_1_cibinong_logo.png') }}" alt="Logo" class="brand-image elevation-3"
-            style="opacity: .8"> --}}
+        <img src="{{ asset('PGA_2023_white.png') }}" alt="Logo" class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-bold">Admin<span class="font-weight-light">PGA</span> </span>
     </a>
 
@@ -55,6 +54,15 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Player Management
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.player_score') }}"
+                        class="nav-link {{ request()->route()->named('admin.player_score')? 'active': '' }}">
+                        <i class="nav-icon fa-solid fa-golf-ball-tee"></i>
+                        <p>
+                            Player Score
                         </p>
                     </a>
                 </li>

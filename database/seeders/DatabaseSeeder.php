@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            LocationSeeder::class,
-            EventLocationSeeder::class,
-            PlayerSeeder::class,
-            PlayerHistorySeeder::class,
+            // LocationSeeder::class,
+            // EventLocationSeeder::class,
+            // PlayerSeeder::class,
+            // PlayerHistorySeeder::class,
         ]);
     }
 }

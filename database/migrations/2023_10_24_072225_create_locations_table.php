@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('in')->default(0)->unsigned();
             $table->string('banner');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

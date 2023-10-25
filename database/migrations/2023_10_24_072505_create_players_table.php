@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('net', 8, 2)->default(0)->unsigned()->comment('GROSS - HANDICAP');
             $table->integer('seq')->default(0)->unsigned()->comment('increment');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Player::class);
             $table->foreignIdFor(EventLocation::class);
+            $table->enum('tee_off', [1, 10]);
             $table->integer('out')->default(0)->unsigned()->comment('par 1 ~ 9 max 36');
             $table->integer('in')->default(0)->unsigned()->comment('par 10 ~ 18 max 36');
             $table->integer('gross')->default(0)->unsigned()->comment('score par 1 ~ 18');
             $table->integer('handicap')->default(0)->unsigned()->comment('AVG score par 1 ~ 18');
             $table->integer('net')->default(0)->unsigned()->comment('gross - handicap');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -16,6 +16,7 @@ class PlayerHistorySeeder extends Seeder
         PlayerHistory::create([
             'player_id'         => 1,
             'event_location_id' => 1,
+            'tee_off'           => "1",
             'out'               => 54,
             'in'                => 51,
             'gross'             => 105,
@@ -26,6 +27,7 @@ class PlayerHistorySeeder extends Seeder
         PlayerHistory::create([
             'player_id'         => 2,
             'event_location_id' => 1,
+            'tee_off'           => "1",
             'out'               => 50,
             'in'                => 45,
             'gross'             => 95,
@@ -36,6 +38,7 @@ class PlayerHistorySeeder extends Seeder
         PlayerHistory::create([
             'player_id'         => 1,
             'event_location_id' => 2,
+            'tee_off'           => "10",
             'out'               => 45,
             'in'                => 45,
             'gross'             => 90,

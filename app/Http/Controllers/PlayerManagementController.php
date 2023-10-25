@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PlayerManagementController extends Controller
 {
@@ -43,7 +44,8 @@ class PlayerManagementController extends Controller
             'name' => 'required',
         ]);
 
-        $late = Player::orderBy('seq', 'desc')->limit(1)->first();
+        $now = Carbon::now();
+        $late = Player::whereYear('created_at', $now)->orderBy('seq', 'desc')->limit(1)->first();
         $seq  = $late->seq + 1;
 
         if ($seq < 10) {
@@ -52,10 +54,11 @@ class PlayerManagementController extends Controller
             $unique = "0" . $seq;
         }
 
-        $code = "PGA" . $unique;
+        $code = "PGA" . $now->format('Y') . $unique;
 
         Player::create([
             'name' => $request->name,
+            'code' => $code,
             'seq'  => $seq,
         ]);
 

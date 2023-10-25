@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MasterLocationController;
 use App\Http\Controllers\PlayerManagementController;
+use App\Http\Controllers\PlayerScoreController;
 use App\Http\Controllers\UserAdminController;
 
 /*
@@ -22,8 +23,8 @@ use App\Http\Controllers\UserAdminController;
 */
 
 Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
-// Route::get('/', [LandingController::class, 'index'])->name('home');
-Route::get('/', [LandingController::class, 'ty'])->name('home');
+Route::get('/', [LandingController::class, 'index'])->name('home');
+// Route::get('/', [LandingController::class, 'ty'])->name('home');
 Route::get('/pairing', [LandingController::class, 'pairing'])->name('pairing');
 Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
@@ -71,6 +72,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'edit'    => 'admin.player_management.edit',
         'update'  => 'admin.player_management.update',
         'destroy' => 'admin.player_management.destroy',
+    ]);
+
+    Route::resource('/player_score', PlayerScoreController::class)->names([
+        'index'   => 'admin.player_score',
+        'create'  => 'admin.player_score.create',
+        'store'   => 'admin.player_score.store',
+        'edit'    => 'admin.player_score.edit',
+        'update'  => 'admin.player_score.update',
+        'destroy' => 'admin.player_score.destroy',
     ]);
 });
 

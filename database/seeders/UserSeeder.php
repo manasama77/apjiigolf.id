@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'name'     => 'Admin',
             'username' => 'admin',
             'email'    => 'marcom.jlmgroup@gmail.com',
-            'password' => 'password',
+            'password' => 'Marcom1478963',
         ]);
     }
 }
