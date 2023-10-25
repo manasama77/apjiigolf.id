@@ -19,7 +19,7 @@
             <div class="row">
 
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-primary">
+                    <div class="small-box bg-dark">
                         <div class="overlay dark loading_card" style="display: none;">
                             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
                         </div>
@@ -30,25 +30,25 @@
                         <div class="icon">
                             <i class="fas fa-user-secret"></i>
                         </div>
-                        {{-- <a href="{{ route('admin.user.admin') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a> --}}
+                        <a href="{{ route('admin.admin') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-danger">
                         <div class="overlay dark loading_card" style="display: none;">
                             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
                         </div>
                         <div class="inner">
-                            <h3 id="count_siswa">0</h3>
-                            <p>Player</p>
+                            <h3 id="count_location">0</h3>
+                            <p>Location</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-map"></i>
                         </div>
-                        {{-- <a href="{{ route('admin.user.siswa') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a> --}}
+                        <a href="{{ route('admin.master_location') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -58,14 +58,31 @@
                             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
                         </div>
                         <div class="inner">
-                            <h3 id="count_guru">0</h3>
-                            <p>Location</p>
+                            <h3 id="count_event_location">0</h3>
+                            <p>Event Location</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-user-graduate"></i>
+                            <i class="fas fa-map"></i>
                         </div>
-                        {{-- <a href="{{ route('admin.user.guru') }}" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a> --}}
+                        <a href="{{ route('admin.event_location') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-info">
+                        <div class="overlay dark loading_card" style="display: none;">
+                            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+                        </div>
+                        <div class="inner">
+                            <h3 id="count_Player">0</h3>
+                            <p>Player</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <a href="{{ route('admin.player_management') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -99,8 +116,9 @@
             }).done(e => {
                 console.log(e.data)
                 $('#count_admin').text(e.data.count_admin)
-                $('#count_siswa').text(e.data.count_siswa)
-                $('#count_guru').text(e.data.count_guru)
+                $('#count_location').text(e.data.count_location)
+                $('#count_event_location').text(e.data.count_event_location)
+                $('#count_player').text(e.data.count_player)
             })
         }
     </script>
