@@ -50,9 +50,9 @@
                         <button type="submit" class="btn btn-block login-btn">
                             Login
                         </button>
-                        <a href="{{ route('register') }}" class="btn btn-block register-btn">
+                        {{-- <a href="{{ route('register') }}" class="btn btn-block register-btn">
                             Register
-                        </a>
+                        </a> --}}
                     </form>
                     {{-- <a href="#!" class="forgot-password-link">Forgot password?</a> --}}
                 </div>
