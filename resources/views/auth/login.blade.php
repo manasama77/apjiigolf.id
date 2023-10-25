@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-sm-6 login-section-wrapper">
                 <div class="brand-wrapper">
-                    {{-- <img src="{{ asset('storage/smpn_1_cibinong_logo.png') }}" alt="Logo" class="logo"> --}}
+                    <img src="{{ asset('PGA 2023.png') }}" alt="Logo" class="logo">
                     {{-- <h1>PGA</h1> --}}
                 </div>
                 <div class="login-wrapper my-auto">
@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <h1 class="login-title">PGA Login</h1>
+                    <h1 class="login-title">Admin Login</h1>
                     <form action="{{ route('login') }}" method="post">
                         @csrf
                         <div class="form-group">
