@@ -23,8 +23,8 @@ use App\Http\Controllers\UserAdminController;
 */
 
 Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
-Route::get('/', [LandingController::class, 'index'])->name('home');
-// Route::get('/', [LandingController::class, 'ty'])->name('home');
+// Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/', [LandingController::class, 'ty'])->name('home');
 Route::get('/pairing', [LandingController::class, 'pairing'])->name('pairing');
 Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
