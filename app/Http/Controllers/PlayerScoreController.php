@@ -76,7 +76,7 @@ class PlayerScoreController extends Controller
             'net'               => $request->net,
         ]);
 
-        return redirect()->route('admin.player_management.create')->with('success', 'Create Success');
+        return redirect()->route('admin.player_score.create')->with('success', 'Create Success');
     }
 
     /**
