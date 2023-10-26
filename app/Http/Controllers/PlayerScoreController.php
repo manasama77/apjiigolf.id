@@ -46,7 +46,7 @@ class PlayerScoreController extends Controller
             'events'     => $events,
             'players'    => $players,
         ];
-        return view('pages.admin.player_management.form', $data);
+        return view('pages.admin.player_score.form', $data);
     }
 
     /**

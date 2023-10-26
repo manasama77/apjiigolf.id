@@ -14,10 +14,9 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12 col-md-6 offset-md-3">
+                <div class="col-sm-12 col-md-4 offset-md-4">
                     <div class="card">
                         <div class="card-body">
-
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -28,77 +27,17 @@
                                 </div>
                             @endif
 
-                            @if (session('success'))
-                                <div class="alert alert-success">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-
-                            <form action="{{ route('admin.player_score.store') }}" method="POST">
+                            <form action="{{ route('admin.player_management.store') }}" method="POST">
                                 @csrf
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="mb-3">
-                                            <label for="event_location_id">Event Location</label>
-                                            <select class="form-control" id="event_location_id" name="event_location_id"
-                                                required>
-                                                <option value=""></option>
-                                                @foreach ($events as $l)
-                                                    <option value="{{ $l->id }}">
-                                                        {{ $l->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="player_id">Player</label>
-                                            <select class="form-control" id="player_id" name="player_id" required>
-                                                <option value=""></option>
-                                                @foreach ($players as $l)
-                                                    <option value="{{ $l->id }}">{{ $l->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="tee_off">Tee Off (Hole)</label>
-                                            <select class="form-control" id="tee_off" name="tee_off" required>
-                                                <option value="1">1</option>
-                                                <option value="10">10</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="mb-3">
-                                            <label for="out">Out <small>Par 1 ~ 9</small></label>
-                                            <input type="number" class="form-control" id="out" name="out"
-                                                min="1" max="200" value="{{ old('out') }}" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="in">In <small>Par 10 ~ 18</small></label>
-                                            <input type="number" class="form-control" id="in" name="in"
-                                                min="1" max="200" value="{{ old('in') }}" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="gross">Gross </label>
-                                            <input type="number" class="form-control" id="gross" name="gross"
-                                                min="1" max="200" value="{{ old('gross') }}" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="handicap">Handicap </label>
-                                            <input type="number" class="form-control" id="handicap" name="handicap"
-                                                min="1" max="28" value="{{ old('handicap') }}" required />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="net">Net </label>
-                                            <input type="number" class="form-control" id="net" name="net"
-                                                min="1" max="100" value="{{ old('net') }}" required />
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        value="{{ old('name') }}" required />
                                 </div>
-
                                 <button type="submit" class="btn btn-success btn-block">
                                     <i class="fas fa-fw fa-save"></i> Save
                                 </button>
-                                <a href="{{ route('admin.player_score') }}" class="btn btn-secondary btn-block">
+                                <a href="{{ route('admin.player_management') }}" class="btn btn-secondary btn-block">
                                     <i class="fas fa-fw fa-backward"></i> Back
                                 </a>
 
