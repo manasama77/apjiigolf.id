@@ -48,6 +48,7 @@ class LandingController extends Controller
     public function player_event_history($player_id)
     {
         $page_title = "Player Event History";
+        $player_name = Player::find($player_id)->name;
 
         $players = EventLocation::select([
             'event_locations.id',
@@ -69,8 +70,9 @@ class LandingController extends Controller
         // dd($players);
 
         $data = [
-            'page_title' => $page_title,
-            'players'    => $players,
+            'page_title'  => $page_title,
+            'player_name' => $player_name,
+            'players'     => $players,
         ];
         return view('pages.player.location_history', $data);
     }

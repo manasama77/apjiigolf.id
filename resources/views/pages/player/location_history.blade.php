@@ -6,8 +6,10 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title text-center fw-light">PGA MEMBER</h3>
-                        <h1 class="card-subtitle mb-2 text-center fw-semibold">LOCATION HISTORY</h1>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ asset('android-chrome-192x192.png') }}" alt="PGA Logo" class="img-fluid" />
+                        </div>
+                        <h1 class="card-subtitle mb-4 text-center fw-semibold">{{ $player_name }} - Location History</h1>
 
                         <div class="row">
                             @foreach ($players as $p)
