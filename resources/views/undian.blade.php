@@ -32,7 +32,7 @@
         </div>
 
         <div class="row mt-5">
-            <div class="col-6 offset-md-3">
+            <div class="col-sm-12 col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="row" id="kocokan-wrapper">
