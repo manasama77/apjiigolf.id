@@ -6,6 +6,7 @@ use App\Models\Player;
 use Illuminate\Http\Request;
 use App\Models\EventLocation;
 use App\Models\PlayerHistory;
+use App\Models\Undian;
 use Illuminate\Database\Eloquent\Builder;
 
 class LandingController extends Controller
@@ -91,5 +92,53 @@ class LandingController extends Controller
     public function pairing()
     {
         return view('pairing');
+    }
+
+    public function undian()
+    {
+        return view('undian');
+    }
+
+    public function undian_winner()
+    {
+        $data  = Undian::select('id', 'name')
+            ->where('winner', 1)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+        $count = $data->count();
+
+        return response()->json([
+            'count' => $count,
+            'data'  => $data,
+        ]);
+    }
+
+    public function undian_peserta()
+    {
+        $data  = Undian::select('id', 'name')
+            ->where('winner', 0)
+            ->get();
+
+        $count = $data->count();
+
+        return response()->json([
+            'count' => $count,
+            'data'  => $data,
+        ]);
+    }
+
+    public function undian_store(Request $request)
+    {
+        $id = $request->id;
+
+        if ($id) {
+            $exec = Undian::find($id);
+            $exec->winner = 1;
+            $exec->save();
+        }
+
+        return response()->json([
+            'data' => $exec,
+        ]);
     }
 }

@@ -13,6 +13,8 @@ export default defineConfig({
                 "resources/sass/login.scss",
 
                 "resources/adminlte/css/adminlte.css",
+
+                "resources/sass/undian.scss",
             ],
             refresh: true,
         }),

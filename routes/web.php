@@ -30,6 +30,10 @@ Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
 Route::get('/player/event/history/score/{player_histories_id}', [LandingController::class, 'player_event_history_score'])->name('player.event.history.score');
 
+Route::get('/undian', [LandingController::class, 'undian'])->name('undian');
+Route::get('/undian_winner', [LandingController::class, 'undian_winner'])->name('undian.winner');
+Route::get('/undian_peserta', [LandingController::class, 'undian_peserta'])->name('undian.peserta');
+Route::post('/undian_store', [LandingController::class, 'undian_store'])->name('undian.store');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
