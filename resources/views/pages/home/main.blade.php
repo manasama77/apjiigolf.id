@@ -1,7 +1,7 @@
 @extends('layouts.landing')
 
 @section('aku_isi_mas')
-    <div class="container my-5">
+    <div class="container-fluid container-md my-5">
         <div class="row">
             <div class="col-12">
                 <div class="card">
