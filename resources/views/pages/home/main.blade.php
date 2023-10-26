@@ -6,16 +6,19 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title text-center fw-light">PGA MEMBER</h3>
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ asset('android-chrome-192x192.png') }}" alt="PGA Logo" class="img-fluid" />
+                        </div>
+                        {{-- <h3 class="card-title text-center fw-light">PGA MEMBER</h3> --}}
                         <h1 class="card-subtitle mb-2 text-center fw-semibold">STANDINGS</h1>
 
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
-                                <thead class="bg-primary text-white">
+                        <div class="table-responsive" style="height: 500px;">
+                            <table class="table table-bordered table-striped table-fixed">
+                                <thead class="bg-primary text-white sticky-top top-0">
                                     <tr>
-                                        <th class="text-center">RANK</th>
-                                        <th>PLAYER NAME</th>
-                                        <th class="text-center">
+                                        <th class="text-center col-2" scope="col" style="min-width: 70px;">RANK</th>
+                                        <th class="col-2" scope="col" style="min-width: 200px;">PLAYER NAME</th>
+                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
                                             TOTAL PLAY
 
                                             {{-- @if ($tp == 'desc')
@@ -34,7 +37,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center">
+                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
                                             @if ($g)
                                                 @if ($g == 'desc')
                                                     <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
@@ -71,7 +74,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center">
+                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
                                             @if ($h)
                                                 @if ($h == 'desc')
                                                     <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
@@ -107,7 +110,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center">
+                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
                                             @if ($n)
                                                 @if ($n == 'desc')
                                                     <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
