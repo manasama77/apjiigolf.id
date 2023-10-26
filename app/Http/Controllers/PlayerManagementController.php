@@ -46,7 +46,12 @@ class PlayerManagementController extends Controller
 
         $now = Carbon::now();
         $late = Player::whereYear('created_at', $now)->orderBy('seq', 'desc')->limit(1)->first();
-        $seq  = $late->seq + 1;
+
+        if ($late == 0) {
+            $seq = 1;
+        } else {
+            $seq  = $late->seq + 1;
+        }
 
         if ($seq < 10) {
             $unique = "00" . $seq;
