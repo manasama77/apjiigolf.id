@@ -18,7 +18,7 @@
                                     <tr>
                                         <th class="text-center col-2" scope="col" style="min-width: 70px;">RANK</th>
                                         <th class="col-2" scope="col" style="min-width: 200px;">PLAYER NAME</th>
-                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
+                                        <th class="text-center col-2" scope="col" style="min-width: 110px;">
                                             TOTAL PLAY
 
                                             {{-- @if ($tp == 'desc')
@@ -37,7 +37,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
+                                        <th class="text-center col-2" scope="col" style="min-width: 110px;">
                                             @if ($g)
                                                 @if ($g == 'desc')
                                                     <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
@@ -74,7 +74,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
+                                        <th class="text-center col-2" scope="col" style="min-width: 110px;">
                                             @if ($h)
                                                 @if ($h == 'desc')
                                                     <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
@@ -110,7 +110,7 @@
                                                 </a>
                                             @endif --}}
                                         </th>
-                                        <th class="text-center col-2" scope="col" style="min-width: 120px;">
+                                        <th class="text-center col-2" scope="col" style="min-width: 100px;">
                                             @if ($n)
                                                 @if ($n == 'desc')
                                                     <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
