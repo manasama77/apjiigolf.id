@@ -67,7 +67,7 @@ class PlayerManagementController extends Controller
             'seq'  => $seq,
         ]);
 
-        return redirect()->route('admin.player_management')->with('success', 'Create Success');
+        return redirect()->route('admin.player_management.store')->with('success', 'Create Success');
     }
 
     /**
