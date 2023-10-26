@@ -22,7 +22,7 @@
                                             <div class="card-img-overlay">
                                                 <h4 class="card-title">{{ $p->nama_lokasi }}</h4>
                                                 <p><i class="fas fa-calendar fa-fw"></i>
-                                                    {{ \Carbon\Carbon::parse($p->created_at)->format('d F Y') }}</p>
+                                                    {{ \Carbon\Carbon::parse($p->start_date)->format('d F Y') }}</p>
                                                 <p class="card-text" style="height: 100px;">
                                                     {{ $p->alamat_lokasi }}
                                                 </p>
