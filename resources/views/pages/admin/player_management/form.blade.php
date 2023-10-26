@@ -38,7 +38,7 @@
                                 <div class="mb-3">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control" id="name" name="name"
-                                        value="{{ old('name') }}" required />
+                                        value="{{ old('name') }}" required autofocus />
                                 </div>
                                 <button type="submit" class="btn btn-success btn-block">
                                     <i class="fas fa-fw fa-save"></i> Save
