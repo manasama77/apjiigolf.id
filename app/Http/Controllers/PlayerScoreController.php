@@ -76,6 +76,31 @@ class PlayerScoreController extends Controller
             'net'               => $request->net,
         ]);
 
+        $recap = PlayerHistory::where('player_id', $request->player_id)->get();
+
+        $c = $recap->count();
+        $g = 0;
+        $h = 0;
+        $n = 0;
+        foreach ($recap as $r) {
+            $g = $g + $r->gross;
+            $h = $h + $r->handicap;
+            $n = $n + $r->net;
+        }
+
+        if ($c > 0) {
+            $g = $g / $c;
+            $h = $h / $c;
+            $n = $g - $h;
+        }
+
+        $exec = Player::find($request->player_id);
+        $exec->increment('total_play', 1);
+        $exec->gross    = $g;
+        $exec->handicap = $h;
+        $exec->net      = $n;
+        $exec->save();
+
         return redirect()->route('admin.player_score.create')->with('success', 'Create Success');
     }
 

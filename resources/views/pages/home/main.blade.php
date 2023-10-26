@@ -16,11 +16,13 @@
                                         <th class="text-center">RANK</th>
                                         <th>PLAYER NAME</th>
                                         <th class="text-center">
-                                            @if ($tp == 'desc')
+                                            TOTAL PLAY
+
+                                            {{-- @if ($tp == 'desc')
                                                 <a href="{{ route('home') }}?tp=asc&g={{ $g }}&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
-                                                    TOTAL PLAY
                                                     <i class="fa-solid fa-caret-up"></i>
+                                                    TOTAL PLAY
                                                 </a>
                                             @endif
 
@@ -30,10 +32,30 @@
                                                     TOTAL PLAY
                                                     <i class="fa-solid fa-caret-down"></i>
                                                 </a>
-                                            @endif
+                                            @endif --}}
                                         </th>
                                         <th class="text-center">
-                                            @if ($g == 'desc')
+                                            @if ($g)
+                                                @if ($g == 'desc')
+                                                    <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
+                                                        GROSS
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                    </a>
+                                                @endif
+
+                                                @if ($g == 'asc')
+                                                    <a href="{{ route('home') }}?g=desc" class="text-white ms-2">
+                                                        GROSS
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </a>
+                                                @endif
+                                            @else
+                                                <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
+                                                    GROSS
+                                                </a>
+                                            @endif
+
+                                            {{-- @if ($g == 'desc')
                                                 <a href="{{ route('home') }}?tp={{ $tp }}&g=asc&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     GROSS
@@ -47,10 +69,29 @@
                                                     GROSS
                                                     <i class="fa-solid fa-caret-down"></i>
                                                 </a>
-                                            @endif
+                                            @endif --}}
                                         </th>
                                         <th class="text-center">
-                                            @if ($h == 'desc')
+                                            @if ($h)
+                                                @if ($h == 'desc')
+                                                    <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
+                                                        HANDICAP
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                    </a>
+                                                @endif
+
+                                                @if ($h == 'asc')
+                                                    <a href="{{ route('home') }}?h=desc" class="text-white ms-2">
+                                                        HANDICAP
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </a>
+                                                @endif
+                                            @else
+                                                <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
+                                                    HANDICAP
+                                                </a>
+                                            @endif
+                                            {{-- @if ($h == 'desc')
                                                 <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h=asc&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     HANDICAP
@@ -64,10 +105,29 @@
                                                     HANDICAP
                                                     <i class="fa-solid fa-caret-down"></i>
                                                 </a>
-                                            @endif
+                                            @endif --}}
                                         </th>
                                         <th class="text-center">
-                                            @if ($n == 'desc')
+                                            @if ($n)
+                                                @if ($n == 'desc')
+                                                    <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
+                                                        NET
+                                                        <i class="fa-solid fa-caret-up"></i>
+                                                    </a>
+                                                @endif
+
+                                                @if ($n == 'asc')
+                                                    <a href="{{ route('home') }}?n=desc" class="text-white ms-2">
+                                                        NET
+                                                        <i class="fa-solid fa-caret-down"></i>
+                                                    </a>
+                                                @endif
+                                            @else
+                                                <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
+                                                    NET
+                                                </a>
+                                            @endif
+                                            {{-- @if ($n == 'desc')
                                                 <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h={{ $h }}&n=asc"
                                                     class="text-white ms-2">
                                                     NET
@@ -81,7 +141,7 @@
                                                     NET
                                                     <i class="fa-solid fa-caret-down"></i>
                                                 </a>
-                                            @endif
+                                            @endif --}}
                                         </th>
                                     </tr>
                                 </thead>

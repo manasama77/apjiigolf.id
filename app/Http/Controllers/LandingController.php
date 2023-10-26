@@ -15,17 +15,28 @@ class LandingController extends Controller
     {
         $page_title = "Standing";
 
-        $tp = $request->tp ?? "desc";
-        $g  = $request->g ?? "asc";
-        $h  = $request->h ??  "asc";
-        $n  = $request->n ?? "asc";
+        // $tp = $request->tp ?? "desc";
+        // $g  = $request->g ?? "asc";
+        // $h  = $request->h ??  "asc";
+        // $n  = $request->n ?? "asc";
 
-        $players = Player::orderBy("total_play", $tp)->orderBy("gross", $g)->orderBy("handicap", $h)->orderBy("net", $n)->get();
+        $g  = $request->g ?? null;
+        $h  = $request->h ??  null;
+        $n  = $request->n ?? null;
 
+        if ($g) {
+            $players = Player::orderBy("total_play", "desc")->orderBy("gross", $g)->get();
+        } elseif ($h) {
+            $players = Player::orderBy("total_play", "desc")->orderBy("handicap", $h)->get();
+        } elseif ($n) {
+            $players = Player::orderBy("total_play", "desc")->orderBy("net", $n)->get();
+        } else {
+            $g = "asc";
+            $players = Player::orderBy("total_play", "desc")->orderBy("gross", $g)->get();
+        }
 
         $data = [
             'page_title' => $page_title,
-            'tp'         => $tp,
             'g'          => $g,
             'h'          => $h,
             'n'          => $n,

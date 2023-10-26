@@ -41,7 +41,7 @@
                                         <div class="mb-3">
                                             <label for="event_location_id">Event Location</label>
                                             <select class="form-control" id="event_location_id" name="event_location_id"
-                                                required>
+                                                required autofocus>
                                                 <option value=""></option>
                                                 @foreach ($events as $l)
                                                     <option value="{{ $l->id }}">
@@ -85,7 +85,7 @@
                                         <div class="mb-3">
                                             <label for="handicap">Handicap </label>
                                             <input type="number" class="form-control" id="handicap" name="handicap"
-                                                min="1" max="28" value="{{ old('handicap') }}" required />
+                                                min="1" max="50" value="{{ old('handicap') }}" required />
                                         </div>
                                         <div class="mb-3">
                                             <label for="net">Net </label>
