@@ -11,8 +11,9 @@ body {
     width: 99vw;
     height: 99vh;
     background: linear-gradient(135deg, #003896, #e5e5e5);
-    background: url("../../public/pexels-nadim-shaikh-7758348.jpg") no-repeat
-        center center fixed;
+    // background: url("../../public/pexels-nadim-shaikh-7758348-blur.png") no-repeat bottom center;
+    background: url("../../public/Sentul-Highlands-Golf-Club-blur.png")
+        no-repeat bottom center fixed;
     background-size: cover;
 
     .undian_logo {
@@ -23,7 +24,8 @@ body {
         margin-top: 50px;
         font-size: 3rem;
         font-weight: 700;
-        color: white;
+        // color: white;
+        color: #0e183f;
     }
 
     .counter-wrapper {
@@ -41,4 +43,14 @@ body {
 
 .text-pga {
     color: #384ea2;
+}
+
+.card {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.1px);
+    -webkit-backdrop-filter: blur(5.1px);
+    border: 1px solid rgba(255, 255, 255, 1);
 }

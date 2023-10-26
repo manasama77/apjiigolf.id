@@ -26,38 +26,43 @@
     <div class="container-fluid">
         <div class="row mt-1">
             <div class="col-12 d-flex justify-content-center">
-                <img src="{{ asset('PGA_2023_white.png') }}" alt="Logo PGA" class="undian_logo mt-3" />
-                {{-- <img src="{{ asset('PGA 2023.png') }}" alt="Logo PGA" class="undian_logo mt-3" /> --}}
+                {{-- <img src="{{ asset('PGA_2023_white.png') }}" alt="Logo PGA" class="undian_logo mt-3" /> --}}
+                <img src="{{ asset('PGA 2023.png') }}" alt="Logo PGA" class="undian_logo mt-3" />
             </div>
         </div>
 
         <div class="row mt-5">
-            <div class="col-6">
-                <div class="row" id="kocokan-wrapper">
-                    <div class="col-12 d-flex justify-content-center gap-5">
-                        <button type="button" id="btn_start" class="btn btn-primary btn-lg fs-3 fw-bold border">
-                            START
-                        </button>
-                        <button type="button" id="btn_stop" class="btn btn-warning btn-lg fs-3 fw-bold border">
-                            STOP
-                        </button>
-                        <button type="button" id="btn_simpan" class="btn btn-success btn-lg fs-3 fw-bold border">
-                            SIMPAN
-                        </button>
-                    </div>
+            <div class="col-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row" id="kocokan-wrapper">
+                            <div class="col-12 d-flex justify-content-center gap-5">
+                                <button type="button" id="btn_start"
+                                    class="btn btn-primary btn-lg fs-3 fw-bold border">
+                                    START
+                                </button>
+                                <button type="button" id="btn_stop"
+                                    class="btn btn-warning btn-lg fs-3 fw-bold border">
+                                    STOP
+                                </button>
+                                <button type="button" id="btn_simpan"
+                                    class="btn btn-success btn-lg fs-3 fw-bold border">
+                                    SIMPAN
+                                </button>
+                            </div>
 
-                    <div class="col-12 d-flex justify-content-center random_nama text-center">
-                        ________________
+                            <div class="col-12 d-flex justify-content-center random_nama text-center">
+                                ________________
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-6">
-
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3 mt-5">
                 <div class="row" id="v_winner"></div>
-
             </div>
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -140,7 +145,7 @@
                 htmlnya += `
                 <div class="col-sm-6 mb-3">
                     <div class="card">
-                        <div class="card-body py-1 px-0">
+                        <div class="card-body pt-3 pb-1 px-0">
                             <h5 class="text-center">${name}</h5>
                         </div>
                     </div>
