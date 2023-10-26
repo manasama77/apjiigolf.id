@@ -13,8 +13,9 @@
                             @foreach ($players as $p)
                                 <div class="col-sm-12 col-md-4">
                                     <div class="card bg-dark text-white shadow-sm">
-                                        <img src="{{ asset($p->banner) }}" class="card-img img-overlay-card img-fluid"
-                                            alt="..." style="height: 270px;">
+                                        <img src="{{ asset('storage/' . $p->banner) }}"
+                                            class="card-img img-overlay-card img-fluid" alt="..."
+                                            style="height: 270px;">
                                         <div class="card-body">
                                             <div class="card-img-overlay">
                                                 <h4 class="card-title">{{ $p->nama_lokasi }}</h4>
