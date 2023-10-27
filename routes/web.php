@@ -93,3 +93,8 @@ Auth::routes([
     'reset'    => false,
     'verify'   => false,
 ]);
+
+
+Route::get('/pga-in-action', function () {
+    return redirect('https://drive.google.com/drive/folders/1_uOFgGNxd7gVACKvlojMqXaSES2SdsAb?usp=sharing');
+});
