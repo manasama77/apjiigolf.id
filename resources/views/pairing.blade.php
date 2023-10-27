@@ -301,7 +301,7 @@
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Agus Arianto</td>
+                                                <td>Agus Ariyanto</td>
                                                 <td>Male</td>
                                             </tr>
                                             <tr>
