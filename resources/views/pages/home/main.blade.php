@@ -155,6 +155,9 @@
                                             <td>
                                                 <a href="{{ route('player.event.history', $p->id) }}">
                                                     {{ $p->name }}
+                                                    @if ($loop->iteration == 1)
+                                                        <i class="fa-solid fa-fw fa-trophy"></i>
+                                                    @endif
                                                 </a>
                                             </td>
                                             <td class="text-center">{{ $p->total_play }}</td>
