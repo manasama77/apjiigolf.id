@@ -27,23 +27,13 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('admin.event_location.update', $lists->id) }}" method="POST">
+                            <form action="{{ route('admin.player_management.update', $lists->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
                                 <div class="mb-3">
-                                    <label for="location_id">Location</label>
-                                    <select class="form-control" id="location_id" name="location_id" required>
-                                        <option value=""></option>
-                                        @foreach ($locations as $l)
-                                            <option @selected($l->id == $lists->location_id) value="{{ $l->id }}">
-                                                {{ $l->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="start_date">Start Date</label>
-                                    <input type="date" class="form-control" id="start_date" name="start_date"
-                                        value="{{ old('start_date') ?? $lists->start_date->format('Y-m-d') }}" required />
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        value="{{ old('name') ?? $lists->name }}" required autofocus />
                                 </div>
                                 <button type="submit" class="btn btn-success btn-block">
                                     <i class="fas fa-fw fa-save"></i> Save
