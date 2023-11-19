@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Exception;
 use App\Models\Player;
 use App\Models\Undian;
@@ -203,25 +204,28 @@ class LandingController extends Controller
         return view('register', $data);
     }
 
-    public function register_store(Request $request)
+    public function register_store(RegisterRequest $request)
     {
-        $request->validate([
-            'full_name'       => 'required',
-            'gender'          => 'required',
-            'email'           => 'required',
-            'whatsapp_number' => 'required',
-            'company_name'    => 'required',
-            'position'        => 'required',
-            'institution'     => 'required',
-            'institution_etc' => 'nullable',
-        ]);
         try {
+            // $request->validate([
+            //     'full_name'       => 'required',
+            //     'gender'          => 'required',
+            //     'email'           => 'required|email:rfc:dns|unique:registrations',
+            //     'whatsapp_number' => 'required',
+            //     'company_name'    => 'required',
+            //     'position'        => 'required',
+            //     'institution'     => 'required',
+            //     'institution_etc' => 'required_unless:institution_etc,Etc',
+            // ], [
+            //     'email.unique' => 'The Email already taken.'
+            // ]);
+
             $current_env = config('app.env') ?? 'local';
             $order_id    = uniqid("APJ-", true);
 
             $url_pay = "https://app.sandbox.midtrans.com/snap/v1/transactions";
             if ($current_env == "production") {
-                $url_pay = "https://app.sandbox.midtrans.com/snap/v1/transactions";
+                $url_pay = "https://app.midtrans.com/snap/v1/transactions";
             }
 
             $gross_amount = $this->ticket_price + $this->admin_fee;
@@ -286,7 +290,41 @@ class LandingController extends Controller
         }
     }
 
+    public function register_check(Request $request)
+    {
+        $location_name = $this->location_name;
+        return view('register_check', compact('location_name'));
+    }
+
     public function register_status(Request $request)
     {
+        $email = $request->email;
+        $exec = Registration::where('email', $email)->first();
+        if (!$exec) {
+            return abort(404, 'Data Not Found');
+        }
+
+        $location_name  = $this->location_name;
+        $payment_status = $exec->payment_status;
+        $snap_token     = $exec->snap_token;
+
+        $data = [
+            'location_name'  => $location_name,
+            'payment_status' => $payment_status,
+            'snap_token'     => $snap_token,
+        ];
+        return view('register_status', $data);
+    }
+
+    public function register_success(Request $request)
+    {
+        $order_id = $request->order_id;
+        $exec = Registration::where('order_id', $order_id)->where('payment_status', 1)->first();
+        if (!$exec) {
+            return abort(404, 'Data Not Found');
+        }
+
+        $location_name = $this->location_name;
+        return view('register_success', compact('location_name'));
     }
 }

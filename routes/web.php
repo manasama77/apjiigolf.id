@@ -25,7 +25,9 @@ use App\Http\Controllers\UserAdminController;
 // Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
 Route::get('/', [LandingController::class, 'register'])->name('home');
 Route::post('/register_store', [LandingController::class, 'register_store'])->name('register_store');
-Route::get('/register_status', [LandingController::class, 'register_status'])->name('register_status');
+Route::get('/success', [LandingController::class, 'register_success'])->name('register_success');
+Route::get('/check', [LandingController::class, 'register_check'])->name('register_check');
+Route::get('/status', [LandingController::class, 'register_status'])->name('register_status');
 
 Route::get('/home', [LandingController::class, 'register'])->name('home');
 

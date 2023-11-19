@@ -33,17 +33,17 @@
     @include('partials.landing.navbar')
 
     <!-- Hero Section -->
-    @include('partials.landing.hero')
+    @include('partials.landing.check')
 
     <!-- Event Info-->
-    @include('partials.landing.event_info')
+    {{-- @include('partials.landing.event_info') --}}
 
     <!-- Ticket pricing-->
-    @include('partials.landing.pricing')
+    {{-- @include('partials.landing.pricing') --}}
 
 
     <!-- Registration -->
-    @include('partials.landing.registration')
+    {{-- @include('partials.landing.registration') --}}
 
     <!-- Footer-->
     <footer class="bg-light py-5">
@@ -61,8 +61,6 @@
 
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $.ajaxSetup({
@@ -113,11 +111,6 @@
             }).fail(e => {
                 console.log(e)
                 $('#submitButton').prop('disabled', false)
-                Swal.fire({
-                    title: "Something wrong",
-                    text: e.responseJSON.message,
-                    icon: "warning"
-                });
             }).done(e => {
                 console.log(e)
                 if (e.success) {

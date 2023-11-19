@@ -33,17 +33,17 @@
     @include('partials.landing.navbar')
 
     <!-- Hero Section -->
-    @include('partials.landing.hero')
+    @include('partials.landing.status')
 
     <!-- Event Info-->
-    @include('partials.landing.event_info')
+    {{-- @include('partials.landing.event_info') --}}
 
     <!-- Ticket pricing-->
-    @include('partials.landing.pricing')
+    {{-- @include('partials.landing.pricing') --}}
 
 
     <!-- Registration -->
-    @include('partials.landing.registration')
+    {{-- @include('partials.landing.registration') --}}
 
     <!-- Footer-->
     <footer class="bg-light py-5">
@@ -62,8 +62,6 @@
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
         $.ajaxSetup({
             headers: {
@@ -72,63 +70,13 @@
         });
 
         $(document).ready(() => {
-            $('#institution').on('change', e => {
-                console.log($('#institution').val())
 
-                if ($('#institution').val() == "Etc") {
-                    $('#group_institution_etc').removeClass('d-none')
-                    $('#institution_etc').prop('required', true)
-                } else {
-                    $('#group_institution_etc').addClass('d-none')
-                    $('#institution_etc').prop('required', false)
-                }
+            $('#btn_pay').on('click', e => {
+                let snap_token = $('#btn_pay').data('snap_token')
+                snap.pay(snap_token)
             })
 
-            $('#registration_form').on('submit', e => {
-                e.preventDefault()
-                registerApi()
-            })
-
-            // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
         })
-
-        function registerApi() {
-            $.ajax({
-                url: `{{ route('register_store') }}`,
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    full_name: $('#full_name').val(),
-                    gender: $('#gender').val(),
-                    email: $('#email').val(),
-                    whatsapp_number: $('#whatsapp_number').val(),
-                    company_name: $('#company_name').val(),
-                    position: $('#position').val(),
-                    institution: $('#institution').val(),
-                    institution_etc: $('#institution_etc').val(),
-                },
-                beforeSend: () => {
-                    $('#submitButton').prop('disabled', true)
-                }
-            }).fail(e => {
-                console.log(e)
-                $('#submitButton').prop('disabled', false)
-                Swal.fire({
-                    title: "Something wrong",
-                    text: e.responseJSON.message,
-                    icon: "warning"
-                });
-            }).done(e => {
-                console.log(e)
-                if (e.success) {
-                    // console.log(e.snap_token)
-                    snap.pay(e.snap_token);
-                    // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
-                } else {
-                    $('#submitButton').prop('disabled', false)
-                }
-            })
-        }
     </script>
 </body>
 
