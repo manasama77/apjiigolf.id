@@ -2,15 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Player;
+use App\Models\Undian;
 use Illuminate\Http\Request;
 use App\Models\EventLocation;
 use App\Models\PlayerHistory;
-use App\Models\Undian;
+use App\Models\Registration;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 class LandingController extends Controller
 {
+    private $location_name;
+    private $location_address;
+    private $event_date;
+    private $event_time;
+    private $ticket_price;
+    private $admin_fee;
+
+    public function __construct()
+    {
+        $this->location_name    = 'Club Bogor Raya';
+        $this->location_address = 'Perumahan Jl. Danau Bogor Raya No.16143, Katulampa, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143';
+        $this->event_date       = Carbon::parse('2023-11-24');
+        $this->event_time       = '08:00 till end';
+        $this->ticket_price     = 1000000;
+        $this->admin_fee        = 5000;
+    }
     public function index(Request $request)
     {
         $page_title = "Standing";
@@ -153,5 +172,66 @@ class LandingController extends Controller
         return response()->json([
             'data' => $exec,
         ]);
+    }
+
+    public function register()
+    {
+        $location_name    = $this->location_name;
+        $location_address = $this->location_address;
+        $event_date       = $this->event_date;
+        $event_time       = $this->event_time;
+        $ticket_price     = $this->ticket_price;
+        $ticket_price_idr = number_format($ticket_price, 0);
+        $admin_fee        = $this->admin_fee;
+        $admin_fee_idr    = number_format($admin_fee, 0);
+        $total_price      = $ticket_price + $admin_fee;
+        $total_price_idr  = number_format($total_price, 0);
+
+        $data = [
+            'location_name'    => $location_name,
+            'location_address' => $location_address,
+            'event_date'       => $event_date,
+            'event_time'       => $event_time,
+            'ticket_price_idr' => $ticket_price_idr,
+            'admin_fee_idr'    => $admin_fee_idr,
+            'total_price_idr'  => $total_price_idr,
+        ];
+
+        return view('register', $data);
+    }
+
+    public function register_store(Request $request)
+    {
+        $request->validate([
+            'full_name'       => 'required',
+            'gender'          => 'required',
+            'email'           => 'required',
+            'whatsapp_number' => 'required',
+            'company_name'    => 'required',
+            'position'        => 'required',
+            'institution'     => 'required',
+            'institution_etc' => 'nullable',
+        ]);
+        try {
+            $exec = Registration::create([
+                'full_name'       => $request->full_name,
+                'gender'          => $request->gender,
+                'email'           => $request->email,
+                'whatsapp_number' => $request->whatsapp_number,
+                'company_name'    => $request->company_name,
+                'position'        => $request->position,
+                'institution'     => $request->institution,
+                'institution_etc' => $request->institution_etc,
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    public function register_status(Request $request)
+    {
     }
 }

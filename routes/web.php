@@ -23,10 +23,15 @@ use App\Http\Controllers\UserAdminController;
 */
 
 // Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
-Route::get('/', [LandingController::class, 'index'])->name('home');
-// Route::get('/', [LandingController::class, 'ty'])->name('home');
+Route::get('/', [LandingController::class, 'register'])->name('home');
+Route::post('/register_store', [LandingController::class, 'register_store'])->name('register_store');
+Route::get('/register_status', [LandingController::class, 'register_status'])->name('register_status');
+
+Route::get('/home', [LandingController::class, 'register'])->name('home');
+
+Route::get('/stand-in', [LandingController::class, 'index'])->name('stand_in');
 Route::get('/pairing', [LandingController::class, 'pairing'])->name('pairing');
-Route::get('/home', [LandingController::class, 'index'])->name('home');
+// Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
 Route::get('/player/event/history/score/{player_histories_id}', [LandingController::class, 'player_event_history_score'])->name('player.event.history.score');
 

@@ -15,6 +15,9 @@ export default defineConfig({
                 "resources/adminlte/css/adminlte.css",
 
                 "resources/sass/undian.scss",
+
+                "resources/css/register.css",
+                "resources/js/register.js",
             ],
             refresh: true,
         }),
