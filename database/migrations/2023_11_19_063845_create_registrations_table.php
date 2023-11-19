@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('institution');
             $table->string('institution_etc')->nullable();
             $table->string('order_id');
-            $table->integer('payment_status');
+            $table->integer('payment_status')->default(0)->unsigned();
             $table->string('snap_token', 36);
             $table->timestamps();
         });

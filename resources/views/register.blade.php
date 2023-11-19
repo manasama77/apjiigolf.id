@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="PGA" />
+    <meta name="author" content="@adampm from JLM" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <title>APJII - Event Registration</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,13 +59,16 @@
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         $(document).ready(() => {
             $('#institution').on('change', e => {
                 console.log($('#institution').val())
@@ -81,6 +86,8 @@
                 e.preventDefault()
                 registerApi()
             })
+
+            snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
         })
 
         function registerApi() {
@@ -106,8 +113,12 @@
                 $('#submitButton').prop('disabled', false)
             }).done(e => {
                 console.log(e)
-                if (e.status) {
-                    window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
+                if (e.success) {
+                    // console.log(e.snap_token)
+                    snap.pay(e.snap_token);
+                    // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
+                } else {
+                    $('#submitButton').prop('disabled', false)
                 }
             })
         }

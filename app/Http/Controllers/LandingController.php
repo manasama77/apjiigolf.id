@@ -11,6 +11,9 @@ use App\Models\PlayerHistory;
 use App\Models\Registration;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Http;
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class LandingController extends Controller
 {
@@ -213,6 +216,49 @@ class LandingController extends Controller
             'institution_etc' => 'nullable',
         ]);
         try {
+            $current_env = config('app.env') ?? 'local';
+            $order_id    = uniqid("APJ-", true);
+
+            $url_pay = "https://app.sandbox.midtrans.com/snap/v1/transactions";
+            if ($current_env == "production") {
+                $url_pay = "https://app.sandbox.midtrans.com/snap/v1/transactions";
+            }
+
+            $gross_amount = $this->ticket_price + $this->admin_fee;
+
+            $transaction_info = [
+                "transaction_details" => [
+                    "order_id"     => $order_id,
+                    "gross_amount" => $gross_amount
+                ],
+                "item_details" => [
+                    [
+                        "id"       => 1,
+                        "price"    => $this->ticket_price,
+                        "quantity" => 1,
+                        "name"     => "E-Ticket PGA GOBAR Series - Club Bogor Raya",
+                    ],
+                    [
+                        "id"       => 9999,
+                        "price"    => $this->admin_fee,
+                        "quantity" => 1,
+                        "name"     => "Admin Fee Registration PGA Golf - Club Bogor Raya",
+                    ],
+                ],
+                "customer_details" => [
+                    "first_name" => $request->full_name,
+                    "email"      => $request->email,
+                    "phone"      => $request->whatsapp_number,
+                ]
+            ];
+
+            Config::$isProduction = config('midtrans.production');
+            Config::$serverKey    = config('midtrans.server_key');
+            Config::$clientKey    = config('midtrans.client_key');
+            Config::$isSanitized  = config('midtrans.is_sanitized');
+            Config::$is3ds        = config('midtrans.is_3ds');
+            $snap_token           = Snap::getSnapToken($transaction_info);
+
             $exec = Registration::create([
                 'full_name'       => $request->full_name,
                 'gender'          => $request->gender,
@@ -222,7 +268,16 @@ class LandingController extends Controller
                 'position'        => $request->position,
                 'institution'     => $request->institution,
                 'institution_etc' => $request->institution_etc,
+                'order_id'        => $order_id,
+                'payment_status'  => 0,
+                'snap_token'      => $snap_token,
             ]);
+
+            return response()->json([
+                'success'    => true,
+                'data'       => $exec,
+                'snap_token' => $snap_token,
+            ], 200);
         } catch (Exception $e) {
             return response()->json([
                 'success' => false,
