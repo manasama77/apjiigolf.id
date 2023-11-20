@@ -8,18 +8,22 @@
                 <div class="card">
                     <div class="card-header bg-primary"></div>
                     <div class="card-body text-center">
-                        <h1>IDR {{ $ticket_price_idr }}<span class="text-danger">*</span></h1>
-                        <p>Admin fee: IDR {{ $admin_fee_idr }}</p>
+                        {{-- <h1>IDR {{ $ticket_price_idr }}<span class="text-danger">*</span></h1> --}}
+                        <h1>IDR {{ $ticket_price_idr }}</h1>
+                        {{-- <p>Admin fee: IDR {{ $admin_fee_idr }}</p> --}}
                     </div>
                     <div class="card-footer bg-primary text-white fst-italic">
-                        *exclude admin & transfer fee
+                        {{-- *exclude admin & transfer fee --}}
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="text-center mt-5">
-            <a class="btn btn-primary btn-xl shadow" href="#registration">Join Now!</a>
+            {{-- <a class="btn btn-primary btn-xl shadow" href="#registration">Join Now!</a> --}}
+            <a class="btn btn-primary btn-xl shadow" href="https://wa.me/628569016901" target="_blank">
+                <i class="fa-brands fa-whatsapp fa-fw"></i> Join Now!
+            </a>
         </div>
 
     </div>

@@ -12,6 +12,11 @@
                 <li class="nav-item"><a class="nav-link" href="#ticket_pricing">Ticket Pricing</a></li>
                 <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
                 <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('standings') }}">
+                        Standings <i class="fa-solid fa-ranking-star ms-1"></i>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
