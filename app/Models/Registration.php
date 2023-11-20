@@ -18,6 +18,9 @@ class Registration extends Model
         'position',
         'institution',
         'order_id',
+        'ticket_price',
+        'admin_fee',
+        'total_price',
         'payment_status',
         'snap_token',
     ];

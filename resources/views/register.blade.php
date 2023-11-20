@@ -15,7 +15,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
@@ -122,8 +128,48 @@
                 console.log(e)
                 if (e.success) {
                     // console.log(e.snap_token)
-                    snap.pay(e.snap_token);
-                    // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
+                    snap.pay(e.snap_token, {
+                        onSuccess: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "success",
+                                title: "Payment Success",
+                                toast: true,
+                                timer: 3000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
+                                window.location.href =
+                                    `{{ url('/register_success') }}?order_id=${e.data.order_id}`
+                            });
+                        },
+                        onPending: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "warning",
+                                title: "Waiting Payment",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            });
+                        },
+                        onError: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Payment Failed",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            });
+                        },
+                        onClose: function() {
+                            //
+                        }
+                    });
+
                 } else {
                     $('#submitButton').prop('disabled', false)
                 }

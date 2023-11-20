@@ -327,4 +327,9 @@ class LandingController extends Controller
         $location_name = $this->location_name;
         return view('register_success', compact('location_name'));
     }
+
+    public function register_error()
+    {
+        //
+    }
 }
