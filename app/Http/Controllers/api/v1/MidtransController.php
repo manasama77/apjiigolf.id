@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api\v1;
 use Midtrans\Config;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Registration;
 
 class MidtransController extends Controller
 {
@@ -23,5 +24,22 @@ class MidtransController extends Controller
         $combine      = $order_id . $status_code . $gross_amount . $server_key;
 
         $hashed = hash("sha512", $combine);
+
+        // return response()->json([
+        //     'hashed'    => $hashed,
+        //     'signature' => $request->signature_key
+        // ]);
+
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == "capture") {
+                $exec = Registration::where('order_id', '=', $order_id)->first();
+
+                if ($exec) {
+                    Registration::where('order_id', '=', $order_id)->update([
+                        'payment_status' => 1
+                    ]);
+                }
+            }
+        }
     }
 }

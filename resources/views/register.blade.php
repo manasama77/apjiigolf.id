@@ -49,7 +49,7 @@
 
 
     <!-- Registration -->
-    {{-- @include('partials.landing.registration') --}}
+    @include('partials.landing.registration')
 
     <!-- Footer-->
     <footer class="bg-light py-5">
@@ -118,11 +118,12 @@
                 }
             }).fail(e => {
                 console.log(e)
-                $('#submitButton').prop('disabled', false)
                 Swal.fire({
                     title: "Something wrong",
                     text: e.responseJSON.message,
                     icon: "warning"
+                }).then(() => {
+                    $('#submitButton').prop('disabled', false)
                 });
             }).done(e => {
                 console.log(e)
@@ -140,7 +141,7 @@
                                 showConfirmButton: false,
                             }).then(() => {
                                 window.location.href =
-                                    `{{ url('/register_success') }}?order_id=${e.data.order_id}`
+                                    `{{ url(config('app.url')) }}/success?order_id=${e.data.order_id}`
                             });
                         },
                         onPending: function(result) {
@@ -152,6 +153,8 @@
                                 timer: 2000,
                                 position: 'bottom-end',
                                 showConfirmButton: false,
+                            }).then(() => {
+                                $('#submitButton').prop('disabled', false)
                             });
                         },
                         onError: function(result) {
@@ -163,10 +166,12 @@
                                 timer: 2000,
                                 position: 'bottom-end',
                                 showConfirmButton: false,
+                            }).then(() => {
+                                $('#submitButton').prop('disabled', false)
                             });
                         },
                         onClose: function() {
-                            //
+                            $('#submitButton').prop('disabled', false)
                         }
                     });
 

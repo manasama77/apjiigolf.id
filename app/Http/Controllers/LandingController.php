@@ -205,6 +205,7 @@ class LandingController extends Controller
     }
 
     public function register_store(RegisterRequest $request)
+    // public function register_store(Request $request)
     {
         try {
             // $request->validate([
@@ -319,7 +320,8 @@ class LandingController extends Controller
     public function register_success(Request $request)
     {
         $order_id = $request->order_id;
-        $exec = Registration::where('order_id', $order_id)->where('payment_status', 1)->first();
+        // $exec = Registration::where('order_id', $order_id)->where('payment_status', 1)->first();
+        $exec = Registration::where('order_id', $order_id)->first();
         if (!$exec) {
             return abort(404, 'Data Not Found');
         }

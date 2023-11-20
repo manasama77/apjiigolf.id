@@ -5,6 +5,9 @@
                 <h2 class="mt-0 text-white">Register Here!</h2>
                 <hr class="divider" />
                 <p class="text-muted mb-5">Experience the excitement of a game of golf with PGA friends</p>
+                <p class="text-muted mb-5">
+                    {{ url(config('app.url')) }}/success
+                </p>
             </div>
         </div>
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">

@@ -32,7 +32,7 @@ class RegisterRequest extends FormRequest
             'company_name'    => 'required',
             'position'        => 'required',
             'institution'     => 'required',
-            'institution_etc' => 'required_unless:institution_etc,Etc',
+            'institution_etc' => 'nullable',
         ];
     }
 

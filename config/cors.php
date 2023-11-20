@@ -15,10 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    // 'paths' => ['api/*', 'sanctum/csrf-cookie', 'register_store'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', '*'],
 
     'allowed_methods' => ['*'],
 
+    // 'allowed_origins' => ['https://apjii.test', 'https://apjiigolf.id', 'https://5839-119-18-153-110.ngrok-free.app'],
     'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
