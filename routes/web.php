@@ -32,7 +32,7 @@ Route::get('/error', [LandingController::class, 'register_error'])->name('regist
 
 Route::get('/home', [LandingController::class, 'register'])->name('home');
 
-Route::get('/standings', [LandingController::class, 'index'])->name('stand_in');
+Route::get('/standings', [LandingController::class, 'index'])->name('standings');
 Route::get('/pairing', [LandingController::class, 'pairing'])->name('pairing');
 // Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
