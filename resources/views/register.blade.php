@@ -43,7 +43,7 @@
 
 
     <!-- Registration -->
-    @include('partials.landing.registration')
+    {{-- @include('partials.landing.registration') --}}
 
     <!-- Footer-->
     <footer class="bg-light py-5">
