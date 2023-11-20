@@ -6,10 +6,10 @@
                 <hr class="divider divider-light" />
             </div>
             <div class="col-lg-8 align-self-baseline">
-                <p class="text-white mb-5">PGA GOBAR, this Series will be held at <strong>{{ $location_name }}</strong>
-                    on
-                    <strong>{{ $event_date->format('d F Y') }}</strong>.<br />Be sure
-                    participate in the event to get a chance to win the event.
+                <p class="text-white mb-5">
+                    PGA GOBAR series will be held at <strong>{{ $location_name }}</strong> on
+                    <strong>23rd of November 2023</strong>.<br />Be sure to participate in the event and get a chance to
+                    be the winner!
                 </p>
                 <a class="btn btn-primary btn-xl shadow" href="#event_info">Find Out More</a>
             </div>

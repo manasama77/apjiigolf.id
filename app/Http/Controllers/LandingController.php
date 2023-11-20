@@ -30,7 +30,7 @@ class LandingController extends Controller
         $this->location_name    = 'Club Bogor Raya';
         $this->location_address = 'Perumahan Jl. Danau Bogor Raya No.16143, Katulampa, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143';
         $this->event_date       = Carbon::parse('2023-11-23');
-        $this->event_time       = '08:00 till end';
+        $this->event_time       = '06:30 till end';
         $this->ticket_price     = 950000;
         $this->admin_fee        = 5000;
     }
