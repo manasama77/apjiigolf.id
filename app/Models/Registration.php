@@ -17,5 +17,8 @@ class Registration extends Model
         'company_name',
         'position',
         'institution',
+        'order_id',
+        'payment_status',
+        'snap_token',
     ];
 }

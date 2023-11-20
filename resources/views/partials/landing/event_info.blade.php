@@ -8,7 +8,50 @@
                     <div class="col-sm-12 col-md-8 offset-md-2">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <div class="table-responsive">
+                                <div class="table-responsive d-block d-md-none">
+                                    <table class="table table-bordered table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 200px;">
+                                                    <strong>
+                                                        Date
+                                                    </strong>
+                                                    <br />
+                                                    {{ $event_date->format('l, d F Y') }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                        Tee Off
+                                                    </strong>
+                                                    <br />
+                                                    {{ $event_time }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                        Location Name
+                                                    </strong>
+                                                    <br />
+                                                    {{ $location_name }}
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <strong>
+                                                        Location Address
+                                                    </strong>
+                                                    <br />
+                                                    {{ $location_address }}
+                                                </td>
+                                            </tr </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive d-none d-md-block d-lg-block d-xl-block">
                                     <table class="table table-bordered table-striped">
                                         <tbody>
                                             <tr>
