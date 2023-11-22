@@ -318,7 +318,7 @@
                                         <thead>
                                             <tr>
                                                 <th colspan=" 4" class="text-center">
-                                                    Flight 6
+                                                    Flight 5
                                                 </th>
                                             </tr>
                                             <tr>
@@ -342,7 +342,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    9
+                                                    10
                                                 </td>
                                                 <td>Rizki </td>
                                                 <td>Male</td>
@@ -371,7 +371,7 @@
                                         <thead>
                                             <tr>
                                                 <th colspan=" 4" class="text-center">
-                                                    Flight 5
+                                                    Flight 6
                                                 </th>
                                             </tr>
                                             <tr>
@@ -395,7 +395,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    10
+                                                    9
                                                 </td>
                                                 <td>Ageng </td>
                                                 <td>Male</td>
