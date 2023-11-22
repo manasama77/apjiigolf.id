@@ -91,7 +91,7 @@
 
         <div id="wrapper_pair_list" class="row mt-1 mb-1">
             <div class="col-sm-12">
-                <div class="card border-dark">
+                <div class="card border-dark shadow">
                     <div class="card-header bg-dark bg-gradient fw-bold text-center text-white">
                         <h5 style="font-weight: 600;" class="text-center">List Pairing</h5>
                     </div>
