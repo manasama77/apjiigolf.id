@@ -127,7 +127,7 @@ class LandingController extends Controller
 
     public function pairing()
     {
-        return view('pairing');
+        return view('pairing_gobar_2');
     }
 
     public function undian()
