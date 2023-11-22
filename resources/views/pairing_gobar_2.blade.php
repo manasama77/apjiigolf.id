@@ -318,59 +318,6 @@
                                         <thead>
                                             <tr>
                                                 <th colspan=" 4" class="text-center">
-                                                    Flight 5
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th
-                                                    style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
-                                                    No
-                                                </th>
-                                                <th class="text-center"
-                                                    style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
-                                                    Hole
-                                                </th>
-                                                <th style="background-color: #305496; color: white; font-weight: 700;">
-                                                    Player Name</th>
-                                                <th
-                                                    style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
-                                                    Gender
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    10
-                                                </td>
-                                                <td>Ageng </td>
-                                                <td>Male</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Andika Bayu </td>
-                                                <td>Male</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Heri</td>
-                                                <td>Male</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Romi</td>
-                                                <td>Male</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="table-responsive mt-3">
-                                    <table class="table-bordered mb-2 table">
-                                        <thead>
-                                            <tr>
-                                                <th colspan=" 4" class="text-center">
                                                     Flight 6
                                                 </th>
                                             </tr>
@@ -413,6 +360,59 @@
                                             <tr>
                                                 <td>4</td>
                                                 <td>Ilham E</td>
+                                                <td>Male</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table-responsive mt-3">
+                                    <table class="table-bordered mb-2 table">
+                                        <thead>
+                                            <tr>
+                                                <th colspan=" 4" class="text-center">
+                                                    Flight 5
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th
+                                                    style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
+                                                    No
+                                                </th>
+                                                <th class="text-center"
+                                                    style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
+                                                    Hole
+                                                </th>
+                                                <th style="background-color: #305496; color: white; font-weight: 700;">
+                                                    Player Name</th>
+                                                <th
+                                                    style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
+                                                    Gender
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                    10
+                                                </td>
+                                                <td>Ageng </td>
+                                                <td>Male</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Andika Bayu </td>
+                                                <td>Male</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Heri</td>
+                                                <td>Male</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Romi</td>
                                                 <td>Male</td>
                                             </tr>
                                         </tbody>
