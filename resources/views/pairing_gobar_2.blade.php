@@ -128,7 +128,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    1
+                                                    -
                                                 </td>
                                                 <td>M Angga</td>
                                                 <td>Male</td>
@@ -181,7 +181,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    2
+                                                    -
                                                 </td>
                                                 <td>Agus </td>
                                                 <td>Male</td>
@@ -234,7 +234,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    3
+                                                    -
                                                 </td>
                                                 <td>Victor</td>
                                                 <td>Male</td>
@@ -287,7 +287,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    4
+                                                    -
                                                 </td>
                                                 <td>Sandy</td>
                                                 <td>Male</td>
@@ -342,7 +342,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    10
+                                                    -
                                                 </td>
                                                 <td>Rizki </td>
                                                 <td>Male</td>
@@ -395,7 +395,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    9
+                                                    -
                                                 </td>
                                                 <td>Ageng </td>
                                                 <td>Male</td>
@@ -448,7 +448,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    8
+                                                    -
                                                 </td>
                                                 <td>Meta </td>
                                                 <td>Female</td>
@@ -501,7 +501,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
-                                                    7
+                                                    -
                                                 </td>
                                                 <td>Yudi Imanuel </td>
                                                 <td>Male</td>
