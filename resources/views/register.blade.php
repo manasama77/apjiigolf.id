@@ -41,8 +41,11 @@
     <!-- Hero Section -->
     @include('partials.landing.hero')
 
+    <!-- About Section-->
+    @include('partials.landing.about')
+
     <!-- Event Info-->
-    @include('partials.landing.event_info')
+    @include('partials.landing.event_list')
 
     <!-- Ticket pricing-->
     @include('partials.landing.pricing')
@@ -74,6 +77,8 @@
         integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
     <script>
         $.ajaxSetup({
             headers: {
@@ -98,6 +103,12 @@
                 e.preventDefault()
                 registerApi()
             })
+
+            $('.grid').isotope({
+                // options
+                itemSelector: '.grid-item',
+                layoutMode: 'fitRows'
+            });
 
             // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
         })

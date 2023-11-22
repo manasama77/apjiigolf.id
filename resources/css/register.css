@@ -10904,14 +10904,17 @@ hr.divider-light {
   }
   #mainNav .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
+    filter: drop-shadow(1px 1px 1px rgba(255, 255, 255, 1));
   }
   #mainNav .navbar-brand:hover {
     color: #fff;
   }
   #mainNav .navbar-nav .nav-item .nav-link {
     /* color: rgba(255, 255, 255, 0.7); */
-    color: rgba(76, 100, 193, 1);
+    /* color: rgba(76, 100, 193, 1); */
+    color: #fff;
     padding: 0 1rem;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
     color: #fff;
@@ -10931,6 +10934,7 @@ hr.divider-light {
   }
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link {
     color: #212529;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
   }
   #mainNav.navbar-shrink .navbar-nav .nav-item .nav-link:hover {
     color: #384EA2;
@@ -10940,8 +10944,8 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.699) 100%), url("../../public/clubbogorrayabg.jpg");
-  background-position: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.699) 100%), url("../../public/golf-background.jpg");
+  background-position: top center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -11005,3 +11009,28 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+#about {
+    background: #384ea2;
+    background: -webkit-linear-gradient(0deg, #384ea2 0%, #212529 100%);
+    background: linear-gradient(0deg, #384ea2 0%, #212529 100%);
+}
+
+#about p {
+    font-size: 1.3rem;
+}
+
+#event_info {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.699) 100%), url("../../public/clubbogorrayabg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/* ISOTOPE */
+.grid-item { width: 25%; }
+.grid-item--width2 { width: 50%; }
