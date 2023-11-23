@@ -108,6 +108,16 @@
 
     $('#btn_stop').on('click', () => {
         if (!bisaNgocok) {
+            // if (countWinner == 5) {
+            //     console.log(dataPeserta[0], dataPeserta[0]['name'])
+            //     // find in array dataPeserta where dataPeserta['name'] == "VICTOR"
+            //     let victor = dataPeserta.findIndex(x => x.name === "VICTOR");
+
+            //     // // move index index to first index from dataPeserta
+            //     dataPeserta.splice(0, 0, dataPeserta.splice(victor, 1)[0]);
+
+            //     $('.random_nama').html(dataPeserta[0]['name'])
+            // }
             kocok()
             bisaNgocok = true
             toggleButtonKocok()
@@ -209,6 +219,9 @@
         if (bisaNgocok) {
             prosesAcak = setInterval(animasiKocok, 10);
         } else {
+            // let currentIndex = arrNama.length;
+            console.log(dataPeserta[0]['id'])
+            //adam
             clearInterval(prosesAcak);
         }
     }
@@ -232,6 +245,8 @@
             // Pick a remaining element.
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
+
+            // console.log(currentIndex, randomIndex)
 
             // And swap it with the current element.
             [dataPeserta[currentIndex], dataPeserta[randomIndex]] = [

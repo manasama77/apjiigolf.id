@@ -52,7 +52,7 @@
                             @endforeach
                         </div>
 
-                        <a href="{{ route('home') }}" class="btn btn-secondary w-100 mt-3">
+                        <a href="{{ route('standings') }}" class="btn btn-secondary w-100 mt-3">
                             <i class="fas fa-fw fa-backward-step"></i> Back
                         </a>
                     </div>
