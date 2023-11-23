@@ -3,7 +3,9 @@
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-8 align-self-end">
                 {{-- <h1 class="text-white font-weight-bold">GOBAR PGA <br />{{ $location_name }}<br />Registration</h1> --}}
-                <h1 class="text-white font-weight-bold">Welcome to All PGA Members</h1>
+                <h1 class="text-white font-weight-bold">
+                    Welcome,<br />All PGA Members
+                </h1>
                 <hr class="divider divider-light" />
             </div>
             <div class="col-lg-8 align-self-baseline">
