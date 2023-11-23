@@ -93,7 +93,8 @@
                     </div>
                     <!-- Submit Button-->
                     <div class="d-grid">
-                        <button class="btn btn-primary btn-xl my-3" id="submitButton" type="submit">Submit</button>
+                        <button class="btn btn-primary btn-xl my-3" id="submitButton" type="submit"
+                            disabled>Submit</button>
                         <a href="{{ route('register_check') }}" class="btn btn-secondary btn-xl my-3">Already pay? Check
                             your
                             payment status</a>
