@@ -47,12 +47,12 @@
     <!-- Event Info-->
     @include('partials.landing.event_list')
 
-    <!-- Ticket pricing-->
-    @include('partials.landing.pricing')
+    <!-- Upcoming event-->
+    @include('partials.landing.upcoming_event')
 
 
     <!-- Registration -->
-    @include('partials.landing.registration')
+    @include('partials.landing.form_registration')
 
     <!-- Footer-->
     <footer class="bg-light py-5">

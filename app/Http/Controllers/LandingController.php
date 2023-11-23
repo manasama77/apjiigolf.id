@@ -334,4 +334,40 @@ class LandingController extends Controller
     {
         //
     }
+
+    public function gobar_1()
+    {
+        $page_title = "Gobar 1 - Sentul Highlands";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_1', $data);
+    }
+
+    public function gobar_0()
+    {
+        $page_title = "Gobar 0 - Riverside Cimanggis";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_0', $data);
+    }
+
+    public function apjii_golf_6()
+    {
+        $page_title = "APJII GOLF 6";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('apjii_golf_6', $data);
+    }
+
+    public function apjii_golf_5()
+    {
+        $page_title = "APJII GOLF 5";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('apjii_golf_5', $data);
+    }
 }

@@ -7,11 +7,11 @@
                 <hr class="divider divider-light" />
             </div>
             <div class="col-lg-8 align-self-baseline">
-                <p class="text-white mb-5">
+                {{-- <p class="text-white mb-5">
                     PGA Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, libero. Animi temporibus
                     praesentium incidunt, enim molestias omnis doloremque consequuntur porro!
-                </p>
-                <a class="btn btn-primary btn-xl shadow" href="#event_info">Find Out More</a>
+                </p> --}}
+                <a class="btn btn-primary btn-xl shadow" href="#about">Find Out More</a>
             </div>
         </div>
     </div>

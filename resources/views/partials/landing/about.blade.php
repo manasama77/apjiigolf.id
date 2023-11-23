@@ -7,14 +7,10 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-6 offset-md-3">
                         <p class="text-white mb-5">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam odio corrupti velit earum
-                            non, repellat consequatur consequuntur iure optio eum mollitia debitis tempore quia, dolor
-                            aliquid minus blanditiis officia doloremque! Sunt beatae, temporibus possimus, illo sed
-                            sapiente vero, esse autem fuga cum error! Expedita quisquam alias, ratione ullam vel quod
-                            iusto veniam deserunt incidunt fuga suscipit totam corporis ipsum quasi nobis. Quia
-                            accusantium, facilis ad dolore quasi quidem? Quas magnam dolore repellat harum aut ducimus
-                            iusto animi cum ex aperiam! Itaque quam quos error veritatis dolor labore, at velit unde rem
-                            praesentium numquam voluptas omnis quas minus voluptates. Amet, voluptatibus!
+                            PGA is an abbreviation of "Persatuan Golf APJII". The PGA is responsible for organizing golf
+                            for APJII Member. It aims to develop and nurture the talents of golfers by providing
+                            competitive platforms and opportunities. Through its tournaments and initiatives, the PGA
+                            strives to establish a strong golfing community for APJII Member.
                         </p>
                     </div>
                 </div>
