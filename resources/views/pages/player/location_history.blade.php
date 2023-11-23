@@ -13,7 +13,7 @@
 
                         <div class="row">
                             @foreach ($players as $p)
-                                <div class="col-sm-12 col-md-4">
+                                <div class="col-sm-12 col-md-4 mt-3">
                                     <div class="card bg-dark text-white shadow-sm">
                                         <img src="{{ asset('storage/' . $p->banner) }}"
                                             class="card-img img-overlay-card img-fluid" alt="..."
