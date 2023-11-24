@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <a class="btn btn-info btn-xl mt-5 shadow" href="#upcoming_event">Upcoming Event</a>
+                {{-- <a class="btn btn-info btn-xl mt-5 shadow" href="#upcoming_event">Upcoming Event</a> --}}
             </div>
         </div>
     </div>
