@@ -43,6 +43,13 @@
                                     <input type="date" class="form-control" id="start_date" name="start_date"
                                         value="{{ old('start_date') }}" required />
                                 </div>
+                                <div class="mb-3">
+                                    <label for="is_active">Active Event?</label>
+                                    <select class="form-control" id="is_active" name="is_active" required>
+                                        <option @selected(old('is_active') == true) value="1">Active</option>
+                                        <option @selected(old('is_active') == false) value="0">Not Active</option>
+                                    </select>
+                                </div>
                                 <button type="submit" class="btn btn-success btn-block">
                                     <i class="fas fa-fw fa-save"></i> Save
                                 </button>

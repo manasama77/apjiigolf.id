@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\IndonesiaPhoneProviderRule;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,7 +29,7 @@ class RegisterRequest extends FormRequest
             'full_name'       => 'required',
             'gender'          => 'required',
             'email'           => 'required|email:rfc:dns|unique:registrations',
-            'whatsapp_number' => 'required',
+            'whatsapp_number' => ['required', new IndonesiaPhoneProviderRule],
             'company_name'    => 'required',
             'position'        => 'required',
             'institution'     => 'required',

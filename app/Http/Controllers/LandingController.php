@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterRequest;
 use Exception;
+use Midtrans\Snap;
+use Midtrans\Config;
 use App\Models\Player;
 use App\Models\Undian;
+use Milon\Barcode\DNS2D;
+use Illuminate\Support\Str;
+use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\EventLocation;
 use App\Models\PlayerHistory;
-use App\Models\Registration;
 use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Builder;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
-use Midtrans\Config;
-use Midtrans\Snap;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Builder;
 
 class LandingController extends Controller
 {
@@ -205,31 +209,21 @@ class LandingController extends Controller
     }
 
     public function register_store(RegisterRequest $request)
-    // public function register_store(Request $request)
     {
         try {
-            // $request->validate([
-            //     'full_name'       => 'required',
-            //     'gender'          => 'required',
-            //     'email'           => 'required|email:rfc:dns|unique:registrations',
-            //     'whatsapp_number' => 'required',
-            //     'company_name'    => 'required',
-            //     'position'        => 'required',
-            //     'institution'     => 'required',
-            //     'institution_etc' => 'required_unless:institution_etc,Etc',
-            // ], [
-            //     'email.unique' => 'The Email already taken.'
-            // ]);
+            $barcode        = $this->generate_secret_key(6);
+            $order_id       = uniqid("APJ-", true);
+            $gross_amount   = $this->ticket_price + $this->admin_fee;
+            $event_location = EventLocation::with([
+                'location'
+            ])->where('is_active', 1)->first();
 
-            $current_env = config('app.env') ?? 'local';
-            $order_id    = uniqid("APJ-", true);
-
-            $url_pay = "https://app.sandbox.midtrans.com/snap/v1/transactions";
-            if ($current_env == "production") {
-                $url_pay = "https://app.midtrans.com/snap/v1/transactions";
+            if (!$event_location) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No Event Active Right Now',
+                ]);
             }
-
-            $gross_amount = $this->ticket_price + $this->admin_fee;
 
             $transaction_info = [
                 "transaction_details" => [
@@ -241,13 +235,13 @@ class LandingController extends Controller
                         "id"       => 1,
                         "price"    => $this->ticket_price,
                         "quantity" => 1,
-                        "name"     => "E-Ticket PGA GOBAR Series - Club Bogor Raya",
+                        "name"     => "E-Ticket PGA GOBAR Series - " . $event_location->location->name . " - " . $event_location->start_date->format('d M Y'),
                     ],
                     [
                         "id"       => 9999,
                         "price"    => $this->admin_fee,
                         "quantity" => 1,
-                        "name"     => "Admin Fee Registration PGA Golf - Club Bogor Raya",
+                        "name"     => "Admin Fee Registration PGA Golf Series",
                     ],
                 ],
                 "customer_details" => [
@@ -264,6 +258,33 @@ class LandingController extends Controller
             Config::$is3ds        = config('midtrans.is_3ds');
             $snap_token           = Snap::getSnapToken($transaction_info);
 
+            // create invoice pdf
+            $data_pdf_invoice = [];
+            $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
+
+            return $pdf->stream('test.pdf', array("Attachment" => false));
+
+
+
+            // create PDF e-ticket
+            // $plugin_barcode = new DNS2D();
+            // $bar = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($barcode, 'QRCODE', 25, 25, [0, 0, 0]) . '" alt="barcode"   />';
+
+            // $data_pdf = [
+            //     'bar'       => $bar,
+            //     'barcode'   => $barcode,
+            //     'full_name' => $request->full_name,
+            // ];
+            // $custom_paper = [0, 0, 1000, 1778];
+            // $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
+            // // DEBUG PURPOSE
+            // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+            // $slug_location_name = Str::slug($event_location->location->name);
+            // $content = $pdf->download()->getOriginalContent();
+            // $nama_file = $request->nama_lengkap . "-" . $barcode . ".pdf";
+            // Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
+
             $exec = Registration::create([
                 'full_name'       => $request->full_name,
                 'gender'          => $request->gender,
@@ -274,8 +295,12 @@ class LandingController extends Controller
                 'institution'     => $request->institution,
                 'institution_etc' => $request->institution_etc,
                 'order_id'        => $order_id,
+                'ticket_price'    => $this->ticket_price,
+                'admin_fee'       => $this->admin_fee,
+                'total_price'     => $this->ticket_price + $this->admin_fee,
                 'payment_status'  => 0,
                 'snap_token'      => $snap_token,
+                'barcode'         => $barcode,
             ]);
 
             return response()->json([
@@ -335,9 +360,18 @@ class LandingController extends Controller
         //
     }
 
+    public function gobar_2()
+    {
+        $page_title = "Gobar @ Klub Bogor Raya";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_2', $data);
+    }
+
     public function gobar_1()
     {
-        $page_title = "Gobar 1 - Sentul Highlands";
+        $page_title = "Gobar @ Sentul Highlands";
         $data = [
             'page_title' => $page_title,
         ];
@@ -346,7 +380,7 @@ class LandingController extends Controller
 
     public function gobar_0()
     {
-        $page_title = "Gobar 0 - Riverside Cimanggis";
+        $page_title = "Gobar @ Riverside Cimanggis";
         $data = [
             'page_title' => $page_title,
         ];
@@ -369,5 +403,32 @@ class LandingController extends Controller
             'page_title' => $page_title,
         ];
         return view('apjii_golf_5', $data);
+    }
+
+    public function generate_invoice()
+    {
+    }
+
+    protected function generate_secret_key(int $length = 64, string $keyspace = '123456789'): string
+    {
+        if ($length < 1) {
+            throw new Exception("Length must be a positive integer");
+        }
+        $pieces = [];
+        $max = mb_strlen($keyspace, '8bit') - 1;
+        for ($i = 0; $i < $length; ++$i) {
+            $pieces[] = $keyspace[random_int(0, $max)];
+        }
+        $number = implode('', $pieces);
+
+        if ($this->check_secret_key_exist($number)) {
+            return $this->generate_secret_key($length);
+        }
+        return $number;
+    }
+
+    protected function check_secret_key_exist($number)
+    {
+        return Registration::where('barcode', $number)->exists();
     }
 }

@@ -43,11 +43,15 @@ class EventLocationController extends Controller
         $request->validate([
             'location_id' => 'required',
             'start_date'  => 'required',
+            'is_active'   => 'required|boolean',
         ]);
+
+        EventLocation::where('is_active', true)->update(['is_active' => false]);
 
         EventLocation::create([
             'location_id' => $request->location_id,
             'start_date'  => $request->start_date,
+            'is_active'   => $request->is_active,
         ]);
 
         return redirect()->route('admin.event_location')->with('success', 'Create Success');

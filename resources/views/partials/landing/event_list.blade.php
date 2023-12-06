@@ -7,10 +7,20 @@
                 <div class="row my-3">
                     <div class="col-sm-12 col-md-4 mt-3">
                         <div class="card shadow">
-                            <img src="{{ asset('events/GOBAR-1-Sentul-Highland-thumbnail.jpg') }}" class="card-img-top"
-                                alt="GOBAR 0 - Riverside Cimanggis">
+                            <img src="{{ asset('events/GOBAR-2-klub-bogor-raya-thumbnail.jpg') }}" class="card-img-top"
+                                alt="GOBAR @ Klub Bogor Raya">
                             <div class="card-body">
-                                <h5 class="card-title">GOBAR 1 - Sentul Highlands</h5>
+                                <h5 class="card-title">GOBAR @ Klub Bogor Raya</h5>
+                                <a href="{{ route('gobar_2') }}" class="btn btn-primary">View Highlight</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-3">
+                        <div class="card shadow">
+                            <img src="{{ asset('events/GOBAR-1-Sentul-Highland-thumbnail.jpg') }}" class="card-img-top"
+                                alt="GOBAR @ Riverside Cimanggis">
+                            <div class="card-body">
+                                <h5 class="card-title">GOBAR @ Sentul Highlands</h5>
                                 <a href="{{ route('gobar_1') }}" class="btn btn-primary">View Highlight</a>
                             </div>
                         </div>
@@ -18,9 +28,9 @@
                     <div class="col-sm-12 col-md-4 mt-3">
                         <div class="card shadow">
                             <img src="{{ asset('events/GOBAR-0-Riverside-Cimanggis-thumbnail.jpg') }}"
-                                class="card-img-top" alt="GOBAR 0 - Riverside Cimanggis">
+                                class="card-img-top" alt="GOBAR @ Riverside Cimanggis">
                             <div class="card-body">
-                                <h5 class="card-title">GOBAR 0 - Riverside Cimanggis</h5>
+                                <h5 class="card-title">GOBAR @ Riverside Cimanggis</h5>
                                 <a href="{{ route('gobar_0') }}" class="btn btn-primary">View Highlight</a>
                             </div>
                         </div>

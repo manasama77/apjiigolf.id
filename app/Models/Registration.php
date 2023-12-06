@@ -17,11 +17,13 @@ class Registration extends Model
         'company_name',
         'position',
         'institution',
+        'institution_etc',
         'order_id',
         'ticket_price',
         'admin_fee',
         'total_price',
         'payment_status',
         'snap_token',
+        'barcode',
     ];
 }

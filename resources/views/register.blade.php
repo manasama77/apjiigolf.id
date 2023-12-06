@@ -99,10 +99,10 @@
                 }
             })
 
-            $('#registration_form').on('submit', e => {
-                e.preventDefault()
-                registerApi()
-            })
+            // $('#registration_form').on('submit', e => {
+            //     e.preventDefault()
+            //     registerApi()
+            // })
 
             $('.grid').isotope({
                 // options

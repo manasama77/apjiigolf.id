@@ -30,6 +30,7 @@ Route::get('/check', [LandingController::class, 'register_check'])->name('regist
 Route::get('/status', [LandingController::class, 'register_status'])->name('register_status');
 Route::get('/error', [LandingController::class, 'register_error'])->name('register_error');
 
+Route::get('/gobar-2', [LandingController::class, 'gobar_2'])->name('gobar_2');
 Route::get('/gobar-1', [LandingController::class, 'gobar_1'])->name('gobar_1');
 Route::get('/gobar-0', [LandingController::class, 'gobar_0'])->name('gobar_0');
 Route::get('/apjii-golf-6', [LandingController::class, 'apjii_golf_6'])->name('apjii_golf_6');

@@ -31,6 +31,7 @@
                                 <tr>
                                     <th>Location</th>
                                     <th>Start Date</th>
+                                    <th class="text-center">Status</th>
                                     <th class="text-center">
                                         <i class="fas fa-cogs"></i>
                                     </th>
@@ -41,6 +42,7 @@
                                     <tr>
                                         <td>{{ $l->location->name }}</td>
                                         <td>{{ $l->start_date->format('d F Y') }}</td>
+                                        <td class="text-center">{!! $l->is_active_badge !!}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.event_location.edit', $l->id) }}" class="btn btn-info">
                                                 <i class="fas fa-fw fa-pencil"></i>

@@ -14,6 +14,7 @@ class EventLocation extends Model
     protected $fillable = [
         'location_id',
         'start_date',
+        'is_active',
     ];
 
     protected $casts = [
@@ -34,5 +35,15 @@ class EventLocation extends Model
     {
         $start_date = $this->getRawOriginal('start_date');
         return Carbon::parse($start_date)->diffForHumans();
+    }
+
+    public function getIsActiveBadgeAttribute()
+    {
+        $is_active = $this->getRawOriginal('is_active');
+        if ($is_active == 1) {
+            return '<span class="badge badge-success">Active</span>';
+        } else {
+            return '<span class="badge badge-danger">Inactive</span>';
+        }
     }
 }

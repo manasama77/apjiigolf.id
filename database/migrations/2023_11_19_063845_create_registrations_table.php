@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('total_price')->default(0)->unsigned();
             $table->integer('payment_status')->default(0)->unsigned();
             $table->string('snap_token', 36);
+            $table->string('barcode');
             $table->timestamps();
         });
     }
