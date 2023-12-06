@@ -11,9 +11,9 @@
                         <div class="col-sm-12">
                             <div class="gallery">
                                 @for ($i = 1; $i <= 14; $i++)
-                                    <a href="{{ asset('events/GOBAR 0 (Riverside Cimanggis)/GOBAR0 (' . $i . ').JPG') }}"
+                                    <a href="{{ asset('events/GOBAR_0_(Riverside Cimanggis)/GOBAR0 (' . $i . ').JPG') }}"
                                         data-lightbox="gobar-1">
-                                        <img src="{{ asset('events/GOBAR 0 (Riverside Cimanggis)/thumb/GOBAR0 (' . $i . ')_thumb.JPG') }}"
+                                        <img src="{{ asset('events/GOBAR_0_(Riverside Cimanggis)/thumb/GOBAR0 (' . $i . ')_thumb.JPG') }}"
                                             alt="" title="" class="img-thumbnail" loading="lazy" />
                                     </a>
                                 @endfor
