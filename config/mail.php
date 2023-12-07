@@ -46,6 +46,16 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
 
+        'smtp_mailtrap' => [
+            'transport'    => 'smtp',
+            'host'         => env('MAIL_HOST_MAILTRAP', 'smtp.mailgun.org'),
+            'port'         => env('MAIL_PORT_MAILTRAP', 587),
+            'encryption'   => env('MAIL_ENCRYPTION_MAILTRAP', 'tls'),
+            'username'     => env('MAIL_USERNAME_MAILTRAP'),
+            'password'     => env('MAIL_PASSWORD_MAILTRAP'),
+            'timeout'      => null,
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],

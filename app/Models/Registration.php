@@ -25,5 +25,6 @@ class Registration extends Model
         'payment_status',
         'snap_token',
         'barcode',
+        'seq',
     ];
 }

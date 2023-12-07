@@ -8,6 +8,7 @@ use Midtrans\Config;
 use App\Models\Player;
 use App\Models\Undian;
 use Milon\Barcode\DNS2D;
+use App\Mail\InvoiceMail;
 use Illuminate\Support\Str;
 use App\Models\Registration;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use App\Models\PlayerHistory;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
@@ -31,13 +33,14 @@ class LandingController extends Controller
 
     public function __construct()
     {
-        $this->location_name    = 'Club Bogor Raya';
-        $this->location_address = 'Perumahan Jl. Danau Bogor Raya No.16143, Katulampa, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16143';
-        $this->event_date       = Carbon::parse('2023-11-23');
+        $this->location_name    = 'Gobar @ Parahyangan Golf';
+        $this->location_address = 'Jl. Saridewata No.1, Cikande, Kec. Padalarang, Kabupaten Bandung Barat, Jawa Barat 40553';
+        $this->event_date       = Carbon::parse('2023-12-15');
         $this->event_time       = '06:30 till end';
-        $this->ticket_price     = 950000;
+        $this->ticket_price     = 1400000;
         $this->admin_fee        = 5000;
     }
+
     public function index(Request $request)
     {
         $page_title = "Standing";
@@ -208,112 +211,264 @@ class LandingController extends Controller
         return view('register', $data);
     }
 
+    // public function register_store(RegisterRequest $request)
+    // {
+    //     try {
+    //         $barcode        = $this->generate_secret_key(6);
+    //         $order_id       = $this->generate_invoice_number();
+    //         $invoice_number = $order_id['invoice_number'];
+    //         $seq            = $order_id['seq'];
+    //         $gross_amount   = $this->ticket_price + $this->admin_fee;
+    //         $event_location = EventLocation::with([
+    //             'location'
+    //         ])->where('is_active', 1)->first();
+
+    //         if (!$event_location) {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'message' => 'No Event Active Right Now',
+    //             ]);
+    //         }
+
+    //         $transaction_info = [
+    //             "transaction_details" => [
+    //                 "order_id"     => $invoice_number,
+    //                 "gross_amount" => $gross_amount
+    //             ],
+    //             "item_details" => [
+    //                 [
+    //                     "id"       => 1,
+    //                     "price"    => $this->ticket_price,
+    //                     "quantity" => 1,
+    //                     "name"     => "E-Ticket PGA GOBAR Series - " . $event_location->location->name . " - " . $event_location->start_date->format('d M Y'),
+    //                 ],
+    //                 [
+    //                     "id"       => "admin_fee",
+    //                     "price"    => $this->admin_fee,
+    //                     "quantity" => 1,
+    //                     "name"     => "Admin Fee Registration PGA Golf Series",
+    //                 ],
+    //             ],
+    //             "customer_details" => [
+    //                 "first_name" => $request->full_name,
+    //                 "email"      => $request->email,
+    //                 "phone"      => $request->whatsapp_number,
+    //             ]
+    //         ];
+
+    //         Config::$isProduction = config('midtrans.production');
+    //         Config::$serverKey    = config('midtrans.server_key');
+    //         Config::$clientKey    = config('midtrans.client_key');
+    //         Config::$isSanitized  = config('midtrans.is_sanitized');
+    //         Config::$is3ds        = config('midtrans.is_3ds');
+    //         $snap_token           = Snap::getSnapToken($transaction_info);
+
+    //         // create invoice pdf
+    //         $data_pdf_invoice = [
+    //             'player_name'    => $request->full_name,
+    //             'invoice_number' => $invoice_number,
+    //             'invoice_date'   => Carbon::now()->format('d M Y'),
+    //             'event_name'     => $this->location_name,
+    //             'event_location' => $this->location_address,
+    //             'event_date'     => $this->event_date->format('d M Y'),
+    //             'ticket_price'   => $this->ticket_price,
+    //             'admin_fee'      => $this->admin_fee,
+    //             'grand_total'    => $gross_amount,
+    //         ];
+    //         $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
+    //         // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+    //         Storage::disk('public')->put('invoice/' . $order_id . '.pdf', $pdf->output());
+
+
+
+    //         // create PDF e-ticket
+    //         // $plugin_barcode = new DNS2D();
+    //         // $bar = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($barcode, 'QRCODE', 25, 25, [0, 0, 0]) . '" alt="barcode"   />';
+
+    //         // $data_pdf = [
+    //         //     'bar'       => $bar,
+    //         //     'barcode'   => $barcode,
+    //         //     'full_name' => $request->full_name,
+    //         // ];
+    //         // $custom_paper = [0, 0, 1000, 1778];
+    //         // $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
+    //         // // DEBUG PURPOSE
+    //         // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+    //         // $slug_location_name = Str::slug($event_location->location->name);
+    //         // $content = $pdf->download()->getOriginalContent();
+    //         // $nama_file = $request->nama_lengkap . "-" . $barcode . ".pdf";
+    //         // Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
+
+    //         $exec = Registration::create([
+    //             'full_name'       => $request->full_name,
+    //             'gender'          => $request->gender,
+    //             'email'           => $request->email,
+    //             'whatsapp_number' => $request->whatsapp_number,
+    //             'company_name'    => $request->company_name,
+    //             'position'        => $request->position,
+    //             'institution'     => $request->institution,
+    //             'institution_etc' => $request->institution_etc,
+    //             'order_id'        => $invoice_number,
+    //             'ticket_price'    => $this->ticket_price,
+    //             'admin_fee'       => $this->admin_fee,
+    //             'total_price'     => $this->ticket_price + $this->admin_fee,
+    //             'payment_status'  => 0,
+    //             'snap_token'      => $snap_token,
+    //             'barcode'         => $barcode,
+    //             'seq'             => $seq,
+    //         ]);
+
+    //         // debug purpose
+    //         return (new InvoiceMail($exec))->render();
+
+    //         Mail::mailer('smtp_mailtrap')->to($request->email)->bcc([
+    //             'adam.pm77@gmail.com',
+    //             'betharifarisha@gmail.com',
+    //         ])->send(new InvoiceMail($exec));
+
+    //         // return response()->json([
+    //         //     'success'    => true,
+    //         //     'data'       => $exec,
+    //         //     'snap_token' => $snap_token,
+    //         // ], 200);
+
+    //         return redirect()->route('register_success', ['order_id' => $invoice_number]);
+    //     } catch (Exception $e) {
+    //         return redirect('/#registration')->withErrors($e->getMessage())->withInput();
+    //         // return response()->json([
+    //         //     'success' => false,
+    //         //     'message' => $e->getMessage(),
+    //         // ]);
+    //     }
+    // }
+
     public function register_store(RegisterRequest $request)
     {
-        try {
-            $barcode        = $this->generate_secret_key(6);
-            $order_id       = uniqid("APJ-", true);
-            $gross_amount   = $this->ticket_price + $this->admin_fee;
-            $event_location = EventLocation::with([
-                'location'
-            ])->where('is_active', 1)->first();
+        $barcode        = $this->generate_secret_key(6);
+        $order_id       = $this->generate_invoice_number();
+        $invoice_number = $order_id['invoice_number'];
+        $seq            = $order_id['seq'];
+        $gross_amount   = $this->ticket_price + $this->admin_fee;
+        $event_location = EventLocation::with([
+            'location'
+        ])->where('is_active', 1)->first();
 
-            if (!$event_location) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'No Event Active Right Now',
-                ]);
-            }
-
-            $transaction_info = [
-                "transaction_details" => [
-                    "order_id"     => $order_id,
-                    "gross_amount" => $gross_amount
-                ],
-                "item_details" => [
-                    [
-                        "id"       => 1,
-                        "price"    => $this->ticket_price,
-                        "quantity" => 1,
-                        "name"     => "E-Ticket PGA GOBAR Series - " . $event_location->location->name . " - " . $event_location->start_date->format('d M Y'),
-                    ],
-                    [
-                        "id"       => 9999,
-                        "price"    => $this->admin_fee,
-                        "quantity" => 1,
-                        "name"     => "Admin Fee Registration PGA Golf Series",
-                    ],
-                ],
-                "customer_details" => [
-                    "first_name" => $request->full_name,
-                    "email"      => $request->email,
-                    "phone"      => $request->whatsapp_number,
-                ]
-            ];
-
-            Config::$isProduction = config('midtrans.production');
-            Config::$serverKey    = config('midtrans.server_key');
-            Config::$clientKey    = config('midtrans.client_key');
-            Config::$isSanitized  = config('midtrans.is_sanitized');
-            Config::$is3ds        = config('midtrans.is_3ds');
-            $snap_token           = Snap::getSnapToken($transaction_info);
-
-            // create invoice pdf
-            $data_pdf_invoice = [];
-            $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
-
-            return $pdf->stream('test.pdf', array("Attachment" => false));
-
-
-
-            // create PDF e-ticket
-            // $plugin_barcode = new DNS2D();
-            // $bar = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($barcode, 'QRCODE', 25, 25, [0, 0, 0]) . '" alt="barcode"   />';
-
-            // $data_pdf = [
-            //     'bar'       => $bar,
-            //     'barcode'   => $barcode,
-            //     'full_name' => $request->full_name,
-            // ];
-            // $custom_paper = [0, 0, 1000, 1778];
-            // $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
-            // // DEBUG PURPOSE
-            // return $pdf->stream('test.pdf', array("Attachment" => false));
-
-            // $slug_location_name = Str::slug($event_location->location->name);
-            // $content = $pdf->download()->getOriginalContent();
-            // $nama_file = $request->nama_lengkap . "-" . $barcode . ".pdf";
-            // Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
-
-            $exec = Registration::create([
-                'full_name'       => $request->full_name,
-                'gender'          => $request->gender,
-                'email'           => $request->email,
-                'whatsapp_number' => $request->whatsapp_number,
-                'company_name'    => $request->company_name,
-                'position'        => $request->position,
-                'institution'     => $request->institution,
-                'institution_etc' => $request->institution_etc,
-                'order_id'        => $order_id,
-                'ticket_price'    => $this->ticket_price,
-                'admin_fee'       => $this->admin_fee,
-                'total_price'     => $this->ticket_price + $this->admin_fee,
-                'payment_status'  => 0,
-                'snap_token'      => $snap_token,
-                'barcode'         => $barcode,
-            ]);
-
-            return response()->json([
-                'success'    => true,
-                'data'       => $exec,
-                'snap_token' => $snap_token,
-            ], 200);
-        } catch (Exception $e) {
+        if (!$event_location) {
             return response()->json([
                 'success' => false,
-                'message' => $e->getMessage(),
+                'message' => 'No Event Active Right Now',
             ]);
         }
+
+        $transaction_info = [
+            "transaction_details" => [
+                "order_id"     => $invoice_number,
+                "gross_amount" => $gross_amount
+            ],
+            "item_details" => [
+                [
+                    "id"       => 1,
+                    "price"    => $this->ticket_price,
+                    "quantity" => 1,
+                    "name"     => "E-Ticket PGA GOBAR Series - " . $event_location->location->name . " - " . $event_location->start_date->format('d M Y'),
+                ],
+                [
+                    "id"       => "admin_fee",
+                    "price"    => $this->admin_fee,
+                    "quantity" => 1,
+                    "name"     => "Admin Fee Registration PGA Golf Series",
+                ],
+            ],
+            "customer_details" => [
+                "first_name" => $request->full_name,
+                "email"      => $request->email,
+                "phone"      => $request->whatsapp_number,
+            ]
+        ];
+
+        Config::$isProduction = config('midtrans.production');
+        Config::$serverKey    = config('midtrans.server_key');
+        Config::$clientKey    = config('midtrans.client_key');
+        Config::$isSanitized  = config('midtrans.is_sanitized');
+        Config::$is3ds        = config('midtrans.is_3ds');
+        $snap_token           = Snap::getSnapToken($transaction_info);
+
+        // create invoice pdf
+        $data_pdf_invoice = [
+            'player_name'    => $request->full_name,
+            'invoice_number' => $invoice_number,
+            'invoice_date'   => Carbon::now()->format('d M Y'),
+            'event_name'     => $this->location_name,
+            'event_location' => $this->location_address,
+            'event_date'     => $this->event_date->format('d M Y'),
+            'ticket_price'   => $this->ticket_price,
+            'admin_fee'      => $this->admin_fee,
+            'grand_total'    => $gross_amount,
+        ];
+        $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
+        // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+        Storage::disk('public')->put('invoice/' . $invoice_number . '.pdf', $pdf->output());
+
+
+
+        // create PDF e-ticket
+        // $plugin_barcode = new DNS2D();
+        // $bar = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($barcode, 'QRCODE', 25, 25, [0, 0, 0]) . '" alt="barcode"   />';
+
+        // $data_pdf = [
+        //     'bar'       => $bar,
+        //     'barcode'   => $barcode,
+        //     'full_name' => $request->full_name,
+        // ];
+        // $custom_paper = [0, 0, 1000, 1778];
+        // $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
+        // // DEBUG PURPOSE
+        // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+        // $slug_location_name = Str::slug($event_location->location->name);
+        // $content = $pdf->download()->getOriginalContent();
+        // $nama_file = $request->nama_lengkap . "-" . $barcode . ".pdf";
+        // Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
+
+        $exec = Registration::create([
+            'full_name'       => $request->full_name,
+            'gender'          => $request->gender,
+            'email'           => $request->email,
+            'whatsapp_number' => $request->whatsapp_number,
+            'company_name'    => $request->company_name,
+            'position'        => $request->position,
+            'institution'     => $request->institution,
+            'institution_etc' => $request->institution_etc,
+            'order_id'        => $invoice_number,
+            'ticket_price'    => $this->ticket_price,
+            'admin_fee'       => $this->admin_fee,
+            'total_price'     => $this->ticket_price + $this->admin_fee,
+            'payment_status'  => 0,
+            'snap_token'      => $snap_token,
+            'barcode'         => $barcode,
+            'seq'             => $seq,
+        ]);
+
+        $link_bayar = route('register_status', ['order_id' => $invoice_number]);
+
+        // debug purpose
+        // return (new InvoiceMail($exec, $this->location_name, $link_bayar))->render();
+
+        Mail::mailer('smtp_mailtrap')->to($request->email)->bcc([
+            'adam.pm77@gmail.com',
+            'betharifarisha@gmail.com',
+        ])->send(new InvoiceMail($exec, $this->location_name, $link_bayar));
+
+        // return response()->json([
+        //     'success'    => true,
+        //     'data'       => $exec,
+        //     'snap_token' => $snap_token,
+        // ], 200);
+
+        return redirect()->route('register_status', ['order_id' => $invoice_number]);
     }
 
     public function register_check(Request $request)
@@ -324,8 +479,8 @@ class LandingController extends Controller
 
     public function register_status(Request $request)
     {
-        $email = $request->email;
-        $exec = Registration::where('email', $email)->first();
+        $order_id = $request->order_id;
+        $exec = Registration::where('order_id', $order_id)->first();
         if (!$exec) {
             return abort(404, 'Data Not Found');
         }
@@ -430,5 +585,28 @@ class LandingController extends Controller
     protected function check_secret_key_exist($number)
     {
         return Registration::where('barcode', $number)->exists();
+    }
+
+    public function generate_invoice_number()
+    {
+        $last_seq = Registration::orderBy('seq', 'desc')->first();
+
+        if (!$last_seq) {
+            $seq = 1;
+        } else {
+            $seq = $last_seq->seq + 1;
+        }
+
+        $prefix = "PGA";
+        $year   = Carbon::now()->format('Y');
+        $month  = Carbon::now()->format('m');
+        $random = rand(100, 999);
+
+        $invoice_number = $prefix . "-" . $year . $month . $seq . $random;
+
+        return [
+            'invoice_number' => $invoice_number,
+            'seq'            => $seq,
+        ];
     }
 }

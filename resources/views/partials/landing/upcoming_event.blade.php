@@ -8,6 +8,7 @@
                     <div class="col-sm-12 col-md-8 offset-md-2">
                         <div class="card">
                             <div class="card-body pb-0">
+                                <h1 class="card-title">{{ $location_name }}</h1>
                                 <div class="table-responsive d-block d-md-none">
                                     <table class="table table-bordered table-striped">
                                         <tbody>
@@ -57,33 +58,57 @@
                                             <tr>
                                                 <td style="width: 200px;">Date</td>
                                                 <td style="width: 10px">:</td>
-                                                <td>{{ $event_date->format('l, d F Y') }}</td>
+                                                <td class="text-start">{{ $event_date->format('l, d F Y') }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Tee Off</td>
                                                 <td>:</td>
-                                                <td>{{ $event_time }}</td>
+                                                <td class="text-start">{{ $event_time }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Location Name</td>
                                                 <td>:</td>
-                                                <td>{{ $location_name }}</td>
+                                                <td class="text-start">{{ $location_name }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Location Address</td>
                                                 <td>:</td>
-                                                <td>{{ $location_address }}</td>
+                                                <td class="text-start">{{ $location_address }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Registration Fee</td>
+                                                <td>:</td>
+                                                <td class="text-start">
+                                                    IDR {{ $ticket_price_idr }}<span class="text-danger">*</span>
+                                                    <br />
+                                                    Included:<br />
+                                                    <ul>
+                                                        <li>Green Fee</li>
+                                                        <li>Whoosh Ticket</li>
+                                                        <li>Snack & Lunch</li>
+                                                        <li>Photographer</li>
+                                                    </ul>
+                                                </td>
                                             </tr>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-end">
+                                                    <small><i><span class="text-danger">*</span> Exclude Admin
+                                                            Fee</i></small>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2394.0708951733527!2d106.82919858952151!3d-6.597132651388837!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c6701f58fdbd%3A0x2dee2253e078277e!2sClub%20Bogor%20Raya!5e0!3m2!1sen!2sid!4v1699820500794!5m2!1sen!2sid"
-                    width="100%" height="450" style="border:0;" allowfullscreen="true" loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15844.401231717722!2d107.441469!3d-6.8785849!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68fb0e7a9aea43%3A0xe9d37c463356b1d0!2sParahyangan%20Golf!5e0!3m2!1sen!2sid!4v1701974290784!5m2!1sen!2sid"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
                     class="rounded border border-4 border-white shadow"></iframe>
 

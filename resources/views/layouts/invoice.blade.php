@@ -133,7 +133,7 @@
         <table class="table table-bordered" style="width: 50%;">
             <tbody>
                 <tr>
-                    <td>Bill to: {player_name}</td>
+                    <td>Bill to: {{ $player_name }}</td>
                 </tr>
             </tbody>
         </table>
@@ -149,8 +149,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td style="text-align: center;">{invoice_number}</td>
-                    <td style="text-align: center;">{invoice_date}</td>
+                    <td style="text-align: center;">{{ $invoice_number }}</td>
+                    <td style="text-align: center;">{{ $invoice_date }}</td>
                 </tr>
             </tbody>
         </table>
@@ -158,16 +158,16 @@
         <table border="1" class="table table-bordered" style="margin-top: 15px;">
             <thead>
                 <tr>
-                    <th>Event Name</th>
+                    <th style="width: 25%;">Event Name</th>
                     <th>Event Location</th>
-                    <th>Event Date</th>
+                    <th style="width: 18%;">Event Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="text-align: center;">{event_name}</td>
-                    <td style="text-align: center;">{event_location}</td>
-                    <td style="text-align: center;">{event_date}</td>
+                    <td style="text-align: center;">{{ $event_name }}</td>
+                    <td style="text-align: center;">{{ $event_location }}</td>
+                    <td style="text-align: center;">{{ $event_date }}</td>
                 </tr>
             </tbody>
         </table>
@@ -183,25 +183,25 @@
                 <tr>
                     <td style="text-align: left; height: 100px;">
                         Registration Fee Gobar<br />
-                        {player_name}
+                        {{ $player_name }}
                     </td>
                     <td style="text-align: right;">
-                        {ticket_price}
+                        {{ number_format($ticket_price, 0) }}
                     </td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <td style="text-align: right; font-weight: 700;">Total Amount</td>
-                    <td style="text-align: right; font-weight: 700;">{ticket_price}</td>
+                    <td style="text-align: right; font-weight: 700;">{{ number_format($ticket_price, 0) }}</td>
                 </tr>
                 <tr>
                     <td style="text-align: right; font-weight: 700;">Admin Fee</td>
-                    <td style="text-align: right; font-weight: 700;">{admin_fee}</td>
+                    <td style="text-align: right; font-weight: 700;">{{ number_format($admin_fee, 0) }}</td>
                 </tr>
                 <tr>
                     <td style="text-align: right; font-weight: 700;">Grand Total</td>
-                    <td style="text-align: right; font-weight: 700;">{grand_total}</td>
+                    <td style="text-align: right; font-weight: 700;">{{ number_format($grand_total, 0) }}</td>
                 </tr>
             </tfoot>
         </table>
@@ -210,7 +210,7 @@
             <thead>
                 <tr>
                     <th style="width: 70%;">&nbsp;</th>
-                    <th style="width: 30%; text-align: center">{created_at}</th>
+                    <th style="width: 30%; text-align: center">{{ $invoice_date }}</th>
                 </tr>
             </thead>
         </table>

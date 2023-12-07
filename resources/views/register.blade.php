@@ -48,11 +48,11 @@
     @include('partials.landing.event_list')
 
     <!-- Upcoming event-->
-    {{-- @include('partials.landing.upcoming_event') --}}
+    @include('partials.landing.upcoming_event')
 
 
     <!-- Registration -->
-    {{-- @include('partials.landing.form_registration') --}}
+    @include('partials.landing.form_registration')
 
     <!-- Footer-->
     <footer class="bg-light py-5">

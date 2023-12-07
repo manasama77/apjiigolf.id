@@ -9,6 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class RegisterRequest extends FormRequest
 {
     protected $stopOnFirstFailure = true;
+    protected $redirect = "/#registration";
 
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +29,8 @@ class RegisterRequest extends FormRequest
         return [
             'full_name'       => 'required',
             'gender'          => 'required',
-            'email'           => 'required|email:rfc:dns|unique:registrations',
+            // 'email'           => 'required|email:rfc:dns|unique:registrations',
+            'email'           => 'required|email:rfc:dns',
             'whatsapp_number' => ['required', new IndonesiaPhoneProviderRule],
             'company_name'    => 'required',
             'position'        => 'required',

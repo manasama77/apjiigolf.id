@@ -7,9 +7,9 @@
                 <p class="text-muted mb-5">Experience the excitement of golf with PGA friends.</p>
                 @if ($errors->any())
                     <div class="alert alert-danger">
-                        <ul class="mb-0">
+                        <ul>
                             @foreach ($errors->all() as $error)
-                                <li class="mb-0">{{ $error }}</li>
+                                <li class="text-left fw-bold">{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
