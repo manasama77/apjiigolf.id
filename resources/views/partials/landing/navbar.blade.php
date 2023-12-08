@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
-                        href="https://wa.me/628569016901">Register
+                        href="https://wa.me/628569016901" target="_blank">Register
                         Now</a>
                 </li>
             </ul>
