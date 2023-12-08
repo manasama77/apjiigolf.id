@@ -53,7 +53,7 @@
 
     <!-- Registration -->
     {{-- @include('partials.landing.form_registration') --}}
-    @include('partials.landing.form_registration_plan_b')
+    {{-- @include('partials.landing.form_registration_plan_b') --}}
 
     <!-- Footer-->
     <footer class="bg-light py-5">

@@ -112,7 +112,8 @@
                     referrerpolicy="no-referrer-when-downgrade"
                     class="rounded border border-4 border-white shadow"></iframe>
 
-                <a class="btn btn-light btn-xl mt-3 shadow" href="#registration">Register Now</a>
+                <a class="btn btn-light btn-xl mt-3 shadow" href="https://wa.me/628569016901" target="_blank">Register
+                    Now</a>
             </div>
         </div>
     </div>
