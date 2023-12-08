@@ -1,6 +1,6 @@
 <section class="page-section bg-dark" id="registration">
     <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
+        {{-- <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 col-xl-6 text-center">
                 <h2 class="mt-0 text-white">Register Here!</h2>
                 <hr class="divider" />
@@ -15,8 +15,8 @@
                     </div>
                 @endif
             </div>
-        </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center mb-3">
+        </div> --}}
+        {{-- <div class="row gx-4 gx-lg-5 justify-content-center mb-3">
             <div class="col-lg-6">
                 <form id="registration_form" action="{{ route('register_store') }}" method="post">
                     @csrf
@@ -100,10 +100,10 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> --}}
         <div class="text-center">
             <a class="btn btn-warning btn-xl shadow-sm" href="https://wa.me/628569016901" target="_blank">
-                <i class="fab fa-whatsapp fa-fw"></i> Have a Question?
+                <i class="fab fa-whatsapp fa-fw"></i> Register Now!
             </a>
         </div>
     </div>

@@ -30,7 +30,7 @@
 
 <body id="page-top">
     <!-- Navigation-->
-    @include('partials.landing.navbar')
+    @include('partials.landing.navbar_2')
 
     <!-- Hero Section -->
     @include('partials.landing.check')

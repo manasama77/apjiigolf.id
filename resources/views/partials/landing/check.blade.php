@@ -10,11 +10,16 @@
                 <form id="form" action="{{ route('register_status') }}" method="get">
                     @csrf
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="email" name="email" type="email"
-                            placeholder="name@example.com" required />
-                        <label for="email">Email address</label>
+                        <input class="form-control" id="order_id" name="order_id" type="text" placeholder="PGA-"
+                            required />
+                        <label for="order_id">Enter Your Invoice Number</label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-xl shadow">Check now</button>
+                    <button type="submit" class="btn btn-primary btn-xl shadow-sm">Check now</button>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-warning btn-xl shadow-sm" href="https://wa.me/628569016901" target="_blank">
+                            <i class="fab fa-whatsapp fa-fw"></i> Have a Question?
+                        </a>
+                    </div>
                 </form>
             </div>
         </div>
