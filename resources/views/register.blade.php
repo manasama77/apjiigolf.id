@@ -52,7 +52,7 @@
 
 
     <!-- Registration -->
-    @include('partials.landing.form_registration')
+    {{-- @include('partials.landing.form_registration') --}}
     @include('partials.landing.form_registration_plan_b')
 
     <!-- Footer-->
