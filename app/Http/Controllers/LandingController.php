@@ -36,7 +36,7 @@ class LandingController extends Controller
         $this->location_name    = 'Gobar @ Parahyangan Golf';
         $this->location_address = 'Jl. Saridewata No.1, Cikande, Kec. Padalarang, Kabupaten Bandung Barat, Jawa Barat 40553';
         $this->event_date       = Carbon::parse('2023-12-14');
-        $this->event_time       = '06:30 till end';
+        $this->event_time       = '08:30 till end';
         $this->ticket_price     = 1400000;
         $this->admin_fee        = 5000;
     }
