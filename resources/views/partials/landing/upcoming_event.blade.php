@@ -112,8 +112,14 @@
                     referrerpolicy="no-referrer-when-downgrade"
                     class="rounded border border-4 border-white shadow"></iframe>
 
-                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/628569016901" target="_blank">Register
-                    Now</a>
+                <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
+                    target="_blank">Register
+                    Closed</a>
+                <br />
+                <a class="btn btn-primary btn-xl mt-3 shadow" href="https://wa.me/628569016901" target="_blank">
+                    Pairing
+                    Table
+                </a>
             </div>
         </div>
     </div>
