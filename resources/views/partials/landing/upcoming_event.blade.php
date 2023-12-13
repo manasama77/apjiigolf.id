@@ -116,7 +116,7 @@
                     target="_blank">Register
                     Closed</a>
                 <br />
-                <a class="btn btn-primary btn-xl mt-3 shadow" href="https://wa.me/628569016901" target="_blank">
+                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     Pairing
                     Table
                 </a>

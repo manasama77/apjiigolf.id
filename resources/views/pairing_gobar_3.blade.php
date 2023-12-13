@@ -272,7 +272,7 @@
 
                             <div class="col-sm-12 col-md-6">
 
-                                <div class="table-responsive mt-3">
+                                <div class="table-responsive mt-3 mt-md-0">
                                     <table class="table-bordered mb-2 table">
                                         <thead>
                                             <tr>
@@ -328,7 +328,7 @@
                                     </table>
                                 </div>
 
-                                <div class="table-responsive mt-3 mt-md-0">
+                                <div class="table-responsive mt-3">
                                     <table class="table-bordered mb-2 table">
                                         <thead>
                                             <tr>
