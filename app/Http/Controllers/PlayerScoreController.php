@@ -37,6 +37,7 @@ class PlayerScoreController extends Controller
             'locations.name',
         ])
             ->leftJoin('locations', 'locations.id', '=', 'event_locations.location_id')
+            ->where('event_locations.is_active', 1)
             ->orderBy('locations.id', 'desc')
             ->get();
 
