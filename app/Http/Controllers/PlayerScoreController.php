@@ -37,7 +37,7 @@ class PlayerScoreController extends Controller
             'locations.name',
         ])
             ->leftJoin('locations', 'locations.id', '=', 'event_locations.location_id')
-            ->orderBy('locations.name', 'asc')
+            ->orderBy('locations.id', 'desc')
             ->get();
 
         $players = Player::orderBy('name', 'asc')->get();
