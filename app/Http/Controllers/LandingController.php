@@ -72,7 +72,8 @@ class LandingController extends Controller
             'n'          => $n,
             'players'    => $players,
         ];
-        return view('pages.home.main', $data);
+        // return view('pages.home.main', $data);
+        return view('standings_coming_soon');
     }
 
     public function player_event_history($player_id)
@@ -135,8 +136,8 @@ class LandingController extends Controller
 
     public function pairing()
     {
-        // return view('pairing_gobar_3');
-        return view('pairing_coming_soon');
+        return view('pairing_gobar_3');
+        // return view('pairing_coming_soon');
     }
 
     public function undian()
