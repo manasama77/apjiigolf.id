@@ -137,7 +137,9 @@
             method: 'get',
             dataType: 'json',
             beforeSend: function() {
-                $('#v_winner').block()
+                $('#v_winner').block({
+                    message: '<h1 class="text-pga">Loading...</h1>',
+                })
                 $('#v_winner').html('')
             }
         }).fail(e => {
@@ -176,7 +178,9 @@
             dataType: 'json',
             beforeSend: function() {
                 dataPeserta = []
-                $('#kocokan-wrapper').block()
+                $('#kocokan-wrapper').block({
+                    message: '<h1 class="text-pga">Loading...</h1>',
+                })
             }
         }).fail(e => {
             console.log(e.responseText)
