@@ -95,6 +95,7 @@ class LandingController extends Controller
             ->leftJoin('locations', 'locations.id', '=', 'event_locations.location_id')
             ->leftJoin('player_histories', 'player_histories.event_location_id', '=', 'event_locations.id')
             ->where('player_histories.player_id', $player_id)
+            ->orderBy('event_locations.start_date', 'desc')
             ->get();
 
         // dd($players);
