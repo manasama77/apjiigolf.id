@@ -114,6 +114,7 @@ class PlayerManagementController extends Controller
     public function destroy(string $id)
     {
         $exec = Player::findOrFail($id);
+        $exec->player_histories()->delete();
         $exec->delete();
 
         return redirect()->route('admin.player_management')->with('success', 'Destroy Success');

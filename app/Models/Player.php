@@ -19,4 +19,9 @@ class Player extends Model
         'net',
         'seq',
     ];
+
+    public function player_histories()
+    {
+        return $this->hasMany(PlayerHistory::class);
+    }
 }

@@ -72,8 +72,8 @@ class LandingController extends Controller
             'n'          => $n,
             'players'    => $players,
         ];
-        // return view('pages.home.main', $data);
-        return view('standings_coming_soon');
+        return view('pages.home.main', $data);
+        // return view('standings_coming_soon');
     }
 
     public function player_event_history($player_id)
