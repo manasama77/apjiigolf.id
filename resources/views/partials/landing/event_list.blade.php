@@ -7,6 +7,16 @@
                 <div class="row my-3">
                     <div class="col-sm-12 col-md-4 mt-3">
                         <div class="card shadow">
+                            <img src="{{ asset('events/GOBAR-3-parahyangan-golf-thumbnail.jpg') }}" class="card-img-top"
+                                alt="GOBAR @ Parahyangan Golf">
+                            <div class="card-body">
+                                <h5 class="card-title">GOBAR @ Parahyangan Golf</h5>
+                                <a href="{{ route('gobar_3_1') }}" class="btn btn-primary">View Highlight</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-3">
+                        <div class="card shadow">
                             <img src="{{ asset('events/GOBAR-2-klub-bogor-raya-thumbnail.jpg') }}" class="card-img-top"
                                 alt="GOBAR @ Klub Bogor Raya">
                             <div class="card-body">

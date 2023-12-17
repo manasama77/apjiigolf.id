@@ -518,6 +518,33 @@ class LandingController extends Controller
         //
     }
 
+    public function gobar_3_3()
+    {
+        $page_title = "Gobar @ Parahyangan Golf";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_3_3', $data);
+    }
+
+    public function gobar_3_2()
+    {
+        $page_title = "Gobar @ Parahyangan Golf";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_3_2', $data);
+    }
+
+    public function gobar_3_1()
+    {
+        $page_title = "Gobar @ Parahyangan Golf";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_3_1', $data);
+    }
+
     public function gobar_2()
     {
         $page_title = "Gobar @ Klub Bogor Raya";
