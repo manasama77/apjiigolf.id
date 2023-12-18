@@ -31,11 +31,12 @@
                                         </a>
                                     </li>
                                     <li class="page-item"><a class="page-link" href="{{ route('gobar_3_1') }}">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_2') }}">2</a>
-                                    </li>
+                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_2') }}">2</a></li>
                                     <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" aria-label="Next">
+                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_4') }}">4</a>
+                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_5') }}">5</a>
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ route('gobar_3_4') }}" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>

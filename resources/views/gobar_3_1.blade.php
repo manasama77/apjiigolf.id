@@ -33,6 +33,8 @@
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="{{ route('gobar_3_2') }}">2</a></li>
                                     <li class="page-item"><a class="page-link" href="{{ route('gobar_3_3') }}">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_4') }}">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="{{ route('gobar_3_5') }}">5</a></li>
                                     <li class="page-item">
                                         <a class="page-link" href="{{ route('gobar_3_2') }}" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>

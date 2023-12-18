@@ -518,6 +518,24 @@ class LandingController extends Controller
         //
     }
 
+    public function gobar_3_5()
+    {
+        $page_title = "Gobar @ Parahyangan Golf";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_3_5', $data);
+    }
+
+    public function gobar_3_4()
+    {
+        $page_title = "Gobar @ Parahyangan Golf";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_3_4', $data);
+    }
+
     public function gobar_3_3()
     {
         $page_title = "Gobar @ Parahyangan Golf";

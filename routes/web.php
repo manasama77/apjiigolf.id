@@ -30,6 +30,8 @@ Route::get('/check', [LandingController::class, 'register_check'])->name('regist
 Route::get('/status', [LandingController::class, 'register_status'])->name('register_status');
 Route::get('/error', [LandingController::class, 'register_error'])->name('register_error');
 
+Route::get('/gobar-3-5', [LandingController::class, 'gobar_3_5'])->name('gobar_3_5');
+Route::get('/gobar-3-4', [LandingController::class, 'gobar_3_4'])->name('gobar_3_4');
 Route::get('/gobar-3-3', [LandingController::class, 'gobar_3_3'])->name('gobar_3_3');
 Route::get('/gobar-3-2', [LandingController::class, 'gobar_3_2'])->name('gobar_3_2');
 Route::get('/gobar-3-1', [LandingController::class, 'gobar_3_1'])->name('gobar_3_1');
