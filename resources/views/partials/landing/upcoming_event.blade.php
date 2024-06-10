@@ -8,7 +8,7 @@
                     <div class="col-sm-12 col-md-8 offset-md-2">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <h1 class="card-title">{{ $location_name }}</h1>
+                                <h1 class="card-title">{{ $event_name }}</h1>
                                 <div class="table-responsive d-block d-md-none">
                                     <table class="table table-bordered table-striped">
                                         <tbody>
@@ -33,22 +33,29 @@
                                             <tr>
                                                 <td>
                                                     <strong>
-                                                        Location Name
+                                                        Locations
                                                     </strong>
                                                     <br />
-                                                    {{ $location_name }}
+                                                    <a href="{{ $google_maps_url }}" target="_blank">
+                                                        {{ $location_name }}<br />
+                                                        {{ $location_address }}
+                                                    </a>
                                                 </td>
                                             </tr>
-
                                             <tr>
                                                 <td>
                                                     <strong>
-                                                        Location Address
+                                                        Registration Fee
                                                     </strong>
                                                     <br />
-                                                    {{ $location_address }}
+                                                    IDR {{ $ticket_price_idr }}<br />
+                                                    Included:<br />
+                                                    - Lunch & Dinner<br />
+                                                    - VIP Room<br />
+                                                    - BGO & BGP
                                                 </td>
-                                            </tr </tbody>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </div>
 
@@ -66,39 +73,52 @@
                                                 <td class="text-start">{{ $event_time }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Location Name</td>
+                                                <td>Location</td>
                                                 <td>:</td>
-                                                <td class="text-start">{{ $location_name }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Location Address</td>
-                                                <td>:</td>
-                                                <td class="text-start">{{ $location_address }}</td>
+                                                <td class="text-start">
+                                                    <a href="{{ $google_maps_url }}">
+                                                        {{ $location_name }}<br />
+                                                        {{ $location_address }}
+                                                    </a>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Registration Fee</td>
                                                 <td>:</td>
                                                 <td class="text-start">
-                                                    IDR {{ $ticket_price_idr }}<span class="text-danger">*</span>
+                                                    {{-- IDR {{ $ticket_price_idr }}<span class="text-danger">*</span> --}}
+                                                    IDR {{ $ticket_price_idr }}
                                                     <br />
                                                     Included:<br />
                                                     <ul>
-                                                        <li>Green Fee</li>
-                                                        <li>Whoosh Ticket</li>
-                                                        <li>Snack & Lunch</li>
-                                                        <li>Photographer</li>
+                                                        <li>Lunch & Dinner</li>
+                                                        <li>VIP Room</li>
+                                                        <li>BGO & BGP</li>
                                                     </ul>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td>Payment Info</td>
+                                                <td>:</td>
+                                                <td class="text-start">
+                                                    2721450734 <button type="button" class="btn btn-secondary btn-sm"
+                                                        style="font-size: 10px;"
+                                                        onclick="copyToClipboard('2721450734')">
+                                                        <i class="fas fa-copy"></i> Copy
+                                                    </button> <br />
+                                                    BCA<br />
+                                                    a/n ILHAMI EFENDI Z
+                                                </td>
+                                            </tr>
                                         </tbody>
-                                        <tfoot>
+                                        {{-- <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-end">
                                                     <small><i><span class="text-danger">*</span> Exclude Admin
                                                             Fee</i></small>
                                                 </td>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> --}}
                                     </table>
                                 </div>
                             </div>
@@ -106,20 +126,23 @@
                     </div>
                 </div>
 
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15844.401231717722!2d107.441469!3d-6.8785849!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68fb0e7a9aea43%3A0xe9d37c463356b1d0!2sParahyangan%20Golf!5e0!3m2!1sen!2sid!4v1701974290784!5m2!1sen!2sid"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
+                <iframe src="{{ $google_maps_embed }}" width="100%" height="450" style="border:0;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                     class="rounded border border-4 border-white shadow"></iframe>
 
-                <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
+                {{-- <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
                     target="_blank">Register
-                    Closed</a>
+                    Closed</a> --}}
+                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/6281316426789" target="_blank"
+                    style="letter-spacing: 4px;">
+                    Need Help?<br />
+                    Contact Us <i class="fab fa-whatsapp fa-fw"></i>
+                </a>
                 <br />
-                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                {{-- <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     Pairing
                     Table
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>

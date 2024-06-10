@@ -48,7 +48,7 @@
     @include('partials.landing.event_list')
 
     <!-- Upcoming event-->
-    {{-- @include('partials.landing.upcoming_event') --}}
+    @include('partials.landing.upcoming_event')
 
 
     <!-- Registration -->
@@ -58,7 +58,7 @@
     <!-- Footer-->
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
-            <div class="small text-center text-muted">Copyright &copy; 2023 - Persatuan Golf APJII (PGA)</div>
+            <div class="small text-center text-muted">Copyright &copy; 2024 - Persatuan Golf APJII (PGA)</div>
         </div>
     </footer>
 
@@ -195,6 +195,18 @@
                     $('#submitButton').prop('disabled', false)
                 }
             })
+        }
+
+        function copyToClipboard(rekening) {
+            navigator.clipboard.writeText(rekening)
+            Swal.fire({
+                icon: "success",
+                title: "Copied to clipboard",
+                toast: true,
+                timer: 2000,
+                position: 'bottom-end',
+                showConfirmButton: false,
+            });
         }
     </script>
 </body>

@@ -59,7 +59,7 @@
                     <div class="card-footer">
                         <h6 class="text-end">
                             <a href="#" ondblclick="redirectAdmin()" class="text-decoration-none">
-                                Copyright ©️ PGA 2023
+                                Copyright ©️ PGA 2024
                             </a>
                         </h6>
                     </div>

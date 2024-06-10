@@ -1,110 +1,202 @@
-<section class="page-section bg-dark" id="registration">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-lg-8 col-xl-6 text-center">
-                <h2 class="mt-0 text-white">Register Here!</h2>
-                <hr class="divider" />
-                <p class="text-muted mb-5">Experience the excitement of golf with PGA friends.</p>
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li class="text-left fw-bold">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="PGA" />
+    <meta name="author" content="@adampm from JLM" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <title>{{ config('app.name') }} - GOBAR Registration</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
+    <!-- Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+
+    @vite(['resources/css/register.css', 'resources/js/register.js'])
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    @include('partials.landing.navbar')
+
+    <!-- Hero Section -->
+    @include('partials.landing.hero')
+
+    <!-- About Section-->
+    @include('partials.landing.about')
+
+    <!-- Event Info-->
+    @include('partials.landing.event_list')
+
+    <!-- Upcoming event-->
+    {{-- @include('partials.landing.upcoming_event') --}}
+
+
+    <!-- Registration -->
+    @include('partials.landing.form_registration')
+    {{-- @include('partials.landing.form_registration_plan_b') --}}
+
+    <!-- Footer-->
+    <footer class="bg-light py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="small text-center text-muted">Copyright &copy; 2024 - Persatuan Golf APJII (PGA)</div>
         </div>
-        <div class="row gx-4 gx-lg-5 justify-content-center mb-3">
-            <div class="col-lg-6">
-                <form id="registration_form" action="{{ route('register_store') }}" method="post">
-                    @csrf
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="full_name" name="full_name" type="text"
-                            placeholder="Enter your full name..." autocomplete="name" value="{{ old('full_name') }}"
-                            required />
-                        <label for="full_name">Full name</label>
-                    </div>
+    </footer>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-control" id="gender" name="gender" required>
-                            <option @selected(old('gender') == 'male') value="male">Male</option>
-                            <option @selected(old('gender') == 'female') value="female">Female</option>
-                        </select>
-                        <label for="gender">Gender</label>
-                    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SimpleLightbox plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="email" name="email" type="email"
-                            placeholder="name@example.com" value="{{ old('email') }}" required />
-                        <label for="email">Email address</label>
-                    </div>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="whatsapp_number" name="whatsapp_number" type="tel"
-                            placeholder="08XXXXXXXXX" value="{{ old('whatsapp_number') }}" required />
-                        <label for="whatsapp_number">Phone number</label>
-                    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                    <div class="form-floating mb-3">
-                        <input class="form-control" id="company_name" name="company_name" type="text"
-                            placeholder="Enter your company name" value="{{ old('company_name') }}" required />
-                        <label for="company_name">Company Name</label>
-                    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-control" id="position" name="position" required>
-                            <option value=""></option>
-                            <option @selected(old('position') == 'Commissioner') value="Commissioner">Commissioner</option>
-                            <option @selected(old('position') == 'C Level') value="C Level">C Level</option>
-                            <option @selected(old('position') == 'Vice President') value="Vice President">Vice President</option>
-                            <option @selected(old('position') == 'General Manager') value="General Manager">General Manager</option>
-                            <option @selected(old('position') == 'Manager - Senior Manager') value="Manager - Senior Manager">Manager - Senior
-                                Manager
-                            </option>
-                            <option @selected(old('position') == 'Staff - Supervisor') value="Staff - Supervisor">Staff - Supervisor</option>
-                        </select>
-                        <label for="position">Position</label>
-                    </div>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-                    <div class="form-floating mb-3">
-                        <select class="form-control" id="institution" name="institution" required>
-                            <option value=""></option>
-                            <option @selected(old('institution') == 'APJII Member (ISP)') value="APJII Member (ISP)">
-                                APJII Member (ISP)
-                            </option>
-                            <option @selected(old('institution') == 'Regulator') value="Regulator">Regulator</option>
-                            <option @selected(old('institution') == 'Operator Data Center') value="Operator Data Center">
-                                Operator Data Center
-                            </option>
-                            <option @selected(old('institution') == 'Etc') value="Etc">Etc</option>
-                        </select>
-                        <label for="institution">Institution</label>
-                    </div>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-                    <div id="group_institution_etc"
-                        class="form-floating mb-3 @php(old('institution') == 'Etc') ? 'd-block' : 'd-none' @endphp ">
-                        <input class="form-control" id="institution_etc" name="institution_etc" type="text"
-                            placeholder="Institution Name" value="{{ old('institution_etc') }}"
-                            @php(old('institution') == 'Etc') ? 'required' : '' @endphp />
-                        <label for="institution_etc">Institution Name</label>
-                    </div>
+        $(document).ready(() => {
+            $('#institution').on('change', e => {
+                console.log($('#institution').val())
 
-                    <div class="d-grid">
-                        <button class="btn btn-primary btn-xl my-3" id="submitButton" type="submit">Submit</button>
-                        <a href="{{ route('register_check') }}" class="btn btn-secondary btn-xl my-3">Already pay?
-                            Check
-                            your
-                            payment status</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="text-center">
-            <a class="btn btn-warning btn-xl shadow-sm" href="https://wa.me/628569016901" target="_blank">
-                <i class="fab fa-whatsapp fa-fw"></i> Have a Question?
-            </a>
-        </div>
-    </div>
-</section>
+                if ($('#institution').val() == "Etc") {
+                    $('#group_institution_etc').removeClass('d-none')
+                    $('#institution_etc').prop('required', true)
+                } else {
+                    $('#group_institution_etc').addClass('d-none')
+                    $('#institution_etc').prop('required', false)
+                }
+            })
+
+            // $('#registration_form').on('submit', e => {
+            //     e.preventDefault()
+            //     registerApi()
+            // })
+
+            $('.grid').isotope({
+                // options
+                itemSelector: '.grid-item',
+                layoutMode: 'fitRows'
+            });
+
+            // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
+        })
+
+        function registerApi() {
+            $.ajax({
+                url: `{{ route('register_store') }}`,
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    full_name: $('#full_name').val(),
+                    gender: $('#gender').val(),
+                    email: $('#email').val(),
+                    whatsapp_number: $('#whatsapp_number').val(),
+                    company_name: $('#company_name').val(),
+                    position: $('#position').val(),
+                    institution: $('#institution').val(),
+                    institution_etc: $('#institution_etc').val(),
+                },
+                beforeSend: () => {
+                    $('#submitButton').prop('disabled', true)
+                }
+            }).fail(e => {
+                console.log(e)
+                Swal.fire({
+                    title: "Something wrong",
+                    text: e.responseJSON.message,
+                    icon: "warning"
+                }).then(() => {
+                    $('#submitButton').prop('disabled', false)
+                });
+            }).done(e => {
+                console.log(e)
+                if (e.success) {
+                    // console.log(e.snap_token)
+                    snap.pay(e.snap_token, {
+                        onSuccess: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "success",
+                                title: "Payment Success",
+                                toast: true,
+                                timer: 3000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
+                                window.location.href =
+                                    `{{ url(config('app.url')) }}/success?order_id=${e.data.order_id}`
+                            });
+                        },
+                        onPending: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "warning",
+                                title: "Waiting Payment",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
+                                $('#submitButton').prop('disabled', false)
+                            });
+                        },
+                        onError: function(result) {
+                            console.log(result);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Payment Failed",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
+                                $('#submitButton').prop('disabled', false)
+                            });
+                        },
+                        onClose: function() {
+                            $('#submitButton').prop('disabled', false)
+                        }
+                    });
+
+                } else {
+                    $('#submitButton').prop('disabled', false)
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
