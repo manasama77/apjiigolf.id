@@ -52,7 +52,7 @@
                                                     Included:<br />
                                                     - Lunch & Dinner<br />
                                                     - VIP Room<br />
-                                                    - BGO & BGP
+                                                    {{-- - BGO & BGP --}}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -93,7 +93,7 @@
                                                     <ul>
                                                         <li>Lunch & Dinner</li>
                                                         <li>VIP Room</li>
-                                                        <li>BGO & BGP</li>
+                                                        {{-- <li>BGO & BGP</li> --}}
                                                     </ul>
                                                 </td>
                                             </tr>
