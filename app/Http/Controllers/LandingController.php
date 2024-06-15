@@ -182,17 +182,25 @@ class LandingController extends Controller
 
     public function undian_store(Request $request)
     {
-        $id = $request->id;
+        try {
+            $id = $request->id;
 
-        if ($id) {
-            $exec = Undian::find($id);
-            $exec->winner = 1;
-            $exec->save();
+            if ($id) {
+                $exec = Undian::find($id);
+                $exec->winner = 1;
+                $exec->save();
+            }
+
+            return response()->json([
+                'data' => $exec,
+                'message' => 'Success Update Data',
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'data' => null,
+                'message' => $e->getMessage(),
+            ], 500);
         }
-
-        return response()->json([
-            'data' => $exec,
-        ]);
     }
 
     public function register()

@@ -79,6 +79,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"
     integrity="sha512-eYSzo+20ajZMRsjxB6L7eyqo5kuXuS2+wEbbOkpaur+sA2shQameiJiWEzCIDwJqaB0a4a6tCuEvCOBHUg3Skg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     let countWinner = 0;
     let dataPeserta = [];
@@ -127,8 +128,11 @@
 
     $('#btn_simpan').on('click', () => {
         simpan()
-        bisaNgocok = true
-        toggleButtonKocok()
+        // await simpan().then(() => {
+        // $('#btn_simpan').attr('disabled', true)
+        // bisaNgocok = true
+        // toggleButtonKocok()
+        // })
     })
 
     function getWinner() {
@@ -262,7 +266,19 @@
         return dataPeserta[0];
     }
 
-    function simpan() {
+    async function simpan() {
+        // how to check if internet connection is offline using javascript
+        if (!navigator.onLine) {
+            console.log("You are offline.");
+
+            // return Swal.fire info offline, please try again
+            return Swal.fire({
+                title: "Offline",
+                text: "Please check your internet connection. Try again.",
+                icon: "warning"
+            });
+        }
+
         $.ajax({
             url: `{{ route('undian.store') }}`,
             method: 'post',
@@ -271,13 +287,32 @@
                 id: dataPeserta[0]['id']
             },
             beforeSend: function() {
-                dataPeserta = []
+                $('#btn_simpan').attr('disabled', true)
             }
         }).always(() => {
             $('#btn_simpan').attr('disabled', true)
-        }).fail(e => {
-            console.log(e.responseText)
+        }).fail((e, m) => {
+            $('#btn_simpan').attr('disabled', false)
+            console.log("error", e.responseText)
+            console.log("m", m)
+            // sweet alert 2 show error
+
+            if (e.status === 0) {
+                return Swal.fire({
+                    title: "Error",
+                    text: "Please check your internet connection. Try again.",
+                    icon: "error"
+                });
+            }
+
+            return Swal.fire({
+                title: "Error",
+                text: e.responseJSON.message,
+                icon: "error"
+            });
         }).done(e => {
+            bisaNgocok = true
+            toggleButtonKocok()
             getWinner()
             getPeserta()
         })
