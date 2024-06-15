@@ -131,27 +131,26 @@
                                                     -
                                                 </td>
                                                 <td>Victor Irianto</td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>John Sihar Simanjuntak
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Suke Akbar
-
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Eko Budhi
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -176,10 +175,10 @@
                                                 </th>
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -191,28 +190,28 @@
                                                 <td>Agus Arianto
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Roni Baskoro
+                                                {{-- <td>Roni Baskoro --}}
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Ilham Efendi
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Thai Thanh Long
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -237,10 +236,10 @@
                                                 </th>
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -251,26 +250,26 @@
                                                 </td>
                                                 <td>Yudie Haryanto
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Rizki T
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Jimmy Kadir
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Dani Samsul
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -299,10 +298,10 @@
                                                 </th>
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -314,25 +313,25 @@
                                                 <td>Michael Alifen
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Parlin Parlindungan
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Huianto
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td> Joni</td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -357,10 +356,10 @@
                                                 </th>
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -371,24 +370,24 @@
                                                 </td>
                                                 <td>Hery
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>
                                                     Imam
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Hendrik </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Januar</td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -413,10 +412,10 @@
                                                 </th>
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -425,30 +424,30 @@
                                                 <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
                                                 </td>
-                                                <td>⁠Michael T
+                                                <td>Michael T
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>⁠Menkar
+                                                <td>Menkar
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>⁠Glenn
+                                                <td>Glenn
 
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Yanuar
                                                 </td>
-                                                <td>Male</td>
+                                                {{-- <td>Male</td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -576,7 +575,7 @@
                     <img src="{{ asset('PGA_2023_white.png') }}" style="width: 40px" alt="Logo PGA" />
                 </a>
                 <span class="mb-md-0 mb-3 text-white fw-bold">
-                    © Copyright 2023. Persatuan Golf APJII.
+                    © Copyright 2024. Persatuan Golf APJII.
                 </span>
             </div>
 
