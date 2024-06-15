@@ -22,7 +22,7 @@
                                             TOTAL PLAY
 
                                             {{-- @if ($tp == 'desc')
-                                                <a href="{{ route('home') }}?tp=asc&g={{ $g }}&h={{ $h }}&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp=asc&g={{ $g }}&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     <i class="fa-solid fa-caret-up"></i>
                                                     TOTAL PLAY
@@ -30,7 +30,7 @@
                                             @endif
 
                                             @if ($tp == 'asc')
-                                                <a href="{{ route('home') }}?tp=desc&g={{ $g }}&h={{ $h }}&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp=desc&g={{ $g }}&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     TOTAL PLAY
                                                     <i class="fa-solid fa-caret-down"></i>
@@ -40,26 +40,26 @@
                                         <th class="text-center col-2" scope="col" style="min-width: 110px;">
                                             @if ($g)
                                                 @if ($g == 'desc')
-                                                    <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?g=asc" class="text-white ms-2">
                                                         GROSS
                                                         <i class="fa-solid fa-caret-up"></i>
                                                     </a>
                                                 @endif
 
                                                 @if ($g == 'asc')
-                                                    <a href="{{ route('home') }}?g=desc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?g=desc" class="text-white ms-2">
                                                         GROSS
                                                         <i class="fa-solid fa-caret-down"></i>
                                                     </a>
                                                 @endif
                                             @else
-                                                <a href="{{ route('home') }}?g=asc" class="text-white ms-2">
+                                                <a href="{{ route('standings') }}?g=asc" class="text-white ms-2">
                                                     GROSS
                                                 </a>
                                             @endif
 
                                             {{-- @if ($g == 'desc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g=asc&h={{ $h }}&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g=asc&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     GROSS
                                                     <i class="fa-solid fa-caret-up"></i>
@@ -67,7 +67,7 @@
                                             @endif
 
                                             @if ($g == 'asc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g=desc&h={{ $h }}&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g=desc&h={{ $h }}&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     GROSS
                                                     <i class="fa-solid fa-caret-down"></i>
@@ -77,25 +77,25 @@
                                         <th class="text-center col-2" scope="col" style="min-width: 110px;">
                                             @if ($h)
                                                 @if ($h == 'desc')
-                                                    <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?h=asc" class="text-white ms-2">
                                                         HANDICAP
                                                         <i class="fa-solid fa-caret-up"></i>
                                                     </a>
                                                 @endif
 
                                                 @if ($h == 'asc')
-                                                    <a href="{{ route('home') }}?h=desc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?h=desc" class="text-white ms-2">
                                                         HANDICAP
                                                         <i class="fa-solid fa-caret-down"></i>
                                                     </a>
                                                 @endif
                                             @else
-                                                <a href="{{ route('home') }}?h=asc" class="text-white ms-2">
+                                                <a href="{{ route('standings') }}?h=asc" class="text-white ms-2">
                                                     HANDICAP
                                                 </a>
                                             @endif
                                             {{-- @if ($h == 'desc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h=asc&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g={{ $g }}&h=asc&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     HANDICAP
                                                     <i class="fa-solid fa-caret-up"></i>
@@ -103,7 +103,7 @@
                                             @endif
 
                                             @if ($h == 'asc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h=desc&n={{ $n }}"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g={{ $g }}&h=desc&n={{ $n }}"
                                                     class="text-white ms-2">
                                                     HANDICAP
                                                     <i class="fa-solid fa-caret-down"></i>
@@ -113,25 +113,25 @@
                                         <th class="text-center col-2" scope="col" style="min-width: 100px;">
                                             @if ($n)
                                                 @if ($n == 'desc')
-                                                    <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?n=asc" class="text-white ms-2">
                                                         NET
                                                         <i class="fa-solid fa-caret-up"></i>
                                                     </a>
                                                 @endif
 
                                                 @if ($n == 'asc')
-                                                    <a href="{{ route('home') }}?n=desc" class="text-white ms-2">
+                                                    <a href="{{ route('standings') }}?n=desc" class="text-white ms-2">
                                                         NET
                                                         <i class="fa-solid fa-caret-down"></i>
                                                     </a>
                                                 @endif
                                             @else
-                                                <a href="{{ route('home') }}?n=asc" class="text-white ms-2">
+                                                <a href="{{ route('standings') }}?n=asc" class="text-white ms-2">
                                                     NET
                                                 </a>
                                             @endif
                                             {{-- @if ($n == 'desc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h={{ $h }}&n=asc"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g={{ $g }}&h={{ $h }}&n=asc"
                                                     class="text-white ms-2">
                                                     NET
                                                     <i class="fa-solid fa-caret-up"></i>
@@ -139,7 +139,7 @@
                                             @endif
 
                                             @if ($n == 'asc')
-                                                <a href="{{ route('home') }}?tp={{ $tp }}&g={{ $g }}&h={{ $h }}&n=desc"
+                                                <a href="{{ route('standings') }}?tp={{ $tp }}&g={{ $g }}&h={{ $h }}&n=desc"
                                                     class="text-white ms-2">
                                                     NET
                                                     <i class="fa-solid fa-caret-down"></i>
