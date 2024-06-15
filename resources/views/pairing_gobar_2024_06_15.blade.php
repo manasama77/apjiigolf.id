@@ -118,10 +118,10 @@
                                                 </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
-                                                <th
+                                                {{-- <th
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Gender
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
