@@ -83,8 +83,8 @@
                                         <div class="mb-3">
                                             <label for="handicap">Handicap </label>
                                             <input type="number" class="form-control" id="handicap" name="handicap"
-                                                min="1" max="28"
-                                                value="{{ old('handicap') ?? $lists->handicap }}" required />
+                                                min="1" value="{{ old('handicap') ?? $lists->handicap }}"
+                                                required />
                                         </div>
                                         <div class="mb-3">
                                             <label for="net">Net </label>
