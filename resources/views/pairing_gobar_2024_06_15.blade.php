@@ -194,7 +194,7 @@
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                {{-- <td>Roni Baskoro --}}
+                                                <td>Roni Baskoro
 
                                                 </td>
                                                 {{-- <td>Male</td> --}}
