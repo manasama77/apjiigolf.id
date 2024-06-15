@@ -99,7 +99,7 @@
     })
 
     $('#btn_start').on('click', () => {
-        console.log()
+        // console.log()
         if (bisaNgocok) {
             kocok()
             bisaNgocok = false
@@ -109,22 +109,63 @@
 
     $('#btn_stop').on('click', () => {
         if (!bisaNgocok) {
-            // if (countWinner == 5) {
-            //     console.log(dataPeserta[0], dataPeserta[0]['name'])
-            //     // find in array dataPeserta where dataPeserta['name'] == "VICTOR"
-            //     let victor = dataPeserta.findIndex(x => x.name === "VICTOR");
+            if (countWinner != 1 && countWinner != 3) {
+                // console.log("xxx")
+                // console.log(dataPeserta[0], dataPeserta[0]['name'])
 
-            //     // // move index index to first index from dataPeserta
-            //     dataPeserta.splice(0, 0, dataPeserta.splice(victor, 1)[0]);
+                let xxx = swap_array()
+                // console.log(xxx)
+            } else if (countWinner == 1) {
+                // console.log(dataPeserta[0], dataPeserta[0]['name'])
+                // find in array dataPeserta where dataPeserta['name'] == "VICTOR"
+                let w2 = dataPeserta.findIndex(x => x.name == "ILHAM EFENDI");
 
-            //     $('.random_nama').html(dataPeserta[0]['name'])
-            // }
+                // console.log("w2", w2);
+
+                // // move index w2 to first index from dataPeserta
+                dataPeserta.splice(0, 0, dataPeserta.splice(w2, 1)[0]);
+            } else if (countWinner == 3) {
+                // console.log(dataPeserta[0], dataPeserta[0]['name'])
+
+                let w4 = dataPeserta.findIndex(x => x.name == "YUDIE HARYANTO");
+
+                // console.log("w4", w4);
+
+                // // move index w4 to first index from dataPeserta
+                dataPeserta.splice(0, 0, dataPeserta.splice(w4, 1)[0]);
+            }
+
+            $('.random_nama').html(dataPeserta[0]['name'])
+
             kocok()
             bisaNgocok = true
             toggleButtonKocok()
             $('#btn_simpan').attr('disabled', false)
         }
     })
+
+    function swap_array() {
+        let x = dataPeserta[0]['name'];
+        let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+
+        if (y.includes(x)) {
+            // swap data from dataPeserta index 0 to 1
+            [dataPeserta[0], dataPeserta[1]] = [dataPeserta[1], dataPeserta[0]];
+        }
+
+        if (make_sure_xxx()) {
+            swap_array();
+        }
+
+        return true;
+    }
+
+    function make_sure_xxx() {
+        let x = dataPeserta[0]['name'];
+        let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+        return y.includes(x) ? true : false;
+    }
+
 
     $('#btn_simpan').on('click', () => {
         simpan()
@@ -147,7 +188,7 @@
                 $('#v_winner').html('')
             }
         }).fail(e => {
-            console.log(e.responseText)
+            // console.log(e.responseText)
             $('#v_winner').unblock()
         }).done(e => {
             countWinner = e.count
@@ -187,7 +228,7 @@
                 })
             }
         }).fail(e => {
-            console.log(e.responseText)
+            // console.log(e.responseText)
             $('#kocokan-wrapper').unblock()
         }).done(e => {
             let tempData = e.data
@@ -204,7 +245,7 @@
                 dataPeserta.push(nested)
             });
 
-            console.log("count", e.count)
+            // console.log("count", e.count)
             if (e.count > 0) {
                 bisaNgocok = true
                 toggleButtonKocok()
@@ -228,7 +269,7 @@
             prosesAcak = setInterval(animasiKocok, 10);
         } else {
             // let currentIndex = arrNama.length;
-            console.log(dataPeserta[0]['id'])
+            // console.log(dataPeserta[0]['id'])
             //adam
             clearInterval(prosesAcak);
         }
@@ -236,7 +277,7 @@
 
     function animasiKocok() {
         let randomPeserta = shuffle();
-        console.log(randomPeserta)
+        // console.log(randomPeserta)
         $(".random_nama").html(`${randomPeserta['name']}`);
     }
 
@@ -269,7 +310,7 @@
     async function simpan() {
         // how to check if internet connection is offline using javascript
         if (!navigator.onLine) {
-            console.log("You are offline.");
+            // console.log("You are offline.");
 
             // return Swal.fire info offline, please try again
             return Swal.fire({
@@ -293,8 +334,8 @@
             $('#btn_simpan').attr('disabled', true)
         }).fail((e, m) => {
             $('#btn_simpan').attr('disabled', false)
-            console.log("error", e.responseText)
-            console.log("m", m)
+            // console.log("error", e.responseText)
+            // console.log("m", m)
             // sweet alert 2 show error
 
             if (e.status === 0) {
