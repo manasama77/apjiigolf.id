@@ -112,10 +112,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 <th
@@ -127,9 +127,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Victor Irianto</td>
                                                 {{-- <td>Male</td> --}}
                                             </tr>
@@ -169,10 +169,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 {{-- <th
@@ -184,9 +184,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Agus Arianto
 
                                                 </td>
@@ -230,10 +230,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 {{-- <th
@@ -245,9 +245,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Yudie Haryanto
                                                 </td>
                                                 {{-- <td>Male</td> --}}
@@ -292,10 +292,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 {{-- <th
@@ -307,9 +307,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Michael Alifen
 
                                                 </td>
@@ -350,10 +350,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 {{-- <th
@@ -365,9 +365,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Hery
                                                 </td>
                                                 {{-- <td>Male</td> --}}
@@ -406,10 +406,10 @@
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 1%;">
                                                     No
                                                 </th>
-                                                <th class="text-center"
+                                                {{-- <th class="text-center"
                                                     style="background-color: #305496; color: white; font-weight: 700; width: 15%;">
                                                     Hole
-                                                </th>
+                                                </th> --}}
                                                 <th style="background-color: #305496; color: white; font-weight: 700;">
                                                     Player Name</th>
                                                 {{-- <th
@@ -421,9 +421,9 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td rowspan="4" class="fs-1 text-center align-middle">
+                                                {{-- <td rowspan="4" class="fs-1 text-center align-middle">
                                                     -
-                                                </td>
+                                                </td> --}}
                                                 <td>Michael T
 
                                                 </td>
