@@ -139,10 +139,10 @@
                     Contact Us <i class="fab fa-whatsapp fa-fw"></i>
                 </a>
                 <br />
-                {{-- <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     Pairing
                     Table
-                </a> --}}
+                </a>
             </div>
         </div>
     </div>
