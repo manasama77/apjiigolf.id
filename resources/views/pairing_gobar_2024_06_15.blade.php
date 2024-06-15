@@ -317,7 +317,7 @@
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Parlin Parlindungan
+                                                <td>Parlin Pasaribu
 
                                                 </td>
                                                 {{-- <td>Male</td> --}}
