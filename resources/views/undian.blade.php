@@ -149,8 +149,14 @@
         let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
 
         if (y.includes(x)) {
-            // swap data from dataPeserta index 0 to 1
-            [dataPeserta[0], dataPeserta[1]] = [dataPeserta[1], dataPeserta[0]];
+            // swap data from dataPeserta index 0 to random number equal to dataPeserta.length
+            let randomIndex = Math.floor(Math.random() * dataPeserta.length);
+
+            // console.log("randomIndex", randomIndex)
+
+            [dataPeserta[0], dataPeserta[randomIndex]] = [dataPeserta[randomIndex], dataPeserta[0]];
+
+            // [dataPeserta[0], dataPeserta[1]] = [dataPeserta[1], dataPeserta[0]];
         }
 
         if (make_sure_xxx()) {

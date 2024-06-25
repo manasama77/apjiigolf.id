@@ -678,4 +678,13 @@ class LandingController extends Controller
             'seq'            => $seq,
         ];
     }
+
+    public function gobar_pga_series_1()
+    {
+        $page_title = "GOBAR PGA SERIES @BOGOR RAYA";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_pga_series_1_1', $data);
+    }
 }
