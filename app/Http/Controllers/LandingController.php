@@ -33,18 +33,26 @@ class LandingController extends Controller
     private $google_maps_embed;
     private $ticket_price;
     private $admin_fee;
+    private $no_rekening;
+    private $bank_rekening;
+    private $nama_rekening;
+    private $wa_pic;
 
     public function __construct()
     {
-        $this->event_name       = 'GOBAR PGA SERIES @BOGOR RAYA';
-        $this->event_date       = Carbon::parse('2024-06-15');
-        $this->event_time       = '12:30 till end';
-        $this->location_name    = 'BOGOR RAYA';
-        $this->location_address = 'Perumahan Klub Golf, Jl. Golf Estate Bogor Raya, Sukaraja, Kec. Sukaraja, Kabupaten Bogor, Jawa Barat 16710';
-        $this->google_maps_url  = "https://maps.app.goo.gl/vVS7Sfp5qCqJiGg46";
-        $this->google_maps_embed = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15853.556339876754!2d106.8362214!3d-6.5984723!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c66bf0d0549b%3A0xacf4c6f2da35672f!2sKlub%20Golf%20Bogor%20Raya!5e0!3m2!1sen!2sid!4v1718002133378!5m2!1sen!2sid";
-        $this->ticket_price     = 1500000;
-        $this->admin_fee        = 5000;
+        $this->event_name        = 'GOBAR PGA - PIALA BERGILIR PGA @EMERALDA GOLF CLUB';
+        $this->event_date        = Carbon::parse('2024-07-06');
+        $this->event_time        = '12:00 till end';
+        $this->location_name     = 'EMERALDA GOLF CLUB';
+        $this->location_address  = 'Jl. Cimanggis Boulevard, Kec. Tapos, Kota Depok, Jawa Barat 16953';
+        $this->google_maps_url   = "https://maps.app.goo.gl/CsG7NbxKY24B2rJP6";
+        $this->google_maps_embed = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15859.33615938339!2d106.8854318!3d-6.4153652!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994cca26f58d9%3A0xb19d210f8340ca22!2sEmeralda%20Golf%20Club!5e0!3m2!1sen!2sid!4v1719816167624!5m2!1sen!2sid";
+        $this->ticket_price      = 1_750_000;
+        $this->admin_fee         = 5_000;
+        $this->no_rekening       = "2721450734";
+        $this->bank_rekening     = "BCA";
+        $this->nama_rekening     = "Ilham Efendi Z";
+        $this->wa_pic            = '6281316426789';
     }
 
     public function index(Request $request)
@@ -218,6 +226,11 @@ class LandingController extends Controller
         $admin_fee_idr     = number_format($admin_fee, 0);
         $total_price       = $ticket_price + $admin_fee;
         $total_price_idr   = number_format($total_price, 0);
+        $no_rekening       = $this->no_rekening;
+        $bank_rekening     = $this->bank_rekening;
+        $nama_rekening     = $this->nama_rekening;
+        $wa_pic            = $this->wa_pic;
+
 
         $data = [
             'event_name'        => $event_name,
@@ -230,6 +243,10 @@ class LandingController extends Controller
             'ticket_price_idr'  => $ticket_price_idr,
             'admin_fee_idr'     => $admin_fee_idr,
             'total_price_idr'   => $total_price_idr,
+            'no_rekening'       => $no_rekening,
+            'bank_rekening'     => $bank_rekening,
+            'nama_rekening'     => $nama_rekening,
+            'wa_pic'            => $wa_pic,
         ];
 
         return view('register', $data);

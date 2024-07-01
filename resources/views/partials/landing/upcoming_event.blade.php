@@ -49,10 +49,13 @@
                                                     </strong>
                                                     <br />
                                                     IDR {{ $ticket_price_idr }}<br />
-                                                    Included:<br />
-                                                    - Lunch & Dinner<br />
-                                                    - VIP Room<br />
-                                                    {{-- - BGO & BGP --}}
+                                                    Included:
+                                                    <ul>
+                                                        <li>Green Fee</li>
+                                                        <li>Lunch & Dinner</li>
+                                                        <li>VIP Room</li>
+                                                        <li>Photographer</li>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -91,9 +94,10 @@
                                                     <br />
                                                     Included:<br />
                                                     <ul>
+                                                        <li>Green Fee</li>
                                                         <li>Lunch & Dinner</li>
                                                         <li>VIP Room</li>
-                                                        {{-- <li>BGO & BGP</li> --}}
+                                                        <li>Photographer</li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -101,13 +105,13 @@
                                                 <td>Payment Info</td>
                                                 <td>:</td>
                                                 <td class="text-start">
-                                                    2721450734 <button type="button" class="btn btn-secondary btn-sm"
-                                                        style="font-size: 10px;"
-                                                        onclick="copyToClipboard('2721450734')">
+                                                    {{ $no_rekening }} <button type="button"
+                                                        class="btn btn-secondary btn-sm" style="font-size: 10px;"
+                                                        onclick="copyToClipboard('{{ $no_rekening }}')">
                                                         <i class="fas fa-copy"></i> Copy
                                                     </button> <br />
-                                                    BCA<br />
-                                                    a/n ILHAMI EFENDI Z
+                                                    {{ $bank_rekening }}<br />
+                                                    a/n {{ $nama_rekening }}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -133,16 +137,16 @@
                 {{-- <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
                     target="_blank">Register
                     Closed</a> --}}
-                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/6281316426789" target="_blank"
+                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/{{ $wa_pic }}" target="_blank"
                     style="letter-spacing: 4px;">
                     Need Help?<br />
                     Contact Us <i class="fab fa-whatsapp fa-fw"></i>
                 </a>
                 <br />
-                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                {{-- <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     Pairing
                     Table
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
