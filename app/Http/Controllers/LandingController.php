@@ -40,18 +40,18 @@ class LandingController extends Controller
 
     public function __construct()
     {
-        $this->event_name        = 'GOBAR PGA - PIALA BERGILIR PGA @EMERALDA GOLF CLUB';
+        $this->event_name        = 'GOBAR PGA - PIALA BERGILIR PGA <br/> PERMATA SENTUL GOLF CLUB';
         $this->event_date        = Carbon::parse('2024-07-06');
         $this->event_time        = '12:00 till end';
-        $this->location_name     = 'EMERALDA GOLF CLUB';
-        $this->location_address  = 'Jl. Cimanggis Boulevard, Kec. Tapos, Kota Depok, Jawa Barat 16953';
-        $this->google_maps_url   = "https://maps.app.goo.gl/CsG7NbxKY24B2rJP6";
-        $this->google_maps_embed = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15859.33615938339!2d106.8854318!3d-6.4153652!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6994cca26f58d9%3A0xb19d210f8340ca22!2sEmeralda%20Golf%20Club!5e0!3m2!1sen!2sid!4v1719816167624!5m2!1sen!2sid";
-        $this->ticket_price      = 1_750_000;
+        $this->location_name     = 'PERMATA SENTUL GOLF CLUB';
+        $this->location_address  = 'Jl. Permata Sentul Raya No.1504, Tangkil, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810';
+        $this->google_maps_url   = "https://maps.app.goo.gl/zu6mPbDwSeGZk5mU6";
+        $this->google_maps_embed = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15855.82235940183!2d106.8707056!3d-6.5272934!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c0dea68cc975%3A0xd0c786a01eacee52!2sPermata%20Sentul%20Golf%20Club!5e0!3m2!1sen!2sid!4v1719848257571!5m2!1sen!2sid";
+        $this->ticket_price      = 1_200_000;
         $this->admin_fee         = 5_000;
-        $this->no_rekening       = "2721450734";
+        $this->no_rekening       = "6630306017";
         $this->bank_rekening     = "BCA";
-        $this->nama_rekening     = "Ilham Efendi Z";
+        $this->nama_rekening     = "Victor Henry Raymond";
         $this->wa_pic            = '6281316426789';
     }
 
