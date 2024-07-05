@@ -137,16 +137,16 @@
                 {{-- <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
                     target="_blank">Register
                     Closed</a> --}}
-                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/{{ $wa_pic }}" target="_blank"
+                {{-- <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/{{ $wa_pic }}" target="_blank"
                     style="letter-spacing: 4px;">
                     Need Help?<br />
                     Contact Us <i class="fab fa-whatsapp fa-fw"></i>
                 </a>
-                <br />
-                {{-- <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                <br /> --}}
+                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     Pairing
                     Table
-                </a> --}}
+                </a>
             </div>
         </div>
     </div>
