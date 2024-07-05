@@ -16,9 +16,14 @@
                         Standings <i class="fa-solid fa-ranking-star ms-1"></i>
                     </a>
                 </li>
-                <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
+                {{-- <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
                         href="https://wa.me/{{ $wa_pic }}" target="_blank">Register
                         Now</a>
+                </li> --}}
+                <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
+                        href="{{ route('pairing') }}" target="_blank">
+                        Pairing Table
+                    </a>
                 </li>
             </ul>
         </div>
