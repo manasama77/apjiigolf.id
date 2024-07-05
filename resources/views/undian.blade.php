@@ -109,31 +109,15 @@
 
     $('#btn_stop').on('click', () => {
         if (!bisaNgocok) {
-            if (countWinner != 1 && countWinner != 3) {
-                // console.log("xxx")
-                // console.log(dataPeserta[0], dataPeserta[0]['name'])
-
-                let xxx = swap_array()
-                // console.log(xxx)
-            } else if (countWinner == 1) {
-                // console.log(dataPeserta[0], dataPeserta[0]['name'])
-                // find in array dataPeserta where dataPeserta['name'] == "VICTOR"
-                let w2 = dataPeserta.findIndex(x => x.name == "ILHAM EFENDI");
-
-                // console.log("w2", w2);
-
-                // // move index w2 to first index from dataPeserta
-                dataPeserta.splice(0, 0, dataPeserta.splice(w2, 1)[0]);
-            } else if (countWinner == 3) {
-                // console.log(dataPeserta[0], dataPeserta[0]['name'])
-
-                let w4 = dataPeserta.findIndex(x => x.name == "YUDIE HARYANTO");
-
-                // console.log("w4", w4);
-
-                // // move index w4 to first index from dataPeserta
-                dataPeserta.splice(0, 0, dataPeserta.splice(w4, 1)[0]);
-            }
+            // if (countWinner != 1 && countWinner != 3) {
+            //     let xxx = swap_array()
+            // } else if (countWinner == 1) {
+            //     let w2 = dataPeserta.findIndex(x => x.name == "ILHAM EFENDI");
+            //     dataPeserta.splice(0, 0, dataPeserta.splice(w2, 1)[0]);
+            // } else if (countWinner == 3) {
+            //     let w4 = dataPeserta.findIndex(x => x.name == "YUDIE HARYANTO");
+            //     dataPeserta.splice(0, 0, dataPeserta.splice(w4, 1)[0]);
+            // }
 
             $('.random_nama').html(dataPeserta[0]['name'])
 
