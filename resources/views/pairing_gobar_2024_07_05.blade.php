@@ -95,7 +95,7 @@
             <div class="col-sm-12">
                 <div class="card border-dark shadow">
                     <div class="card-header bg-dark bg-gradient fw-bold text-center text-white">
-                        <h5 style="font-weight: 600;" class="text-center">List Pairing 5 July 2024</h5>
+                        <h5 style="font-weight: 600;" class="text-center">List Pairing 6 July 2024</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
