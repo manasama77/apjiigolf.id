@@ -7,6 +7,16 @@
                 <div class="row my-3">
                     <div class="col-sm-12 col-md-4 mt-3">
                         <div class="card shadow">
+                            <img src="{{ asset('events/GOBAR-5-Permata-Sentul-Golf-Club-thumbnail.jpg') }}"
+                                class="card-img-top" alt="GOBAR PGA SERIES @BOGOR RAYA">
+                            <div class="card-body">
+                                <h5 class="card-title">GOBAR 5 - Permata Sentul Golf Club</h5>
+                                <a href="{{ route('gobar-5') }}" class="btn btn-primary">View Highlight</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-3">
+                        <div class="card shadow">
                             <img src="{{ asset('events/GOBAR-PGA-SERIES-1-thumbnail.JPG') }}" class="card-img-top"
                                 alt="GOBAR PGA SERIES @BOGOR RAYA">
                             <div class="card-body">

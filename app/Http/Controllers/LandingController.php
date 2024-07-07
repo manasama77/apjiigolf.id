@@ -14,13 +14,16 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\EventLocation;
 use App\Models\PlayerHistory;
+use Intervention\Image\Image;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use Intervention\Image\ImageManager;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class LandingController extends Controller
 {
@@ -704,5 +707,147 @@ class LandingController extends Controller
             'page_title' => $page_title,
         ];
         return view('gobar_pga_series_1_1', $data);
+    }
+
+    public function gobar_pga_series_5()
+    {
+        $page_title = "GOBAR 5 - PERMATA SENTUL GOLF CLUB";
+        $data = [
+            'page_title' => $page_title,
+        ];
+        return view('gobar_pga_series_1_1', $data);
+    }
+
+    public function gobar_5()
+    {
+        $page_title = "GOBAR 5 - PERMATA SENTUL GOLF CLUB";
+
+        // get file from folder events/gobar-5-permata-sentul-golf-club-2024-07-06
+        $files = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06');
+        $thumb = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06/thumbnails');
+
+        // reorder by file name from $files
+        $files = collect($files)->map(function ($item) {
+            return pathinfo($item, PATHINFO_BASENAME);
+        })->sort()->values()->all();
+
+        // dd($files, $thumb);
+
+        $data = [
+            'page_title' => $page_title,
+            'images'     => $files,
+            'thumbs'     => $thumb,
+        ];
+        return view('gobar_5', $data);
+    }
+
+    public function thumb()
+    {
+        // read all file from folder events/gobar-5-permata-sentul-golf-club-2024-07-06
+        $files = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06');
+
+        $images = [];
+        $count = 1;
+        foreach ($files as $file) {
+            $file_name = pathinfo($file, PATHINFO_FILENAME) . '-thumb';
+            $file_ext  = pathinfo($file, PATHINFO_EXTENSION);
+
+            // check if file already exist continue to next file
+            if (Storage::disk('events')->exists('gobar-5-permata-sentul-golf-club-2024-07-06/thumbnails/' . $file_name . '.' . $file_ext)) {
+                @dump('file ' . $count++ . ' exist' . $file_name . '.' . $file_ext);
+                continue;
+            }
+
+            // create thumbnail if image orientation portrait make width 300px else height 300px
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read(Storage::disk('events')->path($file));
+
+            // read image width
+            $width = $img->width();
+            $height = $img->height();
+
+            if ($width > $height) {
+                $img->scale(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            } else {
+                $img->scale(null, 300, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            $img->brightness(10);
+            $img->contrast(10);
+
+            $encoded = $img->toJpg();
+
+            $img->save(public_path('events/gobar-5-permata-sentul-golf-club-2024-07-06/thumbnails/' . $file_name . '.' . $file_ext));
+        }
+
+        $files = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06/thumb');
+        dd($files);
+
+
+        $data = [
+            'images' => $files,
+        ];
+
+        return view('thumb', $data);
+    }
+
+    public function ori()
+    {
+        // read all file from folder events/gobar-5-permata-sentul-golf-club-2024-07-06
+        $files = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06');
+
+        $images = [];
+        $count = 1;
+        foreach ($files as $file) {
+            $file_name = pathinfo($file, PATHINFO_FILENAME);
+            $file_ext  = pathinfo($file, PATHINFO_EXTENSION);
+
+            // check if file already exist continue to next file
+            if (Storage::disk('events')->exists('gobar-5-permata-sentul-golf-club-2024-07-06/ori/' . $file_name . '.' . $file_ext)) {
+                @dump('file ' . $count++ . ' exist' . $file_name . '.' . $file_ext);
+                continue;
+            }
+
+            // create thumbnail if image orientation portrait make width 300px else height 300px
+            $manager = new ImageManager(new Driver());
+            $img = $manager->read(Storage::disk('events')->path($file));
+
+            // read image width
+            $width = $img->width();
+            $height = $img->height();
+
+            if ($width > $height) {
+                $img->scale(3000, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            } else {
+                $img->scale(null, 3000, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+
+            $img->brightness(10);
+            $img->contrast(10);
+
+            $encoded = $img->toJpg();
+
+            // dd(public_path('events/gobar-5-permata-sentul-golf-club-2024-07-06/ori/' . $file_name . '.' . $file_ext));
+
+            $img->save(public_path('events/gobar-5-permata-sentul-golf-club-2024-07-06/ori/' . $file_name . '.' . $file_ext));
+        }
+
+        $files = Storage::disk('events')->files('gobar-5-permata-sentul-golf-club-2024-07-06/ori');
+        dd($files);
+
+
+        $data = [
+            'images' => $files,
+        ];
+
+        return view('thumb', $data);
     }
 }
