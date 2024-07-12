@@ -36,24 +36,20 @@
 
 <body id="page-top">
     <!-- Navigation-->
-    @include('partials.landing.navbar')
+    @include('partials.landing.navbar_2')
 
     <!-- Hero Section -->
-    @include('partials.landing.hero')
-
-    <!-- About Section-->
-    @include('partials.landing.about')
+    @include('partials.landing.form_register_apjii_golf_tournament')
 
     <!-- Event Info-->
-    @include('partials.landing.event_list')
+    {{-- @include('partials.landing.event_info') --}}
 
-    <!-- Upcoming event-->
-    @include('partials.landing.upcoming_event')
+    <!-- Ticket pricing-->
+    {{-- @include('partials.landing.pricing') --}}
 
 
     <!-- Registration -->
-    {{-- @include('partials.landing.form_registration') --}}
-    {{-- @include('partials.landing.form_registration_plan_b') --}}
+    {{-- @include('partials.landing.registration') --}}
 
     <!-- Footer-->
     <footer class="bg-light py-2">
@@ -100,16 +96,10 @@
                 }
             })
 
-            // $('#registration_form').on('submit', e => {
-            //     e.preventDefault()
-            //     registerApi()
-            // })
-
-            $('.grid').isotope({
-                // options
-                itemSelector: '.grid-item',
-                layoutMode: 'fitRows'
-            });
+            $('#registration_form').on('submit', e => {
+                e.preventDefault()
+                registerApi()
+            })
 
             // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
         })
@@ -134,79 +124,17 @@
                 }
             }).fail(e => {
                 console.log(e)
-                Swal.fire({
-                    title: "Something wrong",
-                    text: e.responseJSON.message,
-                    icon: "warning"
-                }).then(() => {
-                    $('#submitButton').prop('disabled', false)
-                });
+                $('#submitButton').prop('disabled', false)
             }).done(e => {
                 console.log(e)
                 if (e.success) {
                     // console.log(e.snap_token)
-                    snap.pay(e.snap_token, {
-                        onSuccess: function(result) {
-                            console.log(result);
-                            Swal.fire({
-                                icon: "success",
-                                title: "Payment Success",
-                                toast: true,
-                                timer: 3000,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                            }).then(() => {
-                                window.location.href =
-                                    `{{ url(config('app.url')) }}/success?order_id=${e.data.order_id}`
-                            });
-                        },
-                        onPending: function(result) {
-                            console.log(result);
-                            Swal.fire({
-                                icon: "warning",
-                                title: "Waiting Payment",
-                                toast: true,
-                                timer: 2000,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                            }).then(() => {
-                                $('#submitButton').prop('disabled', false)
-                            });
-                        },
-                        onError: function(result) {
-                            console.log(result);
-                            Swal.fire({
-                                icon: "error",
-                                title: "Payment Failed",
-                                toast: true,
-                                timer: 2000,
-                                position: 'bottom-end',
-                                showConfirmButton: false,
-                            }).then(() => {
-                                $('#submitButton').prop('disabled', false)
-                            });
-                        },
-                        onClose: function() {
-                            $('#submitButton').prop('disabled', false)
-                        }
-                    });
-
+                    snap.pay(e.snap_token);
+                    // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
                 } else {
                     $('#submitButton').prop('disabled', false)
                 }
             })
-        }
-
-        function copyToClipboard(rekening) {
-            navigator.clipboard.writeText(rekening)
-            Swal.fire({
-                icon: "success",
-                title: "Copied to clipboard",
-                toast: true,
-                timer: 2000,
-                position: 'bottom-end',
-                showConfirmButton: false,
-            });
         }
     </script>
 </body>

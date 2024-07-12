@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManager;
 use App\Http\Requests\RegisterRequest;
+use App\Models\RegistrationStatus;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -35,27 +36,39 @@ class LandingController extends Controller
     private $google_maps_url;
     private $google_maps_embed;
     private $ticket_price;
+    private $early_price;
     private $admin_fee;
     private $no_rekening;
     private $bank_rekening;
     private $nama_rekening;
     private $wa_pic;
+    private $registration_status;
+    private $early_bird_start;
+    private $early_bird_end;
+    private $reguler_start;
+    private $reguler_end;
 
     public function __construct()
     {
-        $this->event_name        = 'GOBAR PGA - PIALA BERGILIR PGA <br/> PERMATA SENTUL GOLF CLUB';
-        $this->event_date        = Carbon::parse('2024-07-06');
-        $this->event_time        = '12:00 till end';
-        $this->location_name     = 'PERMATA SENTUL GOLF CLUB';
-        $this->location_address  = 'Jl. Permata Sentul Raya No.1504, Tangkil, Kec. Citeureup, Kabupaten Bogor, Jawa Barat 16810';
-        $this->google_maps_url   = "https://maps.app.goo.gl/zu6mPbDwSeGZk5mU6";
-        $this->google_maps_embed = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15855.82235940183!2d106.8707056!3d-6.5272934!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c0dea68cc975%3A0xd0c786a01eacee52!2sPermata%20Sentul%20Golf%20Club!5e0!3m2!1sen!2sid!4v1719848257571!5m2!1sen!2sid";
-        $this->ticket_price      = 1_200_000;
-        $this->admin_fee         = 5_000;
-        $this->no_rekening       = "6630306017";
-        $this->bank_rekening     = "BCA";
-        $this->nama_rekening     = "Victor Henry Raymond";
-        $this->wa_pic            = '6281316426789';
+        $this->event_name          = 'APJII GOLF TOURNAMENT 7';
+        $this->event_date          = Carbon::parse('2024-08-25');
+        $this->event_time          = '12:00 till end';
+        $this->location_name       = 'Pondok Indah Golf Course';
+        $this->location_address    = 'Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310';
+        $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
+        $this->google_maps_embed   = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15863.835569909455!2d106.7849619!3d-6.2691368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a490b60e41%3A0xaf08accee7decdf8!2sPondok%20Indah%20Golf%20Course!5e0!3m2!1sen!2sid!4v1720757045886!5m2!1sen!2sid";
+        $this->ticket_price        = 3_750_000;
+        $this->early_price         = 3_500_000;
+        $this->admin_fee           = 0;
+        $this->no_rekening         = "6630306017";
+        $this->bank_rekening       = "BCA";
+        $this->nama_rekening       = "Victor Henry Raymond";
+        $this->wa_pic              = '6281316426789';
+        $this->registration_status = $this->registration_status();
+        $this->early_bird_start    = Carbon::parse('2024-07-12');
+        $this->early_bird_end      = Carbon::parse('2024-07-31');
+        $this->reguler_start       = Carbon::parse('2024-08-01');
+        $this->reguler_end         = Carbon::parse('2024-08-15');
     }
 
     public function index(Request $request)
@@ -217,43 +230,46 @@ class LandingController extends Controller
 
     public function register()
     {
-        $event_name        = $this->event_name;
-        $event_date        = $this->event_date;
-        $event_time        = $this->event_time;
-        $location_name     = $this->location_name;
-        $location_address  = $this->location_address;
-        $google_maps_url   = $this->google_maps_url;
-        $google_maps_embed = $this->google_maps_embed;
-        $ticket_price      = $this->ticket_price;
-        $ticket_price_idr  = number_format($ticket_price, 0);
-        $admin_fee         = $this->admin_fee;
-        $admin_fee_idr     = number_format($admin_fee, 0);
-        $total_price       = $ticket_price + $admin_fee;
-        $total_price_idr   = number_format($total_price, 0);
-        $no_rekening       = $this->no_rekening;
-        $bank_rekening     = $this->bank_rekening;
-        $nama_rekening     = $this->nama_rekening;
-        $wa_pic            = $this->wa_pic;
+        $event_name          = $this->event_name;
+        $event_date          = $this->event_date;
+        $event_time          = $this->event_time;
+        $location_name       = $this->location_name;
+        $location_address    = $this->location_address;
+        $google_maps_url     = $this->google_maps_url;
+        $google_maps_embed   = $this->google_maps_embed;
+        $ticket_price        = $this->ticket_price;
+        $ticket_price_idr    = number_format($ticket_price, 0);
+        $admin_fee           = $this->admin_fee;
+        $admin_fee_idr       = number_format($admin_fee, 0);
+        $total_price         = $ticket_price + $admin_fee;
+        $total_price_idr     = number_format($total_price, 0);
+        $no_rekening         = $this->no_rekening;
+        $bank_rekening       = $this->bank_rekening;
+        $nama_rekening       = $this->nama_rekening;
+        $wa_pic              = $this->wa_pic;
+        $registration_status = $this->registration_status;
 
 
         $data = [
-            'event_name'        => $event_name,
-            'event_date'        => $event_date,
-            'event_time'        => $event_time,
-            'location_name'     => $location_name,
-            'location_address'  => $location_address,
-            'google_maps_url'   => $google_maps_url,
-            'google_maps_embed' => $google_maps_embed,
-            'ticket_price_idr'  => $ticket_price_idr,
-            'admin_fee_idr'     => $admin_fee_idr,
-            'total_price_idr'   => $total_price_idr,
-            'no_rekening'       => $no_rekening,
-            'bank_rekening'     => $bank_rekening,
-            'nama_rekening'     => $nama_rekening,
-            'wa_pic'            => $wa_pic,
+            'event_name'          => $event_name,
+            'event_date'          => $event_date,
+            'event_time'          => $event_time,
+            'location_name'       => $location_name,
+            'location_address'    => $location_address,
+            'google_maps_url'     => $google_maps_url,
+            'google_maps_embed'   => $google_maps_embed,
+            'ticket_price_idr'    => $ticket_price_idr,
+            'admin_fee_idr'       => $admin_fee_idr,
+            'total_price_idr'     => $total_price_idr,
+            'no_rekening'         => $no_rekening,
+            'bank_rekening'       => $bank_rekening,
+            'nama_rekening'       => $nama_rekening,
+            'wa_pic'              => $wa_pic,
+            'registration_status' => $registration_status,
         ];
 
         return view('register', $data);
+        // return view('partials.landing.form_registration', $data);
     }
 
     // public function register_store(RegisterRequest $request)
@@ -849,5 +865,65 @@ class LandingController extends Controller
         ];
 
         return view('thumb', $data);
+    }
+
+    public function register_index()
+    {
+        $event_name          = $this->event_name;
+        $event_date          = $this->event_date;
+        $event_time          = $this->event_time;
+        $location_name       = $this->location_name;
+        $location_address    = $this->location_address;
+        $google_maps_url     = $this->google_maps_url;
+        $google_maps_embed   = $this->google_maps_embed;
+        $ticket_price        = $this->ticket_price;
+        $early_price         = $this->early_price;
+        $ticket_price_idr    = number_format($ticket_price, 0);
+        $early_price_idr     = number_format($early_price, 0);
+        $admin_fee           = $this->admin_fee;
+        $admin_fee_idr       = number_format($admin_fee, 0);
+        $total_price         = $ticket_price + $admin_fee;
+        $total_price_idr     = number_format($total_price, 0);
+        $no_rekening         = $this->no_rekening;
+        $bank_rekening       = $this->bank_rekening;
+        $nama_rekening       = $this->nama_rekening;
+        $wa_pic              = $this->wa_pic;
+        $registration_status = $this->registration_status;
+
+        $early_bird_start = $this->early_bird_start->format('F d, Y');
+        $early_bird_end   = $this->early_bird_end->format('F d, Y');
+        $reguler_start    = $this->reguler_start->format('F d, Y');
+        $reguler_end      = $this->reguler_end->format('F d, Y');
+
+        $data = [
+            'event_name'          => $event_name,
+            'event_date'          => $event_date,
+            'event_time'          => $event_time,
+            'location_name'       => $location_name,
+            'location_address'    => $location_address,
+            'google_maps_url'     => $google_maps_url,
+            'google_maps_embed'   => $google_maps_embed,
+            'ticket_price_idr'    => $ticket_price_idr,
+            'early_price_idr'     => $early_price_idr,
+            'admin_fee_idr'       => $admin_fee_idr,
+            'total_price_idr'     => $total_price_idr,
+            'no_rekening'         => $no_rekening,
+            'bank_rekening'       => $bank_rekening,
+            'nama_rekening'       => $nama_rekening,
+            'wa_pic'              => $wa_pic,
+            'registration_status' => $registration_status,
+            'early_bird_start'    => $early_bird_start,
+            'early_bird_end'      => $early_bird_end,
+            'reguler_start'       => $reguler_start,
+            'reguler_end'         => $reguler_end,
+        ];
+
+        return view('register_apjii_golf_tournament', $data);
+        // return view('partials.landing.form_registration', $data);
+    }
+
+    protected function registration_status()
+    {
+        return RegistrationStatus::find(1) ? RegistrationStatus::find(1)->is_active : false;
     }
 }

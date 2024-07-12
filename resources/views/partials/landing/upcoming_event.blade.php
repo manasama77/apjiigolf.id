@@ -59,6 +59,14 @@
                                                 </td>
                                             </tr>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" class="text-end">
+                                                    <small><i><span class="text-danger">*</span> Exclude Admin
+                                                            Fee & Transfer Fee</i></small>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
 
@@ -89,7 +97,6 @@
                                                 <td>Registration Fee</td>
                                                 <td>:</td>
                                                 <td class="text-start">
-                                                    {{-- IDR {{ $ticket_price_idr }}<span class="text-danger">*</span> --}}
                                                     IDR {{ $ticket_price_idr }}
                                                     <br />
                                                     Included:<br />
@@ -101,7 +108,7 @@
                                                     </ul>
                                                 </td>
                                             </tr>
-                                            <tr>
+                                            {{-- <tr>
                                                 <td>Payment Info</td>
                                                 <td>:</td>
                                                 <td class="text-start">
@@ -113,16 +120,16 @@
                                                     {{ $bank_rekening }}<br />
                                                     a/n {{ $nama_rekening }}
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
                                         </tbody>
-                                        {{-- <tfoot>
+                                        <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-end">
                                                     <small><i><span class="text-danger">*</span> Exclude Admin
-                                                            Fee</i></small>
+                                                            Fee & Transfer Fee</i></small>
                                                 </td>
                                             </tr>
-                                        </tfoot> --}}
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -134,18 +141,22 @@
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                     class="rounded border border-4 border-white shadow"></iframe>
 
-                {{-- <a class="btn btn-warning btn-xl mt-3 shadow disabled" href="https://wa.me/628569016901"
-                    target="_blank">Register
-                    Closed</a> --}}
-                {{-- <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/{{ $wa_pic }}" target="_blank"
+                @if ($registration_status == true)
+                    <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('register_index') }}">
+                        <i class="fa-solid fa-clipboard-user fa-fw"></i> Register Now!
+                    </a>
+                @else
+                    <button type="button" class="btn btn-danger btn-xl mt-3 shadow disabled">Register
+                        Closed</button>
+                @endif
+
+                <a class="btn btn-warning btn-xl mt-3 shadow" href="https://wa.me/{{ $wa_pic }}" target="_blank"
                     style="letter-spacing: 4px;">
-                    Need Help?<br />
-                    Contact Us <i class="fab fa-whatsapp fa-fw"></i>
+                    <i class="fab fa-whatsapp fa-fw"></i> Need Help?
                 </a>
-                <br /> --}}
-                <a class="btn btn-primary btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
-                    Pairing
-                    Table
+                <br />
+                <a class="btn btn-info btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                    <i class="fas fa-table fa-fw"></i> Pairing Table
                 </a>
             </div>
         </div>
