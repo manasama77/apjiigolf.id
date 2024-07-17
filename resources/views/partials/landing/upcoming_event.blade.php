@@ -8,7 +8,8 @@
                     <div class="col-sm-12 col-md-8 offset-md-2">
                         <div class="card">
                             <div class="card-body pb-0">
-                                <h1 class="card-title">{!! $event_name !!}</h1>
+                                <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}"
+                                    alt="APJII Golf Tournament 7" class="img-fluid mb-4" style="max-width: 90%" />
                                 <div class="table-responsive d-block d-md-none">
                                     <table class="table table-bordered table-striped">
                                         <tbody>

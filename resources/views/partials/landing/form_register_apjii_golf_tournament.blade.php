@@ -16,7 +16,7 @@
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <img src="{{ asset('apjii-golf-7/APJII Golf 6 - blue.png') }}"
+                                        <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}"
                                             alt="APJII Golf Tournament 7" class="img-fluid mb-4"
                                             style="max-width: 90%" />
 
