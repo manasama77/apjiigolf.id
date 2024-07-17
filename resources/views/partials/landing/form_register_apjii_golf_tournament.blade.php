@@ -55,11 +55,24 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <p class="fw-bold">
+                                                            <h4 class="fw-bold">
                                                                 Registration Fee
-                                                            </p>
-                                                            <img src="{{ asset('tiket-01.png') }}" alt="Reguler Price"
+                                                            </h4>
+                                                            <img src="{{ asset('tiket-01.png') }}" alt="Earlybird Price"
                                                                 class="img-fluid" />
+                                                            <span class="fw-bold">Registration Period</span>
+                                                            <p class="mb-5 fw-bold" style="font-size: 0.9rem">
+                                                                {{ $early_bird_start }}
+                                                                - {{ $early_bird_end }}
+                                                            </p>
+
+                                                            <img src="{{ asset('tiket-02.png') }}" alt="Reguler Price"
+                                                                class="img-fluid" />
+                                                            <span class="fw-bold">Registration Period</span>
+                                                            <p class="fw-bold" style="font-size: 0.9rem">
+                                                                {{ $reguler_start }} -
+                                                                {{ $reguler_end }}
+                                                            </p>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -104,7 +117,7 @@
                                                         <td>
                                                             <div class="row mx-0">
                                                                 <div class="col-sm-12 col-md-6 text-center fw-bold">
-                                                                    <img src="{{ asset('tiket-02.png') }}"
+                                                                    <img src="{{ asset('tiket-01.png') }}"
                                                                         alt="Early Bird Price" class="img-fluid" />
                                                                     <span>Registration Period</span>
                                                                     <p style="font-size: 0.9rem">

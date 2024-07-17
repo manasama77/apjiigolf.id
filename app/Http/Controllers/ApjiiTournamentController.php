@@ -32,7 +32,7 @@ class ApjiiTournamentController extends Controller
     {
         $this->event_name          = 'APJII GOLF TOURNAMENT 7';
         $this->event_date          = Carbon::parse('2024-08-25');
-        $this->event_time          = '12:00 till end';
+        $this->event_time          = '06:00 till end';
         $this->location_name       = 'Pondok Indah Golf Course';
         $this->location_address    = 'Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310';
         $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
