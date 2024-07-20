@@ -87,6 +87,7 @@ class ApjiiTournamentController extends Controller
 
     public function index()
     {
+        dump(config('services.recaptcha.secret_key'));
         $event_name          = $this->event_name;
         $event_date          = $this->event_date;
         $event_time          = $this->event_time;
