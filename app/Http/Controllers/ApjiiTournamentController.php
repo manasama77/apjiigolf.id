@@ -533,6 +533,7 @@ class ApjiiTournamentController extends Controller
 
     public function test()
     {
+        dd(config('mail.default'), config('mail.from.address'));
         $exec = Registration::find(145);
         $time_expired = Carbon::parse($exec->expired_date)->format('Y-m-d H:i:s');
 
