@@ -34,6 +34,8 @@ class Registration extends Model
         'url',
         'expired_date',
         'notification',
+        'is_checkin',
+        'is_winner',
     ];
 
     public function eventLocation()
