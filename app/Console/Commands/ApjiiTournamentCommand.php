@@ -11,6 +11,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApjiiTransactionExpired;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class ApjiiTournamentCommand extends Command
@@ -45,6 +46,7 @@ class ApjiiTournamentCommand extends Command
         }
 
         $regs = Registration::where('payment_status', 'pending')->get();
+        Log::info($regs);
 
         foreach ($regs as $reg) {
             $event_name = $event_name;
