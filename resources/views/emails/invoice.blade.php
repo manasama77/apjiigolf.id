@@ -205,7 +205,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="{{ $message->embed(public_path('logo_pga_invoice.png')) }}"
+                                                                            src="https://apjiigolf.id/logo_pga_invoice.png"
                                                                             alt="Logo PGA" title="Logo PGA"
                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 300px;"
                                                                             width="300" />
@@ -229,78 +229,12 @@
                         </div>
                     </div>
 
-
-
-
-
-                    {{-- <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
-
-                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div style="background-color: #ffffff;height: 100%;width: 100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:arial,helvetica,sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="v-container-padding-padding"
-                                                            style="overflow-wrap:break-word;word-break:break-word;padding:20px 0px 0px;font-family:arial,helvetica,sans-serif;"
-                                                            align="left">
-
-                                                            <table width="100%" cellpadding="0" cellspacing="0"
-                                                                border="0">
-                                                                <tr>
-                                                                    <td class="v-text-align"
-                                                                        style="padding-right: 0px;padding-left: 0px;"
-                                                                        align="center">
-
-                                                                        <img align="center" border="0"
-                                                                            src="{{ $message->embed(public_path('assets/img/emails/poundfit/image-1.png')) }}"
-                                                                            alt="image" title="image"
-                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 530px;"
-                                                                            width="530" />
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div><!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                            </div>
-                        </div>
-                    </div> --}}
-
-
-
-
-
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row"
                             style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div
                                 style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
                                 <div class="u-col u-col-100"
                                     style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
                                     <div
@@ -401,11 +335,12 @@
                                                                 <p style="line-height: 140%;">Hi,
                                                                     {{ $registrations->full_name }}
                                                                 </p>
-                                                                <p style="line-height: 140%;"> </p>
+                                                                <p style="line-height: 140%;"> </p>
                                                                 <p style="line-height: 140%;">Immediately make
-                                                                    registration payment to receive a poundfit e-ticket
+                                                                    registration payment to receive a Apjii Golf
+                                                                    Tournament 7 E-ticket
                                                                     of</p>
-                                                                <p style="line-height: 140%;"> </p>
+                                                                <p style="line-height: 140%;"> </p>
                                                                 <h5
                                                                     style="line-height: 10%; text-align: center; font-size: 30px; margin-block-start: 1.5rem; margin-block-end: 2.5rem;">
                                                                     Rp{{ number_format($registrations->total_price, 0) }}
@@ -413,24 +348,22 @@
                                                                 <p style="line-height: 140%;">
                                                                     Payment can be made via this link:
                                                                 </p>
-                                                                <p style="line-height: 140%;"> </p>
+                                                                <p style="line-height: 140%;"> </p>
                                                                 <p style="line-height: 140%; text-align: center;">
                                                                     <a href="{{ $link_bayar }}" target="_blank"
                                                                         rel="noopener">{{ $link_bayar }}</a>
                                                                 </p>
-                                                                {{-- <p style="text-align: center; color: red;"><i>This
+                                                                <p style="text-align: center; color: red;"><i>This
                                                                         transaction will
                                                                         expired
                                                                         at<br />
                                                                         {{ $time_expired }}</i>
-                                                                </p> --}}
+                                                                </p>
                                                                 <br />
                                                                 <p style="text-align: center;"><i>Order ID:
                                                                         {{ $registrations->order_id }}</i></p>
-                                                                {{-- <p style="text-align: center;"><i>Reference ID:
-                                                                        {{ $registrations->transaction_number }}</i></p> --}}
 
-                                                                <p style="line-height: 140%;"> </p>
+                                                                <p style="line-height: 140%;"> </p>
 
                                                                 <div class="alert alert-warning"
                                                                     style="text-align: center;">
@@ -443,14 +376,10 @@
                                                                 <p style="line-height: 140%;">
                                                                     For questions regarding events and payments, you can
                                                                     contact the number below from 09:00 to 18:00:<br />
-                                                                    <a href="https://wa.me/628179026902"
-                                                                        target="_blank">08179026902</a>
+                                                                    <a href="https://wa.me/628569016901"
+                                                                        target="_blank">+628569016901</a>
                                                                 </p>
                                                                 <p style="line-height: 140%;"> </p>
-                                                                {{-- <div class="alert alert-warning"
-                                                                    style="text-align: center; font-weight: 700; font-size: 16px; padding-left: 10px; padding-right: 10px;">
-                                                                    Don't forget to bring your tumbler and exercise mat!
-                                                                </div> --}}
                                                                 <p style="line-height: 140%;"> </p>
                                                                 <p
                                                                     style="line-height: 140%; text-align: left; font-weight: 700; font-style: italic;">
@@ -476,253 +405,12 @@
 
 
 
-
-
-                    {{-- <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row"
-                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
-
-                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #242424;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
-                                <div class="u-col u-col-100"
-                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                                    <div
-                                        style="background-color: #242424;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:arial,helvetica,sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="v-container-padding-padding"
-                                                            style="overflow-wrap:break-word;word-break:break-word;padding:35px 10px 10px 35px;font-family:arial,helvetica,sans-serif;"
-                                                            align="left">
-
-                                                            <table width="100%" cellpadding="0" cellspacing="0"
-                                                                border="0">
-                                                                <tr>
-                                                                    <td class="v-text-align"
-                                                                        style="padding-right: 0px;padding-left: 0px;"
-                                                                        align="left">
-
-                                                                        <img align="left" border="0"
-                                                                            src="{{ $message->embed(public_path('assets/img/logo-netvolve.png')) }}"
-                                                                            alt="" title=""
-                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 186px;"
-                                                                            width="186" />
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table id="u_content_text_2"
-                                                style="font-family:arial,helvetica,sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="v-container-padding-padding"
-                                                            style="overflow-wrap:break-word;word-break:break-word;padding:0px 60px 10px 35px;font-family:arial,helvetica,sans-serif;"
-                                                            align="left">
-
-                                                            <div class="v-text-align v-font-size"
-                                                                style="font-size: 13px; color: #ffffff; line-height: 170%; text-align: left; word-wrap: break-word;">
-                                                                <div>
-                                                                    <p style="line-height: 170%;">Kami merupakan
-                                                                        Penyedia Layanan Internet dan Penyedia Akses
-                                                                        Jaringan yang terpercaya, handal dan
-                                                                        berorientasi pada pelanggan, baik untuk
-                                                                        pelanggan individu maupun bisnis, menawarkan
-                                                                        layanan dengan nilai tambah dalam bentuk solusi
-                                                                        ICT one-stop dan end-to-end, di seluruh wilayah
-                                                                        di Indonesia.</p>
-                                                                </div>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table style="font-family:arial,helvetica,sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="v-container-padding-padding"
-                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 35px;font-family:arial,helvetica,sans-serif;"
-                                                            align="left">
-
-                                                            <table height="0px" align="center" border="0"
-                                                                cellpadding="0" cellspacing="0" width="100%"
-                                                                style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #d3d3d3;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                                                <tbody>
-                                                                    <tr style="vertical-align: top">
-                                                                        <td
-                                                                            style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                                                            <span>&#160;</span>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table id="u_content_social_1"
-                                                style="font-family:arial,helvetica,sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="v-container-padding-padding"
-                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 35px;font-family:arial,helvetica,sans-serif;"
-                                                            align="left">
-
-                                                            <div align="left">
-                                                                <div style="display: table; max-width:167px;">
-                                                                    <!--[if (mso)|(IE)]><table width="167" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse;" align="left"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:167px;"><tr><![endif]-->
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 10px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 10px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.instagram.com/netvolve.id/"
-                                                                                        title="Instagram"
-                                                                                        target="_blank">
-                                                                                        <img src="{{ $message->embed(public_path('assets/img/emails/poundfit/image-3.png')) }}"
-                                                                                            alt="Instagram"
-                                                                                            title="Instagram"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 10px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 10px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.facebook.com/Netvolve"
-                                                                                        title="Facebook"
-                                                                                        target="_blank">
-                                                                                        <img src="{{ $message->embed(public_path('assets/img/emails/poundfit/image-5.png')) }}"
-                                                                                            alt="Facebook"
-                                                                                            title="Facebook"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 10px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 10px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.linkedin.com/company/pt-jala-lintas-media/"
-                                                                                        title="LinkedIn"
-                                                                                        target="_blank">
-                                                                                        <img src="{{ $message->embed(public_path('assets/img/emails/poundfit/image-2.png')) }}"
-                                                                                            alt="LinkedIn"
-                                                                                            title="LinkedIn"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
-
-
-                                                                    <!--[if (mso)|(IE)]><td width="32" style="width:32px; padding-right: 0px;" valign="top"><![endif]-->
-                                                                    <table align="left" border="0"
-                                                                        cellspacing="0" cellpadding="0"
-                                                                        width="32" height="32"
-                                                                        style="width: 32px !important;height: 32px !important;display: inline-block;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;margin-right: 0px">
-                                                                        <tbody>
-                                                                            <tr style="vertical-align: top">
-                                                                                <td align="left" valign="middle"
-                                                                                    style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.youtube.com/@netvolve-jlm"
-                                                                                        title="Youtube"
-                                                                                        target="_blank">
-                                                                                        <img src="{{ $message->embed(public_path('assets/img/emails/poundfit/image-youtube.png')) }}"
-                                                                                            alt="Youtube"
-                                                                                            title="Youtube"
-                                                                                            width="32"
-                                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                    <!--[if (mso)|(IE)]></td><![endif]-->
-
-
-                                                                    <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                                                                </div>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div><!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                            </div>
-                        </div>
-                    </div> --}}
-
-
-
-
-
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row"
                             style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
                             <div
                                 style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
 
-                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #242424;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
                                 <div class="u-col u-col-100"
                                     style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
                                     <div
@@ -743,7 +431,7 @@
 
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-size: 12px; color: #ffffff; line-height: 140%; text-align: center; word-wrap: break-word;">
-                                                                <p style="line-height: 140%;">Copyright PGA 2023.</p>
+                                                                <p style="line-height: 140%;">Copyright PGA 2024.</p>
                                                             </div>
 
                                                         </td>

@@ -10,6 +10,8 @@ class Registration extends Model
     use HasFactory;
 
     protected $fillable = [
+        'order_id',
+        'invoice_number',
         'full_name',
         'gender',
         'email',
@@ -18,13 +20,24 @@ class Registration extends Model
         'position',
         'institution',
         'institution_etc',
-        'order_id',
+        'shirt_size',
+        'event_location_id',
+        'ticket_type',
         'ticket_price',
         'admin_fee',
         'total_price',
-        'payment_status',
-        'snap_token',
+        'payment_status', // pending success expired
         'barcode',
         'seq',
+        'eticket',
+        'token_id',
+        'url',
+        'expired_date',
+        'notification',
     ];
+
+    public function eventLocation()
+    {
+        return $this->belongsTo(EventLocation::class);
+    }
 }

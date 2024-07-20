@@ -25,12 +25,18 @@ use App\Http\Controllers\UserAdminController;
 
 // Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
 Route::get('/', [LandingController::class, 'register'])->name('home');
-Route::post('/register_store', [LandingController::class, 'register_store'])->name('register_store');
+// Route::post('/register_store', [LandingController::class, 'register_store'])->name('register_store');
 Route::get('/register', [ApjiiTournamentController::class, 'index'])->name('register_index');
 Route::post('/register', [ApjiiTournamentController::class, 'store'])->name('register_store');
-Route::get('/success', [LandingController::class, 'register_success'])->name('register_success');
-Route::get('/check', [LandingController::class, 'register_check'])->name('register_check');
-Route::get('/status', [LandingController::class, 'register_status'])->name('register_status');
+Route::get('/register/check', [ApjiiTournamentController::class, 'check'])->name('register_check');
+Route::post('/register/check', [ApjiiTournamentController::class, 'find'])->name('register_find');
+Route::get('/register/status/{id}', [ApjiiTournamentController::class, 'status'])->name('register_status');
+Route::get('/register/success/{id}', [ApjiiTournamentController::class, 'success'])->name('register_success');
+Route::get('/register/cancel/{id}', [ApjiiTournamentController::class, 'cancel'])->name('register_cancel');
+Route::get('/download/eticket/{id}', [ApjiiTournamentController::class, 'download'])->name('register_download_eticket');
+// Route::get('/test', [ApjiiTournamentController::class, 'test']);
+
+// Route::get('/check', [LandingController::class, 'register_check'])->name('register_check');
 Route::get('/error', [LandingController::class, 'register_error'])->name('register_error');
 Route::get('/thumb', [LandingController::class, 'thumb']);
 Route::get('/ori', [LandingController::class, 'ori']);

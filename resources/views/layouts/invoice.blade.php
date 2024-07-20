@@ -122,7 +122,7 @@
                         <p>Jaya Atmaja No.63</p>
                         <p>Cibinong, Bogor 16918 Indonesia</p>
                         <p>Phone: +62 856-9016-901</p>
-                        <p>Email: marcom@apjiigolf.id</p>
+                        <p>Email: marketing@apjiigolf.id</p>
                     </td>
                 </tr>
             </tbody>
@@ -130,7 +130,7 @@
 
         <p>&nbsp;</p>
 
-        <table class="table table-bordered" style="width: 50%;">
+        <table class="table table-bordered" style="width: 60%;">
             <tbody>
                 <tr>
                     <td>Bill to: {{ $player_name }}</td>
@@ -158,15 +158,17 @@
         <table border="1" class="table table-bordered" style="margin-top: 15px;">
             <thead>
                 <tr>
-                    <th style="width: 25%;">Event Name</th>
-                    <th>Event Location</th>
-                    <th style="width: 18%;">Event Date</th>
+                    <th style="width: 25%; text-align: left;">Event Name</th>
+                    <th style="text-align: left;">Event Location</th>
+                    <th style="width: 18%; text-align: left;">Event Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="text-align: center;">{{ $event_name }}</td>
-                    <td style="text-align: center;">{{ $event_location }}</td>
+                    <td style="text-align: left;">{{ $event_name }}</td>
+                    <td style="text-align: left;">{{ $location_name }}<br /><small
+                            style="font-size: 12px;">{{ $location_address }}</small>
+                    </td>
                     <td style="text-align: center;">{{ $event_date }}</td>
                 </tr>
             </tbody>
@@ -182,7 +184,7 @@
             <tbody>
                 <tr>
                     <td style="text-align: left; height: 100px;">
-                        Registration Fee Gobar<br />
+                        Registration Fee {{ $event_name }}<br />
                         {{ $player_name }}
                     </td>
                     <td style="text-align: right;">

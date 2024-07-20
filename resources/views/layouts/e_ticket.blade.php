@@ -25,7 +25,7 @@
     body {
         margin: 0px;
         padding: 0px;
-        background: url('{{ public_path('e-ticket-04.png') }}') center no-repeat;
+        background: url('{{ public_path('apjii-golf-7/e-ticket.jpg') }}') center no-repeat;
         background-size: cover;
     }
 
@@ -39,7 +39,7 @@
 
     .nama_peserta_wrapper {
         position: absolute;
-        top: 22%;
+        top: 40%;
         left: 0;
         width: 100%;
         height: 50px;
@@ -52,7 +52,7 @@
         top: 80px;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 54px;
+        font-size: 40px;
         color: #000;
         font-weight: 700;
         z-index: 1;
@@ -67,12 +67,12 @@
 
     .barcode-bg {
         position: absolute;
-        top: 33%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, 0%);
         background-color: white;
-        width: 63%;
-        height: 29%;
+        width: 40%;
+        height: 22%;
         border: 1px solid rgb(0, 0, 0);
         border-radius: 5%;
         padding: 4px;
@@ -81,7 +81,7 @@
     .barcode {
         position: absolute;
         text-align: center;
-        top: 12%;
+        top: 5%;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1;
@@ -111,7 +111,7 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        font-size: 38px;
+        font-size: 30px;
         z-index: 1;
         color: #000;
         font-weight: 700;
@@ -147,31 +147,14 @@
     <div class="container">
 
         <div class="info-wrapper">
-            <div class="text_intro"></div>
             <div class="nama_peserta_wrapper">
-                {{-- <p class="text_nama_peserta">Nama</p> --}}
                 <p class="nama_peserta">Hi, {{ strtoupper($full_name) }}</p>
             </div>
-
-            {{-- <div class="tanggal_acara_wrapper">
-                <p class="text_tanggal_acara">Hari & Tanggal</p>
-                <p class="tanggal_acara">{{ $tanggal_event }}</p>
-            </div>
-
-            <div class="tempat_acara_wrapper">
-                <p class="text_tempat_acara">Tempat</p>
-                <p class="tempat_acara">{{ $tempat }}</p>
-            </div>
-
-            <div class="jam_acara_wrapper">
-                <p class="text_jam_acara">Tee Off</p>
-                <p class="jam_acara">{{ $jam_event }}</p>
-            </div> --}}
         </div>
 
 
         <div class="barcode-bg">
-            <p class="text_registration_number">Registration Number</p>
+            {{-- <p class="text_registration_number">Registration Number</p> --}}
             <p class="text_barcode">
                 {{ $barcode }}
             </p>

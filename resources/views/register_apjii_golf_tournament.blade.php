@@ -8,7 +8,7 @@
     <meta name="author" content="@adampm from JLM" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>{{ config('app.name') }} - GOBAR Registration</title>
+    <title>{{ config('app.name') }} - APJII GOLF TOURNAMENT 7</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,8 @@
         rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 
     @vite(['resources/css/register.css', 'resources/js/register.js'])
 </head>
@@ -88,54 +90,82 @@
                 console.log($('#institution').val())
 
                 if ($('#institution').val() == "Etc") {
-                    $('#group_institution_etc').removeClass('d-none')
-                    $('#institution_etc').prop('required', true)
+                    $('#institution_etc').prop('required', true).prop('disabled', false);
                 } else {
-                    $('#group_institution_etc').addClass('d-none')
-                    $('#institution_etc').prop('required', false)
+                    $('#institution_etc').prop('required', false).prop('disabled', true);
                 }
             })
 
-            $('#registration_form').on('submit', e => {
-                e.preventDefault()
-                registerApi()
+            $('#form').on('submit', () => {
+                // e.preventDefault()
+                // disabled submit button
+                $('#btn_submit').attr('disabled', true)
+                // retrigger submit
+                // $('#form').trigger('submit')
+
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
+                        action: 'submit'
+                    }).then(function(token) {
+                        document.getElementById('g-recaptcha-response').value = token;
+                        form.submit();
+                    });
+                });
+
+                setTimeout(() => {
+                    $('#btn_submit').prop('disabled', false)
+                }, 3000);
             })
+
+            // $('#btn_submit').on('click', () => {
+            //     // e.preventDefault()
+            //     $('#btn_submit').prop('disabled', true)
+            //     // $('#form').trigger('submit')
+            //     setTimeout(() => {
+            //         $('#btn_submit').prop('disabled', false)
+            //     }, 3000);
+            // });
+
+            // $('#registration_form').on('submit', e => {
+            //     e.preventDefault()
+            //     registerApi()
+            // })
 
             // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
         })
 
-        function registerApi() {
-            $.ajax({
-                url: `{{ route('register_store') }}`,
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    full_name: $('#full_name').val(),
-                    gender: $('#gender').val(),
-                    email: $('#email').val(),
-                    whatsapp_number: $('#whatsapp_number').val(),
-                    company_name: $('#company_name').val(),
-                    position: $('#position').val(),
-                    institution: $('#institution').val(),
-                    institution_etc: $('#institution_etc').val(),
-                },
-                beforeSend: () => {
-                    $('#submitButton').prop('disabled', true)
-                }
-            }).fail(e => {
-                console.log(e)
-                $('#submitButton').prop('disabled', false)
-            }).done(e => {
-                console.log(e)
-                if (e.success) {
-                    // console.log(e.snap_token)
-                    snap.pay(e.snap_token);
-                    // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
-                } else {
-                    $('#submitButton').prop('disabled', false)
-                }
-            })
-        }
+        // function registerApi() {
+        //     $.ajax({
+        //         url: `{{ route('register_store') }}`,
+        //         method: 'POST',
+        //         dataType: 'json',
+        //         data: {
+        //             full_name: $('#full_name').val(),
+        //             gender: $('#gender').val(),
+        //             email: $('#email').val(),
+        //             whatsapp_number: $('#whatsapp_number').val(),
+        //             company_name: $('#company_name').val(),
+        //             position: $('#position').val(),
+        //             institution: $('#institution').val(),
+        //             institution_etc: $('#institution_etc').val(),
+        //         },
+        //         beforeSend: () => {
+        //             $('#submitButton').prop('disabled', true)
+        //         }
+        //     }).fail(e => {
+        //         console.log(e)
+        //         $('#submitButton').prop('disabled', false)
+        //     }).done(e => {
+        //         console.log(e)
+        //         if (e.success) {
+        //             // console.log(e.snap_token)
+        //             snap.pay(e.snap_token);
+        //             // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
+        //         } else {
+        //             $('#submitButton').prop('disabled', false)
+        //         }
+        //     })
+        // }
     </script>
 </body>
 

@@ -48,12 +48,14 @@ return [
 
         'smtp_mailtrap' => [
             'transport'    => 'smtp',
-            'host'         => env('MAIL_HOST_MAILTRAP', 'smtp.mailgun.org'),
-            'port'         => env('MAIL_PORT_MAILTRAP', 587),
-            'encryption'   => env('MAIL_ENCRYPTION_MAILTRAP', 'tls'),
+            'host'         => env('MAIL_HOST_MAILTRAP'),
+            'port'         => env('MAIL_PORT_MAILTRAP'),
+            'encryption'   => env('MAIL_ENCRYPTION_MAILTRAP'),
             'username'     => env('MAIL_USERNAME_MAILTRAP'),
             'password'     => env('MAIL_PASSWORD_MAILTRAP'),
             'timeout'      => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', null),
+            'verify_peer'  => false,
         ],
 
         'ses' => [
