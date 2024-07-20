@@ -530,4 +530,14 @@ class ApjiiTournamentController extends Controller
 
         return view('cancel_apjii_golf_tournament', $data);
     }
+
+    public function test()
+    {
+        $exec = Registration::find(145);
+        $time_expired = Carbon::parse($exec->expired_date)->format('Y-m-d H:i:s');
+
+        Mail::to('adam.pm77@gmail.com')->bcc([
+            'adam.pm59@gmail.com',
+        ])->send(new InvoiceMail($exec, $this->event_name, 'https://google.com', $time_expired));
+    }
 }
