@@ -52,7 +52,7 @@ class LandingController extends Controller
     {
         $this->event_name          = 'APJII GOLF TOURNAMENT 7';
         $this->event_date          = Carbon::parse('2024-08-25');
-        $this->event_time          = '12:00 till end';
+        $this->event_time          = '06:00 till end';
         $this->location_name       = 'Pondok Indah Golf Course';
         $this->location_address    = 'Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310';
         $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
@@ -65,7 +65,7 @@ class LandingController extends Controller
         $this->nama_rekening       = "Victor Henry Raymond";
         $this->wa_pic              = '628569016901';
         $this->registration_status = $this->registration_status();
-        $this->early_bird_start    = Carbon::parse('2024-07-12');
+        $this->early_bird_start    = Carbon::parse('2024-07-21');
         $this->early_bird_end      = Carbon::parse('2024-07-31');
         $this->reguler_start       = Carbon::parse('2024-08-01');
         $this->reguler_end         = Carbon::parse('2024-08-15');

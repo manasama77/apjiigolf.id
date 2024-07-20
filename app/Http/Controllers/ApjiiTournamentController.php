@@ -63,7 +63,7 @@ class ApjiiTournamentController extends Controller
         $this->nama_rekening       = "Victor Henry Raymond";
         $this->wa_pic              = '628569016901';
         $this->registration_status = $this->registration_status();
-        $this->early_bird_start    = Carbon::parse('2024-07-12');
+        $this->early_bird_start    = Carbon::parse('2024-07-21');
         $this->early_bird_end      = Carbon::parse('2024-08-05');
         $this->reguler_start       = Carbon::parse('2024-08-06');
         $this->reguler_end         = Carbon::parse('2024-08-10');
