@@ -249,6 +249,11 @@ class LandingController extends Controller
         $wa_pic              = $this->wa_pic;
         $registration_status = $this->registration_status;
 
+        $early_bird_start = $this->early_bird_start->format('F d, Y');
+        $early_bird_end   = $this->early_bird_end->format('F d, Y');
+        $reguler_start    = $this->reguler_start->format('F d, Y');
+        $reguler_end      = $this->reguler_end->format('F d, Y');
+
 
         $data = [
             'event_name'          => $event_name,
@@ -266,6 +271,10 @@ class LandingController extends Controller
             'nama_rekening'       => $nama_rekening,
             'wa_pic'              => $wa_pic,
             'registration_status' => $registration_status,
+            'early_bird_start'    => $early_bird_start,
+            'early_bird_end'      => $early_bird_end,
+            'reguler_start'       => $reguler_start,
+            'reguler_end'         => $reguler_end,
         ];
 
         return view('register', $data);
