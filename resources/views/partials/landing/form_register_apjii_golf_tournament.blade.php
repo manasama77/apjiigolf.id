@@ -496,8 +496,7 @@
                                                     <tr>
                                                         <td colspan="3" class="text-end">
                                                             <small><i><span class="text-danger">*</span> Registration
-                                                                    Exclude Admin
-                                                                    Fee & Transfer Fee</i></small>
+                                                                    Exclude Fee Transfer</i></small>
                                                         </td>
                                                     </tr>
                                                 </tfoot>
