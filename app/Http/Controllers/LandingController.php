@@ -63,7 +63,7 @@ class LandingController extends Controller
         $this->no_rekening         = "6630306017";
         $this->bank_rekening       = "BCA";
         $this->nama_rekening       = "Victor Henry Raymond";
-        $this->wa_pic              = '6281316426789';
+        $this->wa_pic              = '628569016901';
         $this->registration_status = $this->registration_status();
         $this->early_bird_start    = Carbon::parse('2024-07-12');
         $this->early_bird_end      = Carbon::parse('2024-07-31');

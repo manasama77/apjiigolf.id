@@ -126,8 +126,8 @@
                                         <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-end">
-                                                    <small><i><span class="text-danger">*</span> Exclude Admin
-                                                            Fee & Transfer Fee</i></small>
+                                                    <small><i><span class="text-danger">*</span> Exclude Fee
+                                                            Transfer</i></small>
                                                 </td>
                                             </tr>
                                         </tfoot>
@@ -156,9 +156,9 @@
                     <i class="fab fa-whatsapp fa-fw"></i> Need Help?
                 </a>
                 <br />
-                <a class="btn btn-info btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
+                {{-- <a class="btn btn-info btn-xl mt-3 shadow" href="{{ route('pairing') }}" target="_blank">
                     <i class="fas fa-table fa-fw"></i> Pairing Table
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
