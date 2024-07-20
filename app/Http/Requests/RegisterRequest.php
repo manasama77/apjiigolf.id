@@ -36,22 +36,22 @@ class RegisterRequest extends FormRequest
             'institution'          => 'required',
             'institution_etc'      => 'required_if:institution,etc',
             'shirt_size'           => 'required',
-            'g-recaptcha-response' => [
-                'required',
-                function ($attribute, $value, $fail) {
-                    $google_url    = 'https://www.google.com/recaptcha/api/siteverify';
-                    $google_secret = config('services.recaptcha.secret_key');
-                    $response = Http::asForm()->post($google_url, [
-                        'secret'   => $google_secret,
-                        'response' => $value,
-                        'remoteip' => \request()->ip(),
-                    ]);
+            // 'g-recaptcha-response' => [
+            //     'required',
+            //     function ($attribute, $value, $fail) {
+            //         $google_url    = 'https://www.google.com/recaptcha/api/siteverify';
+            //         $google_secret = config('services.recaptcha.secret_key');
+            //         $response = Http::asForm()->post($google_url, [
+            //             'secret'   => $google_secret,
+            //             'response' => $value,
+            //             'remoteip' => \request()->ip(),
+            //         ]);
 
-                    if (!$response->json()['success']) {
-                        $fail('Google reCAPTCHA verification failed. Please refresh the page and try again.');
-                    }
-                }
-            ],
+            //         if (!$response->json()['success']) {
+            //             $fail('Google reCAPTCHA verification failed. Please refresh the page and try again.');
+            //         }
+            //     }
+            // ],
         ];
     }
 
