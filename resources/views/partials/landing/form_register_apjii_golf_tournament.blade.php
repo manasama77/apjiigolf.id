@@ -420,8 +420,8 @@
                                                 <tfoot>
                                                     <tr>
                                                         <td colspan="3" class="text-end">
-                                                            <small><i><span class="text-danger">*</span> Exclude Admin
-                                                                    Fee & Transfer Fee</i></small>
+                                                            <small><i><span class="text-danger">*</span> Exclude Fee
+                                                                    Transfer</i></small>
                                                         </td>
                                                     </tr>
                                                 </tfoot>
