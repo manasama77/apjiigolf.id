@@ -538,7 +538,7 @@ class ApjiiTournamentController extends Controller
         $exec = Registration::find(145);
         $time_expired = Carbon::parse($exec->expired_date)->format('Y-m-d H:i:s');
 
-        Mail::to('adam.pm77@gmail.com')->bcc([
+        return Mail::from('noreply@apjiigolf.id')->to('adam.pm77@gmail.com')->bcc([
             'adam.pm59@gmail.com',
         ])->send(new InvoiceMail($exec, $this->event_name, 'https://google.com', $time_expired));
     }
