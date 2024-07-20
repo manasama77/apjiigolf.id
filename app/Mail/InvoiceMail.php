@@ -59,10 +59,6 @@ class InvoiceMail extends Mailable implements ShouldQueue
     public function attachments(): array
     {
         return [
-            Attachment::fromStorageDisk('public', 'invoice/' . $this->registrations->invoice_number . '.pdf')->withMime('application/pdf'),
-        ];
-
-        return [
             public_path('/storage/invoice/' . $this->registrations->invoice_number . '.pdf'),
         ];
     }
