@@ -8,10 +8,11 @@ use App\Models\Registration;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApjiiTransactionExpired;
-use Illuminate\Support\Facades\Log;
+use App\Mail\ApjiiTransactionSuccess;
 use Illuminate\Support\Facades\Storage;
 
 class ApjiiTournamentCommand extends Command
@@ -109,6 +110,13 @@ class ApjiiTournamentCommand extends Command
                     Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
 
                     $reg->eticket = $nama_file;
+                    $reg->save();
+
+                    Mail::to($reg->email)->bcc([
+                        'adam.pm77@gmail.com',
+                        'victormalawau@gmail.com',
+                        'betharifarisha@gmail.com',
+                    ])->send(new ApjiiTransactionSuccess($reg, $nama_file, $event_name));
                 }
 
 
