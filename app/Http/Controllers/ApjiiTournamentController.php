@@ -490,15 +490,15 @@ class ApjiiTournamentController extends Controller
         return view('success_apjii_golf_tournament', $data);
     }
 
-    public function download($id)
+    public function download($invoice_number)
     {
-        $reg = Registration::find($id);
+        $reg = Registration::find($invoice_number);
 
         if (!$reg) {
             return abort(404);
         }
 
-        return Storage::download('eticket/apjii-golf-tournament-7/' . $reg->eticket);
+        return response()->download('storage/eticket/apjii-golf-tournament-7/' . $reg->eticket);
     }
 
     public function check(Request $request)
