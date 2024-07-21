@@ -468,6 +468,14 @@ class ApjiiTournamentController extends Controller
             return abort(404);
         }
 
+        if ($reg->payment_status == 'pending') {
+            return redirect(route('register_status', $id));
+        }
+
+        if ($reg->payment_status == 'expired') {
+            return redirect(route('register_cancel', $id));
+        }
+
         $event_name        = $this->event_name;
         $event_date        = $this->event_date;
         $event_time        = $this->event_time;
@@ -492,7 +500,7 @@ class ApjiiTournamentController extends Controller
 
     public function download($invoice_number)
     {
-        $reg = Registration::find($invoice_number);
+        $reg = Registration::where('invoice_number', $invoice_number)->first();
 
         if (!$reg) {
             return abort(404);
