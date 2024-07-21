@@ -91,26 +91,26 @@
                 }
             })
 
-            // $('#form').on('submit', () => {
-            //     // e.preventDefault()
-            //     // disabled submit button
-            //     $('#btn_submit').attr('disabled', true)
-            //     // retrigger submit
-            //     // $('#form').trigger('submit')
+            $('#form').on('submit', () => {
+                // e.preventDefault()
+                // disabled submit button
+                $('#btn_submit').attr('disabled', true)
+                // retrigger submit
+                // $('#form').trigger('submit')
 
-            //     // grecaptcha.ready(function() {
-            //     //     grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
-            //     //         action: 'submit'
-            //     //     }).then(function(token) {
-            //     //         document.getElementById('g-recaptcha-response').value = token;
-            //     //         form.submit();
-            //     //     });
-            //     // });
+                // grecaptcha.ready(function() {
+                //     grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
+                //         action: 'submit'
+                //     }).then(function(token) {
+                //         document.getElementById('g-recaptcha-response').value = token;
+                //         form.submit();
+                //     });
+                // });
 
-            //     setTimeout(() => {
-            //         $('#btn_submit').prop('disabled', false)
-            //     }, 3000);
-            // })
+                setTimeout(() => {
+                    $('#btn_submit').prop('disabled', false)
+                }, 3000);
+            })
 
             // $('#btn_submit').on('click', () => {
             //     // e.preventDefault()
