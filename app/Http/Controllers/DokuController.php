@@ -59,35 +59,13 @@ class DokuController extends Controller
             $reg->payment_status = strtolower($status);
 
             if ($status == 'SUCCESS') {
-                $plugin_barcode = new DNS2D();
-
-                $bar = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($reg->barcode, 'QRCODE', 20, 20, [0, 0, 0]) . '" alt="barcode"   />';
-
-                $data_pdf = [
-                    'bar'       => $bar,
-                    'barcode'   => $reg->barcode,
-                    'full_name' => $reg->full_name,
-                ];
-                $custom_paper = [0, 0, 1000, 1778];
-                $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
-                // // DEBUG PURPOSE
-                // return $pdf->stream('test.pdf', array("Attachment" => false));
-
-                $slug_location_name = Str::slug($this->event_name);
-                $content = $pdf->download()->getOriginalContent();
-                $nama_file = Str::slug($reg->full_name . "-" . $reg->barcode) . ".pdf";
-                Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
-
-                $reg->eticket = $nama_file;
-                $reg->save();
-
                 // debug purpose
                 // return (new ApjiiTransactionSuccess($reg, $nama_file, $this->event_name))->render();
                 Mail::to($reg->email)->bcc([
                     'adam.pm77@gmail.com',
                     'victormalawau@gmail.com',
                     'betharifarisha@gmail.com',
-                ])->send(new ApjiiTransactionSuccess($reg, $nama_file, $this->event_name));
+                ])->send(new ApjiiTransactionSuccess($reg, $reg->eticket, $this->event_name));
             }
 
             $reg->notification = $request->getContent();
