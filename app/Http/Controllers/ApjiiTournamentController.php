@@ -13,10 +13,11 @@ use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\RegistrationStatus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\RegisterRequest;
 use App\Mail\ApjiiTransactionExpired;
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\Facades\Storage;
 
 class ApjiiTournamentController extends Controller
@@ -532,7 +533,8 @@ class ApjiiTournamentController extends Controller
 
     public function test()
     {
-        //
+        Log::info("A");
+        dd("A");
         dump(config('mail.default'), config('mail.from.address'));
         $exec = Registration::find(1);
         $time_expired = Carbon::parse($exec->expired_date)->format('Y-m-d H:i:s');

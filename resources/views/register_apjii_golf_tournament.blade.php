@@ -26,8 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
-        rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
 
@@ -60,21 +59,17 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
-        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
@@ -96,26 +91,26 @@
                 }
             })
 
-            $('#form').on('submit', () => {
-                // e.preventDefault()
-                // disabled submit button
-                $('#btn_submit').attr('disabled', true)
-                // retrigger submit
-                // $('#form').trigger('submit')
+            // $('#form').on('submit', () => {
+            //     // e.preventDefault()
+            //     // disabled submit button
+            //     $('#btn_submit').attr('disabled', true)
+            //     // retrigger submit
+            //     // $('#form').trigger('submit')
 
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
-                        action: 'submit'
-                    }).then(function(token) {
-                        document.getElementById('g-recaptcha-response').value = token;
-                        form.submit();
-                    });
-                });
+            //     // grecaptcha.ready(function() {
+            //     //     grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
+            //     //         action: 'submit'
+            //     //     }).then(function(token) {
+            //     //         document.getElementById('g-recaptcha-response').value = token;
+            //     //         form.submit();
+            //     //     });
+            //     // });
 
-                setTimeout(() => {
-                    $('#btn_submit').prop('disabled', false)
-                }, 3000);
-            })
+            //     setTimeout(() => {
+            //         $('#btn_submit').prop('disabled', false)
+            //     }, 3000);
+            // })
 
             // $('#btn_submit').on('click', () => {
             //     // e.preventDefault()
@@ -166,6 +161,7 @@
         //         }
         //     })
         // }
+
     </script>
 </body>
 
