@@ -24,3 +24,6 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('doku/notification', [DokuController::class, 'notification']);
     Route::post('midtrans/notification', [MidtransController::class, 'notification']);
 });
+
+Route::post('doku/notification', [DokuController::class, 'notification']);
+Route::post('midtrans/notification', [MidtransController::class, 'notification']);
