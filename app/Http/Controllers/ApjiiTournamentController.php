@@ -148,7 +148,6 @@ class ApjiiTournamentController extends Controller
             DB::beginTransaction();
 
             $order_id = $this->generate_order_id();
-            // $order_id = 'mtRPwJ3hHVsKbrid';
 
             $invoice_array  = $this->generate_invoice_number();
             $invoice_number = $invoice_array['invoice_number'];
@@ -368,24 +367,24 @@ class ApjiiTournamentController extends Controller
 
         $payment_object = [
             'payment_due_date' => 60,
-            // "payment_method_types" => [
-            //     "VIRTUAL_ACCOUNT_BCA",
-            //     "VIRTUAL_ACCOUNT_BANK_MANDIRI",
-            //     "VIRTUAL_ACCOUNT_BANK_SYARIAH_MANDIRI",
-            //     "VIRTUAL_ACCOUNT_DOKU",
-            //     "VIRTUAL_ACCOUNT_BRI",
-            //     "VIRTUAL_ACCOUNT_BNI",
-            //     "VIRTUAL_ACCOUNT_BANK_PERMATA",
-            //     "VIRTUAL_ACCOUNT_BANK_CIMB",
-            //     "VIRTUAL_ACCOUNT_BANK_DANAMON",
-            //     "ONLINE_TO_OFFLINE_ALFA",
-            //     "CREDIT_CARD",
-            //     "DIRECT_DEBIT_BRI",
-            //     "EMONEY_SHOPEEPAY",
-            //     "EMONEY_OVO",
-            //     "QRIS",
-            //     "PEER_TO_PEER_AKULAKU",
-            // ]
+            "payment_method_types" => [
+                "VIRTUAL_ACCOUNT_BCA",
+                "VIRTUAL_ACCOUNT_BANK_MANDIRI",
+                "VIRTUAL_ACCOUNT_BANK_SYARIAH_MANDIRI",
+                "VIRTUAL_ACCOUNT_DOKU",
+                "VIRTUAL_ACCOUNT_BRI",
+                "VIRTUAL_ACCOUNT_BNI",
+                "VIRTUAL_ACCOUNT_BANK_PERMATA",
+                "VIRTUAL_ACCOUNT_BANK_CIMB",
+                "VIRTUAL_ACCOUNT_BANK_DANAMON",
+                "CREDIT_CARD",
+                "QRIS",
+                // "ONLINE_TO_OFFLINE_ALFA",
+                // "DIRECT_DEBIT_BRI",
+                // "EMONEY_SHOPEEPAY",
+                // "EMONEY_OVO",
+                // "PEER_TO_PEER_AKULAKU",
+            ]
         ];
 
         $customer_object = [

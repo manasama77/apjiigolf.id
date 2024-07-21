@@ -4,6 +4,151 @@
             <div class="col-lg-12 text-center">
                 <div class="row my-3">
 
+                    <div class="col-sm-12 col-md-8 offset-md-2">
+
+                        <div class="accordion mb-5" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Tournament Information
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}" alt="APJII Golf Tournament 7" class="img-fluid mb-4" style="max-width: 90%" />
+
+                                        <div class="table-responsive d-block d-md-none">
+                                            <table class="table table-bordered table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 200px;">
+                                                            <strong>
+                                                                Event Date
+                                                            </strong>
+                                                            <br />
+                                                            {{ $event_date->format('l, d F Y') }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                Tee Off
+                                                            </strong>
+                                                            <br />
+                                                            {{ $event_time }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>
+                                                                Locations
+                                                            </strong>
+                                                            <br />
+                                                            <a href="{{ $google_maps_url }}" target="_blank">
+                                                                {{ $location_name }}<br />
+                                                                {{ $location_address }}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h4 class="fw-bold">
+                                                                Registration Fee
+                                                            </h4>
+                                                            <img src="{{ asset('tiket-01.png') }}" alt="Earlybird Price" class="img-fluid" />
+                                                            <span class="fw-bold">Until {{ $early_bird_end }}</span>
+
+                                                            <img src="{{ asset('tiket-03.png') }}" alt="Reguler Price" class="img-fluid" />
+                                                            {{-- <span class="fw-bold">Registration Period</span>
+                                                            <p class="fw-bold" style="font-size: 0.9rem">
+                                                                {{ $reguler_start }} -
+                                                            {{ $reguler_end }}
+                                                            </p> --}}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3" class="text-end">
+                                                            <small><i><span class="text-danger">*</span> Exclude
+                                                                    Transfer Fee</i></small>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+
+                                        <div class="table-responsive d-none d-md-block d-lg-block d-xl-block">
+                                            <table class="table table-bordered table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width: 200px;">Event Date</td>
+                                                        <td style="width: 10px">:</td>
+                                                        <td class="text-start">{{ $event_date->format('l, d F Y') }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tee Off</td>
+                                                        <td>:</td>
+                                                        <td class="text-start">{{ $event_time }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Location</td>
+                                                        <td>:</td>
+                                                        <td class="text-start">
+                                                            <a href="{{ $google_maps_url }}">
+                                                                {{ $location_name }}<br />
+                                                                {{ $location_address }}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Registration Fee</td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="row mx-0">
+                                                                <div class="col-sm-12 col-md-6 text-center fw-bold">
+                                                                    <img src="{{ asset('tiket-01.png') }}" alt="Early Bird Price" class="img-fluid" />
+                                                                    <span>Until {{ $early_bird_end }}</span>
+
+                                                                    {{-- <p style="font-size: 0.9rem">
+                                                                        {{ $early_bird_start }}
+                                                                    - {{ $early_bird_end }}
+                                                                    </p> --}}
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-6 text-center fw-bold">
+                                                                    <img src="{{ asset('tiket-03.png') }}" alt="Reguler Price" class="img-fluid" />
+                                                                    {{-- <span>Registration Period</span>
+                                                                    <p style="font-size: 0.9rem">{{ $reguler_start }}
+                                                                    -
+                                                                    {{ $reguler_end }}
+                                                                    </p> --}}
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3" class="text-end">
+                                                            <small><i><span class="text-danger">*</span> Registration
+                                                                    Exclude Transfer Fee</i></small>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+
+                                        {{-- <iframe src="{{ $google_maps_embed }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded border border-4 border-white shadow"></iframe> --}}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
                     <div class="col-sm-12 col-md-8 offset-md-2 mb-5">
                         <form id="form" action="{{ route('register_store') }}" method="post">
                             @csrf
@@ -111,8 +256,8 @@
                                                 <h5>XS</h5>
                                                 <h6 class="small">
                                                     Chest: 81-87 CM<br />
-                                                    Waist: 68-74 CM<br />
-                                                    Seat: 85-91 CM<br />
+                                                    {{-- Waist: 68-74 CM<br />
+                                                    Seat: 85-91 CM<br /> --}}
                                                     Arm Length: 62 CM<br />
                                                 </h6>
                                             </label>
@@ -124,8 +269,8 @@
                                                 <h5>S</h5>
                                                 <h6 class="small">
                                                     Chest: 87-93 CM<br />
-                                                    Waist: 74-80 CM<br />
-                                                    Seat: 91-97 CM<br />
+                                                    {{-- Waist: 74-80 CM<br />
+                                                    Seat: 91-97 CM<br /> --}}
                                                     Arm Length: 63.5 CM<br />
                                                 </h6>
                                             </label>
@@ -137,8 +282,8 @@
                                                 <h5>M</h5>
                                                 <h6 class="small">
                                                     Chest: 93-99 CM<br />
-                                                    Waist: 80-86 CM<br />
-                                                    Seat: 97-103 CM<br />
+                                                    {{-- Waist: 80-86 CM<br />
+                                                    Seat: 97-103 CM<br /> --}}
                                                     Arm Length: 65 CM<br />
                                                 </h6>
                                             </label>
@@ -150,8 +295,8 @@
                                                 <h5>L</h5>
                                                 <h6 class="small">
                                                     Chest: 99-105 CM<br />
-                                                    Waist: 86-92 CM<br />
-                                                    Seat: 103-109 CM<br />
+                                                    {{-- Waist: 86-92 CM<br />
+                                                    Seat: 103-109 CM<br /> --}}
                                                     Arm Length: 66.5 CM<br />
                                                 </h6>
                                             </label>
@@ -163,8 +308,8 @@
                                                 <h5>XL</h5>
                                                 <h6 class="small">
                                                     Chest: 105-111 CM<br />
-                                                    Waist: 92-98 CM<br />
-                                                    Seat: 109-115 CM<br />
+                                                    {{-- Waist: 92-98 CM<br />
+                                                    Seat: 109-115 CM<br /> --}}
                                                     Arm Length: 68 CM<br />
                                                 </h6>
                                             </label>
@@ -176,8 +321,8 @@
                                                 <h5>XXL</h5>
                                                 <h6 class="small">
                                                     Chest: 111-117 CM<br />
-                                                    Waist: 98-104 CM<br />
-                                                    Seat: 115-121 CM<br />
+                                                    {{-- Waist: 98-104 CM<br />
+                                                    Seat: 115-121 CM<br /> --}}
                                                     Arm Length: 69.5 CM<br />
                                                 </h6>
                                             </label>
@@ -189,8 +334,8 @@
                                                 <h5>XXXL</h5>
                                                 <h6 class="small">
                                                     Chest: 117-123 CM<br />
-                                                    Waist: 104-110 CM<br />
-                                                    Seat: 121-127 CM<br />
+                                                    {{-- Waist: 104-110 CM<br />
+                                                    Seat: 121-127 CM<br /> --}}
                                                     Arm Length: 71 CM<br />
                                                 </h6>
                                             </label>
@@ -198,7 +343,7 @@
 
                                     </div>
 
-                                    <div class="row mb-3">
+                                    {{-- <div class="row mb-3">
                                         <div class="col-12">
                                             <div class="accordion" id="accordionExample">
                                                 <div class="accordion-item">
@@ -279,7 +424,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
 
@@ -302,164 +447,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-                    <div class="col-sm-12 col-md-8 offset-md-2">
-
-                        <div class="accordion mb-5" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Tournament Information
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}" alt="APJII Golf Tournament 7" class="img-fluid mb-4" style="max-width: 90%" />
-
-                                        <div class="table-responsive d-block d-md-none">
-                                            <table class="table table-bordered table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="width: 200px;">
-                                                            <strong>
-                                                                Event Date
-                                                            </strong>
-                                                            <br />
-                                                            {{ $event_date->format('l, d F Y') }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Tee Off
-                                                            </strong>
-                                                            <br />
-                                                            {{ $event_time }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <strong>
-                                                                Locations
-                                                            </strong>
-                                                            <br />
-                                                            <a href="{{ $google_maps_url }}" target="_blank">
-                                                                {{ $location_name }}<br />
-                                                                {{ $location_address }}
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <h4 class="fw-bold">
-                                                                Registration Fee
-                                                            </h4>
-                                                            <img src="{{ asset('tiket-01.png') }}" alt="Earlybird Price" class="img-fluid" />
-                                                            <span class="fw-bold">Registration Period</span>
-                                                            <p class="mb-5 fw-bold" style="font-size: 0.9rem">
-                                                                {{ $early_bird_start }}
-                                                                - {{ $early_bird_end }}
-                                                            </p>
-
-                                                            <img src="{{ asset('tiket-02.png') }}" alt="Reguler Price" class="img-fluid" />
-                                                            <span class="fw-bold">Registration Period</span>
-                                                            <p class="fw-bold" style="font-size: 0.9rem">
-                                                                {{ $reguler_start }} -
-                                                                {{ $reguler_end }}
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="3" class="text-end">
-                                                            <small><i><span class="text-danger">*</span> Exclude Fee
-                                                                    Transfer</i></small>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-
-                                        <div class="table-responsive d-none d-md-block d-lg-block d-xl-block">
-                                            <table class="table table-bordered table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="width: 200px;">Event Date</td>
-                                                        <td style="width: 10px">:</td>
-                                                        <td class="text-start">{{ $event_date->format('l, d F Y') }}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Tee Off</td>
-                                                        <td>:</td>
-                                                        <td class="text-start">{{ $event_time }}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Location</td>
-                                                        <td>:</td>
-                                                        <td class="text-start">
-                                                            <a href="{{ $google_maps_url }}">
-                                                                {{ $location_name }}<br />
-                                                                {{ $location_address }}
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Registration Fee</td>
-                                                        <td>:</td>
-                                                        <td>
-                                                            <div class="row mx-0">
-                                                                <div class="col-sm-12 col-md-6 text-center fw-bold">
-                                                                    <img src="{{ asset('tiket-01.png') }}" alt="Early Bird Price" class="img-fluid" />
-                                                                    <span>Registration Period</span>
-                                                                    <p style="font-size: 0.9rem">
-                                                                        {{ $early_bird_start }}
-                                                                        - {{ $early_bird_end }}
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-sm-12 col-md-6 text-center fw-bold">
-                                                                    <img src="{{ asset('tiket-02.png') }}" alt="Reguler Price" class="img-fluid" />
-                                                                    <span>Registration Period</span>
-                                                                    <p style="font-size: 0.9rem">{{ $reguler_start }}
-                                                                        -
-                                                                        {{ $reguler_end }}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    {{-- <tr>
-                                                        <td>Payment Info</td>
-                                                        <td>:</td>
-                                                        <td class="text-start">
-                                                            {{ $no_rekening }} <button type="button" class="btn btn-secondary btn-sm" style="font-size: 10px;" onclick="copyToClipboard('{{ $no_rekening }}')">
-                                                        <i class="fas fa-copy"></i> Copy
-                                                    </button> <br />
-                                                    {{ $bank_rekening }}<br />
-                                                    a/n {{ $nama_rekening }}
-                                                    </td>
-                                                    </tr> --}}
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="3" class="text-end">
-                                                            <small><i><span class="text-danger">*</span> Registration
-                                                                    Exclude Fee Transfer</i></small>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-
-                                        <iframe src="{{ $google_maps_embed }}" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded border border-4 border-white shadow"></iframe>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
