@@ -105,7 +105,7 @@ class ApjiiTournamentCommand extends Command
 
                     $slug_location_name = Str::slug($event_name);
                     $content = $pdf->download()->getOriginalContent();
-                    $nama_file = $reg->full_name . "-" . $reg->barcode . ".pdf";
+                    $nama_file = Str::slug($reg->full_name . "-" . $reg->barcode) . ".pdf";
                     Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
 
                     $reg->eticket = $nama_file;
