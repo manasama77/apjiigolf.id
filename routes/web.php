@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminApjiiTournamentController;
 use App\Http\Controllers\ApjiiTournamentController;
 use App\Http\Controllers\CountController;
 use App\Http\Controllers\DashboardController;
@@ -33,6 +34,7 @@ Route::post('/register/check', [ApjiiTournamentController::class, 'find'])->name
 Route::get('/register/status/{id}', [ApjiiTournamentController::class, 'status'])->name('register_status');
 Route::get('/register/success/{id}', [ApjiiTournamentController::class, 'success'])->name('register_success');
 Route::get('/register/cancel/{id}', [ApjiiTournamentController::class, 'cancel'])->name('register_cancel');
+Route::get('/download/invoice/{invoice_number}', [ApjiiTournamentController::class, 'download_invoice'])->name('register_download_invoice');
 Route::get('/download/eticket/{invoice_number}', [ApjiiTournamentController::class, 'download'])->name('register_download_eticket');
 // Route::get('/test', [ApjiiTournamentController::class, 'test']);
 
@@ -118,6 +120,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'update'  => 'admin.player_score.update',
         'destroy' => 'admin.player_score.destroy',
     ]);
+
+    Route::get('/tournament', [AdminApjiiTournamentController::class, 'index'])->name('admin.tournament');
 });
 
 Auth::routes([

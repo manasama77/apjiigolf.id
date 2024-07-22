@@ -19,11 +19,9 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}"
-                        class="nav-link {{ request()->route()->named('admin.dashboard')? 'active': '' }}">
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->route()->named('admin.dashboard')? 'active': '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -31,8 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.master_location') }}"
-                        class="nav-link {{ request()->route()->named('admin.master_location')? 'active': '' }}">
+                    <a href="{{ route('admin.master_location') }}" class="nav-link {{ request()->route()->named('admin.master_location')? 'active': '' }}">
                         <i class="nav-icon fas fa-map"></i>
                         <p>
                             Master Location
@@ -40,8 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.event_location') }}"
-                        class="nav-link {{ request()->route()->named('admin.event_location')? 'active': '' }}">
+                    <a href="{{ route('admin.event_location') }}" class="nav-link {{ request()->route()->named('admin.event_location')? 'active': '' }}">
                         <i class="nav-icon fas fa-calendar"></i>
                         <p>
                             Event Location
@@ -49,8 +45,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.player_management') }}"
-                        class="nav-link {{ request()->route()->named('admin.player_management')? 'active': '' }}">
+                    <a href="{{ route('admin.player_management') }}" class="nav-link {{ request()->route()->named('admin.player_management')? 'active': '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Player Management
@@ -58,8 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.player_score') }}"
-                        class="nav-link {{ request()->route()->named('admin.player_score')? 'active': '' }}">
+                    <a href="{{ route('admin.player_score') }}" class="nav-link {{ request()->route()->named('admin.player_score')? 'active': '' }}">
                         <i class="nav-icon fa-solid fa-golf-ball-tee"></i>
                         <p>
                             Player Score
@@ -67,83 +61,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.admin') }}"
-                        class="nav-link {{ request()->route()->named('admin.admin')? 'active': '' }}">
+                    <a href="{{ route('admin.tournament') }}" class="nav-link {{ request()->route()->named('admin.tournament')? 'active': '' }}">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            APJII 7
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.admin') }}" class="nav-link {{ request()->route()->named('admin.admin')? 'active': '' }}">
                         <i class="nav-icon fas fa-user-secret"></i>
                         <p>
                             Admin Management
                         </p>
                     </a>
                 </li>
-                {{-- <li class="nav-item {{ request()->route()->getPrefix() == 'admin/user/'? 'menu-open': 'menu-close' }}">
-                    <a href="#"
-                        class="nav-link {{ request()->route()->getPrefix() == 'admin/user/'? 'active': '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            User Management
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.user.admin') }}"
-                                class="nav-link {{ request()->route()->named('admin.user.admin')? 'active': '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Admin</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.user.siswa') }}"
-                                class="nav-link {{ request()->route()->named('admin.user.siswa')? 'active': '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Siswa</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.user.guru') }}"
-                                class="nav-link {{ request()->route()->named('admin.user.guru')? 'active': '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Guru</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.informasi_kegiatan') }}"
-                        class="nav-link {{ request()->route()->named('admin.informasi_kegiatan')? 'active': '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Informasi Kegiatan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.galeri') }}"
-                        class="nav-link {{ request()->route()->named('admin.galeri')? 'active': '' }}">
-                        <i class="nav-icon fas fa-images"></i>
-                        <p>
-                            Galeri
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.mapel') }}"
-                        class="nav-link {{ request()->route()->named('admin.mapel')? 'active': '' }}">
-                        <i class="nav-icon fas fa-tags"></i>
-                        <p>
-                            Master Mata Pelajaran
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.bank_soal') }}"
-                        class="nav-link {{ request()->route()->named('admin.bank_soal')? 'active': '' }}">
-                        <i class="nav-icon fas fa-book"></i>
-                        <p>
-                            Bank Soal
-                        </p>
-                    </a>
-                </li> --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById(`form_logout`).submit()">
                         <i class="nav-icon fa-solid fa-right-from-bracket"></i>

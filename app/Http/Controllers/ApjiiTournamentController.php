@@ -497,6 +497,17 @@ class ApjiiTournamentController extends Controller
         return view('success_apjii_golf_tournament', $data);
     }
 
+    public function download_invoice($invoice_number)
+    {
+        $reg = Registration::where('invoice_number', $invoice_number)->first();
+
+        if (!$reg) {
+            return abort(404);
+        }
+
+        return response()->download('storage/invoice/' . $reg->invoice_number . '.pdf');
+    }
+
     public function download($invoice_number)
     {
         $reg = Registration::where('invoice_number', $invoice_number)->first();
