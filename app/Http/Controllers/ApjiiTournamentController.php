@@ -92,6 +92,7 @@ class ApjiiTournamentController extends Controller
 
     public function index()
     {
+        dump(env('APP_ENV'));
         $event_name          = $this->event_name;
         $event_date          = $this->event_date;
         $event_time          = $this->event_time;
