@@ -17,11 +17,12 @@ use App\Models\PlayerHistory;
 use Intervention\Image\Image;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\RegistrationStatus;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\Route;
 use App\Http\Requests\RegisterRequest;
-use App\Models\RegistrationStatus;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Builder;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -97,6 +98,7 @@ class LandingController extends Controller
         $reguler_start    = $this->reguler_start->format('F d, Y');
         $reguler_end      = $this->reguler_end->format('F d, Y');
 
+        $current_route = Route::currentRouteName();
 
         $data = [
             'event_name'          => $event_name,
@@ -118,6 +120,7 @@ class LandingController extends Controller
             'early_bird_end'      => $early_bird_end,
             'reguler_start'       => $reguler_start,
             'reguler_end'         => $reguler_end,
+            'current_route'       => $current_route,
         ];
 
         return view('landing', $data);

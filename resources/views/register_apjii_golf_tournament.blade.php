@@ -26,11 +26,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
 
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+    {!! RecaptchaV3::initJs() !!}
 
     @vite(['resources/css/register.css', 'resources/js/register.js'])
 </head>
@@ -59,17 +60,21 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
@@ -79,6 +84,8 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        const google_recaptcha_site_key = "{{ config('services.recaptcha.site_key') }}";
 
         $(document).ready(() => {
             $('#institution').on('change', e => {
@@ -92,76 +99,23 @@
             })
 
             $('#form').on('submit', () => {
-                // e.preventDefault()
-                // disabled submit button
                 $('#btn_submit').attr('disabled', true)
-                // retrigger submit
-                // $('#form').trigger('submit')
-
-                // grecaptcha.ready(function() {
-                //     grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {
-                //         action: 'submit'
-                //     }).then(function(token) {
-                //         document.getElementById('g-recaptcha-response').value = token;
-                //         form.submit();
-                //     });
-                // });
-
                 setTimeout(() => {
                     $('#btn_submit').prop('disabled', false)
                 }, 3000);
+
+                document.getElementById("form").submit();
             })
 
-            // $('#btn_submit').on('click', () => {
-            //     // e.preventDefault()
-            //     $('#btn_submit').prop('disabled', true)
-            //     // $('#form').trigger('submit')
-            //     setTimeout(() => {
-            //         $('#btn_submit').prop('disabled', false)
-            //     }, 3000);
-            // });
+            $('#btn_submit').on('click', () => {
+                $('#btn_submit').attr('disabled', true)
+                setTimeout(() => {
+                    $('#btn_submit').prop('disabled', false)
+                }, 3000);
 
-            // $('#registration_form').on('submit', e => {
-            //     e.preventDefault()
-            //     registerApi()
-            // })
-
-            // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
+                document.getElementById("form").submit();
+            });
         })
-
-        // function registerApi() {
-        //     $.ajax({
-        //         url: `{{ route('register_store') }}`,
-        //         method: 'POST',
-        //         dataType: 'json',
-        //         data: {
-        //             full_name: $('#full_name').val(),
-        //             gender: $('#gender').val(),
-        //             email: $('#email').val(),
-        //             whatsapp_number: $('#whatsapp_number').val(),
-        //             company_name: $('#company_name').val(),
-        //             position: $('#position').val(),
-        //             institution: $('#institution').val(),
-        //             institution_etc: $('#institution_etc').val(),
-        //         },
-        //         beforeSend: () => {
-        //             $('#submitButton').prop('disabled', true)
-        //         }
-        //     }).fail(e => {
-        //         console.log(e)
-        //         $('#submitButton').prop('disabled', false)
-        //     }).done(e => {
-        //         console.log(e)
-        //         if (e.success) {
-        //             // console.log(e.snap_token)
-        //             snap.pay(e.snap_token);
-        //             // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
-        //         } else {
-        //             $('#submitButton').prop('disabled', false)
-        //         }
-        //     })
-        // }
-
     </script>
 </body>
 

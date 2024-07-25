@@ -83,6 +83,7 @@
 
     <script>
         const url = @json($reg->url);
+        const id = @json($reg->id);
 
         $.ajaxSetup({
             headers: {
@@ -91,46 +92,34 @@
         });
 
         $(document).ready(() => {
-
             let checkoutButton = document.getElementById('checkout-button');
-            // Example: the payment page will show when the button is clicked
             checkoutButton.addEventListener('click', function() {
                 loadJokulCheckout(url);
             });
+
+            checkStatusPayment();
+
+            setInterval(() => {
+                checkStatusPayment();
+            }, 1000);
         })
 
-        // function registerApi() {
-        //     $.ajax({
-        //         url: `{{ route('register_store') }}`,
-        //         method: 'POST',
-        //         dataType: 'json',
-        //         data: {
-        //             full_name: $('#full_name').val(),
-        //             gender: $('#gender').val(),
-        //             email: $('#email').val(),
-        //             whatsapp_number: $('#whatsapp_number').val(),
-        //             company_name: $('#company_name').val(),
-        //             position: $('#position').val(),
-        //             institution: $('#institution').val(),
-        //             institution_etc: $('#institution_etc').val(),
-        //         },
-        //         beforeSend: () => {
-        //             $('#submitButton').prop('disabled', true)
-        //         }
-        //     }).fail(e => {
-        //         console.log(e)
-        //         $('#submitButton').prop('disabled', false)
-        //     }).done(e => {
-        //         console.log(e)
-        //         if (e.success) {
-        //             // console.log(e.snap_token)
-        //             snap.pay(e.snap_token);
-        //             // window.location.href = `{{ url('/register_status') }}/${e.data.order_id}`
-        //         } else {
-        //             $('#submitButton').prop('disabled', false)
-        //         }
-        //     })
-        // }
+        function checkStatusPayment() {
+            $.ajax({
+                url: `/register/show/${id}`,
+                method: 'GET',
+                dataType: 'json',
+            }).fail(e => {
+                console.log(e)
+            }).done(e => {
+                console.log(e)
+                if (e.status == 'expired') {
+                    window.location.href = `/register/cancel/${id}`
+                } else if (e.status == 'success') {
+                    window.location.href = `/register/success/${id}`
+                }
+            })
+        }
     </script>
 </body>
 

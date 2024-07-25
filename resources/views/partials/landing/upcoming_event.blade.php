@@ -48,20 +48,10 @@
                                                     <h4 class="fw-bold">
                                                         Registration Fee
                                                     </h4>
-                                                    <img src="{{ asset('tiket-01.png') }}" alt="Earlybird Price"
-                                                        class="img-fluid" />
-                                                    <span class="fw-bold">Registration Period</span>
-                                                    <p class="mb-5 fw-bold" style="font-size: 0.9rem">
-                                                        {{ $early_bird_start }}
-                                                        - {{ $early_bird_end }}
-                                                    </p>
-
-                                                    <img src="{{ asset('tiket-02.png') }}" alt="Reguler Price"
-                                                        class="img-fluid" />
-                                                    <span class="fw-bold">Registration Period</span>
-                                                    <p class="fw-bold" style="font-size: 0.9rem">
-                                                        {{ $reguler_start }} -
-                                                        {{ $reguler_end }}
+                                                    <p class="word-art">
+                                                        <span class="text">Rp{{ $ticket_price_idr }}<sup
+                                                                class="text-danger">*</sup>
+                                                        </span>
                                                     </p>
                                                 </td>
                                             </tr>
@@ -103,42 +93,14 @@
                                             <tr>
                                                 <td>Registration Fee</td>
                                                 <td>:</td>
-                                                <td>
-                                                    <div class="row mx-0">
-                                                        <div class="col-sm-12 col-md-6 text-center fw-bold">
-                                                            <img src="{{ asset('tiket-01.png') }}"
-                                                                alt="Early Bird Price" class="img-fluid" />
-                                                            <span>Registration Period</span>
-                                                            <p style="font-size: 0.9rem">
-                                                                {{ $early_bird_start }}
-                                                                - {{ $early_bird_end }}
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-sm-12 col-md-6 text-center fw-bold">
-                                                            <img src="{{ asset('tiket-02.png') }}" alt="Reguler Price"
-                                                                class="img-fluid" />
-                                                            <span>Registration Period</span>
-                                                            <p style="font-size: 0.9rem">{{ $reguler_start }}
-                                                                -
-                                                                {{ $reguler_end }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                <td class="text-start">
+                                                    <p class="word-art">
+                                                        <span class="text">Rp{{ $ticket_price_idr }}<sup
+                                                                class="text-danger">*</sup>
+                                                        </span>
+                                                    </p>
                                                 </td>
                                             </tr>
-                                            {{-- <tr>
-                                                <td>Payment Info</td>
-                                                <td>:</td>
-                                                <td class="text-start">
-                                                    {{ $no_rekening }} <button type="button"
-                                                        class="btn btn-secondary btn-sm" style="font-size: 10px;"
-                                                        onclick="copyToClipboard('{{ $no_rekening }}')">
-                                                        <i class="fas fa-copy"></i> Copy
-                                                    </button> <br />
-                                                    {{ $bank_rekening }}<br />
-                                                    a/n {{ $nama_rekening }}
-                                                </td>
-                                            </tr> --}}
                                         </tbody>
                                         <tfoot>
                                             <tr>

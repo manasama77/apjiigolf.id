@@ -31,6 +31,7 @@ Route::post('/register', [ApjiiTournamentController::class, 'store'])->name('reg
 Route::get('/register/check', [ApjiiTournamentController::class, 'check'])->name('register_check');
 Route::post('/register/check', [ApjiiTournamentController::class, 'find'])->name('register_find');
 Route::get('/register/status/{id}', [ApjiiTournamentController::class, 'status'])->name('register_status');
+Route::get('/register/show/{id}', [ApjiiTournamentController::class, 'show'])->name('register_show');
 Route::get('/register/success/{id}', [ApjiiTournamentController::class, 'success'])->name('register_success');
 Route::get('/register/cancel/{id}', [ApjiiTournamentController::class, 'cancel'])->name('register_cancel');
 Route::get('/download/invoice/{invoice_number}', [ApjiiTournamentController::class, 'download_invoice'])->name('register_download_invoice');

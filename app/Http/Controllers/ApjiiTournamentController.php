@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ApjiiTransactionExpired;
 use App\Http\Requests\RegisterRequest;
+use App\Models\PromoCode;
 use Illuminate\Support\Facades\Storage;
 
 class ApjiiTournamentController extends Controller
@@ -82,10 +83,10 @@ class ApjiiTournamentController extends Controller
             $this->secret_key  = config('doku.secret_key');
         }
 
-        $this->ticket_type = 'reguler';
-        if (Carbon::now() >= $this->early_bird_start && Carbon::now() <= $this->early_bird_end) {
-            $this->ticket_type = 'early bird';
-        }
+        // $this->ticket_type = 'reguler';
+        // if (Carbon::now() >= $this->early_bird_start && Carbon::now() <= $this->early_bird_end) {
+        //     $this->ticket_type = 'early bird';
+        // }
     }
 
     public function index()
@@ -170,8 +171,8 @@ class ApjiiTournamentController extends Controller
             }
             $event_location_id = $event_location->id;
 
-            $ticket_type  = $this->ticket_type;
-            $ticket_price = ($this->ticket_type == 'reguler') ? $this->reguler_price : $this->early_price;
+            $ticket_type = ($request->code) ? "early bird" : "reguler";
+            $ticket_price = ($ticket_type == "early bird") ? $this->early_price : $this->reguler_price;
             $admin_fee    = $this->admin_fee;
             $total_price  = $ticket_price + $admin_fee;
 
@@ -193,6 +194,7 @@ class ApjiiTournamentController extends Controller
                 'shirt_size'        => $request->shirt_size,
                 'event_location_id' => $event_location_id,
                 'ticket_type'       => $ticket_type,
+                'promo_code'        => $request->code ?? null,
                 'ticket_price'      => $ticket_price,
                 'admin_fee'         => $this->admin_fee,
                 'total_price'       => $ticket_price + $this->admin_fee,
@@ -204,6 +206,10 @@ class ApjiiTournamentController extends Controller
 
             if (!$exec) {
                 throw new Exception("Failed to register. Please contact admin for more information at contact +6282114578976.");
+            }
+
+            if ($request->code) {
+                PromoCode::where('code', $request->code)->update(['is_used' => 1]);
             }
 
             $register_id   = $exec->id;
@@ -584,5 +590,13 @@ class ApjiiTournamentController extends Controller
         return Mail::to('adam.pm77@gmail.com')->bcc([
             'adam.pm59@gmail.com',
         ])->send(new InvoiceMail($exec, $this->event_name, 'https://google.com', $time_expired));
+    }
+
+    public function show($id)
+    {
+        $reg    = Registration::find($id);
+        $status = $reg->payment_status;
+
+        return response()->json(['status' => $status]);
     }
 }

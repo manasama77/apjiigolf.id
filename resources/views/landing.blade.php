@@ -26,7 +26,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+        rel="stylesheet" type="text/css" />
     <!-- SimpleLightbox plugin CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
 
@@ -62,7 +63,8 @@
     </footer>
 
     <!-- Modal -->
-    <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.1); opacity: 1 !important">
+    <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="ApjiiPopup" aria-hidden="true"
+        style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.1); opacity: 1 !important">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -70,7 +72,8 @@
                 </div>
                 <div class="modal-body position-relative">
                     <a href="{{ route('register_index') }}">
-                        <img src="{{ asset('pop up banner 1000x1000 px.jpg') }}" alt="APJII Tournament 7 Info" class="img-fluid" />
+                        <img src="{{ asset('pop up banner 1000x1000 px.jpg') }}" alt="APJII Tournament 7 Info"
+                            class="img-fluid" />
                         <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);">
                             <button type="button" class="btn btn-primary bg-apjii">
                                 REGISTER NOW
@@ -82,21 +85,27 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SimpleLightbox plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ env('MIDTRANS_CLIENT_KEY') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
     <script>
+        let current_route = @json($current_route);
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -105,7 +114,9 @@
 
 
         $(document).ready(() => {
-            $('#popup').modal('show')
+            if (current_route == 'home') {
+                // $('#popup').modal('show')
+            }
 
             $('#institution').on('change', e => {
                 console.log($('#institution').val())
@@ -126,8 +137,8 @@
 
             $('.grid').isotope({
                 // options
-                itemSelector: '.grid-item'
-                , layoutMode: 'fitRows'
+                itemSelector: '.grid-item',
+                layoutMode: 'fitRows'
             });
 
             // snap.pay("b6155c94-794e-4d46-84bc-2a053b4cb9c8");
@@ -135,28 +146,28 @@
 
         function registerApi() {
             $.ajax({
-                url: `{{ route('register_store') }}`
-                , method: 'POST'
-                , dataType: 'json'
-                , data: {
-                    full_name: $('#full_name').val()
-                    , gender: $('#gender').val()
-                    , email: $('#email').val()
-                    , whatsapp_number: $('#whatsapp_number').val()
-                    , company_name: $('#company_name').val()
-                    , position: $('#position').val()
-                    , institution: $('#institution').val()
-                    , institution_etc: $('#institution_etc').val()
-                , }
-                , beforeSend: () => {
+                url: `{{ route('register_store') }}`,
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    full_name: $('#full_name').val(),
+                    gender: $('#gender').val(),
+                    email: $('#email').val(),
+                    whatsapp_number: $('#whatsapp_number').val(),
+                    company_name: $('#company_name').val(),
+                    position: $('#position').val(),
+                    institution: $('#institution').val(),
+                    institution_etc: $('#institution_etc').val(),
+                },
+                beforeSend: () => {
                     $('#submitButton').prop('disabled', true)
                 }
             }).fail(e => {
                 console.log(e)
                 Swal.fire({
-                    title: "Something wrong"
-                    , text: e.responseJSON.message
-                    , icon: "warning"
+                    title: "Something wrong",
+                    text: e.responseJSON.message,
+                    icon: "warning"
                 }).then(() => {
                     $('#submitButton').prop('disabled', false)
                 });
@@ -168,44 +179,44 @@
                         onSuccess: function(result) {
                             console.log(result);
                             Swal.fire({
-                                icon: "success"
-                                , title: "Payment Success"
-                                , toast: true
-                                , timer: 3000
-                                , position: 'bottom-end'
-                                , showConfirmButton: false
-                            , }).then(() => {
+                                icon: "success",
+                                title: "Payment Success",
+                                toast: true,
+                                timer: 3000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
                                 window.location.href =
                                     `{{ url(config('app.url')) }}/success?order_id=${e.data.order_id}`
                             });
-                        }
-                        , onPending: function(result) {
+                        },
+                        onPending: function(result) {
                             console.log(result);
                             Swal.fire({
-                                icon: "warning"
-                                , title: "Waiting Payment"
-                                , toast: true
-                                , timer: 2000
-                                , position: 'bottom-end'
-                                , showConfirmButton: false
-                            , }).then(() => {
+                                icon: "warning",
+                                title: "Waiting Payment",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
                                 $('#submitButton').prop('disabled', false)
                             });
-                        }
-                        , onError: function(result) {
+                        },
+                        onError: function(result) {
                             console.log(result);
                             Swal.fire({
-                                icon: "error"
-                                , title: "Payment Failed"
-                                , toast: true
-                                , timer: 2000
-                                , position: 'bottom-end'
-                                , showConfirmButton: false
-                            , }).then(() => {
+                                icon: "error",
+                                title: "Payment Failed",
+                                toast: true,
+                                timer: 2000,
+                                position: 'bottom-end',
+                                showConfirmButton: false,
+                            }).then(() => {
                                 $('#submitButton').prop('disabled', false)
                             });
-                        }
-                        , onClose: function() {
+                        },
+                        onClose: function() {
                             $('#submitButton').prop('disabled', false)
                         }
                     });
@@ -219,15 +230,14 @@
         function copyToClipboard(rekening) {
             navigator.clipboard.writeText(rekening)
             Swal.fire({
-                icon: "success"
-                , title: "Copied to clipboard"
-                , toast: true
-                , timer: 2000
-                , position: 'bottom-end'
-                , showConfirmButton: false
-            , });
+                icon: "success",
+                title: "Copied to clipboard",
+                toast: true,
+                timer: 2000,
+                position: 'bottom-end',
+                showConfirmButton: false,
+            });
         }
-
     </script>
 </body>
 

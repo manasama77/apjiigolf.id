@@ -11546,3 +11546,11 @@ header.masthead .h1 {
 .bg-apjii:hover {
     background-color: #009DD6 !important;
 }
+
+.word-art {
+    font-family: 'Poppins';
+    text-align: left;
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(34, 61, 120);
+}

@@ -23,6 +23,7 @@ class Registration extends Model
         'shirt_size',
         'event_location_id',
         'ticket_type',
+        'promo_code',
         'ticket_price',
         'admin_fee',
         'total_price',
