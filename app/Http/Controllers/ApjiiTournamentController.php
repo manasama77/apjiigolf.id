@@ -373,7 +373,7 @@ class ApjiiTournamentController extends Controller
         ];
 
         $payment_object = [
-            'payment_due_date' => 60,
+            'payment_due_date' => 120,
             "payment_method_types" => [
                 "VIRTUAL_ACCOUNT_BCA",
                 "VIRTUAL_ACCOUNT_BANK_MANDIRI",
