@@ -272,6 +272,12 @@
                                             placeholder="Have Promo Code" value="{{ old('code') }}" />
                                         <label for="code">Promo Code</label>
                                     </div>
+                                    <p class="text-muted text-start mb-5">
+                                        Want to get promo code?
+                                        <a href="{{ $wa_pic }}">
+                                            <i class="fab fa-whatsapp"></i> Contact Us
+                                        </a>
+                                    </p>
 
                                     <div class="row mb-3 justify-content-center">
                                         <div class="col-12">
