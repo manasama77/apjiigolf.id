@@ -10,10 +10,14 @@
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
                 <li class="nav-item"><a class="nav-link mt-0 mt-md-2" href="#about">About PGA</a></li>
                 <li class="nav-item"><a class="nav-link mt-0 mt-md-2" href="#event_list">Event Highlight</a></li>
-                <li class="nav-item"><a class="nav-link mt-0 mt-md-2" href="#upcoming_event">Upcoming Event</a></li>
                 <li class="nav-item">
                     <a class="nav-link mt-0 mt-md-2" href="{{ route('standings') }}">
                         Standings <i class="fa-solid fa-ranking-star ms-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mt-0 mt-md-2 btn btn-primary px-4 py-2" href="{{ route('register_index') }}">
+                        APJII Golf Tournament 2024
                     </a>
                 </li>
                 {{-- <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"

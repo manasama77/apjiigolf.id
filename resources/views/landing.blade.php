@@ -66,11 +66,12 @@
     <div class="modal fade" id="popup" tabindex="-1" aria-labelledby="ApjiiPopup" aria-hidden="true"
         style="backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.1); opacity: 1 !important">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
+            <div class="modal-content" style="background-color: transparent; border: none;">
                 <div class="modal-body position-relative">
+                    <a href="javascript:;" data-bs-dismiss="modal" aria-label="Close"
+                        style="position: absolute; top: -15px; right: -15px; font-size: 24px; box-shadow: none; color: white;">
+                        <i class="fas fa-times"></i>
+                    </a>
                     <a href="{{ route('register_index') }}">
                         <img src="{{ asset('pop up banner 1000x1000 px.jpg') }}" alt="APJII Tournament 7 Info"
                             class="img-fluid" />
