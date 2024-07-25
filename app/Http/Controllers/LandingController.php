@@ -71,7 +71,60 @@ class LandingController extends Controller
         $this->reguler_end         = Carbon::parse('2024-08-15');
     }
 
-    public function index(Request $request)
+    public function index()
+    {
+        $event_name          = $this->event_name;
+        $event_date          = $this->event_date;
+        $event_time          = $this->event_time;
+        $location_name       = $this->location_name;
+        $location_address    = $this->location_address;
+        $google_maps_url     = $this->google_maps_url;
+        $google_maps_embed   = $this->google_maps_embed;
+        $ticket_price        = $this->ticket_price;
+        $ticket_price_idr    = number_format($ticket_price, 0);
+        $admin_fee           = $this->admin_fee;
+        $admin_fee_idr       = number_format($admin_fee, 0);
+        $total_price         = $ticket_price + $admin_fee;
+        $total_price_idr     = number_format($total_price, 0);
+        $no_rekening         = $this->no_rekening;
+        $bank_rekening       = $this->bank_rekening;
+        $nama_rekening       = $this->nama_rekening;
+        $wa_pic              = $this->wa_pic;
+        $registration_status = $this->registration_status;
+
+        $early_bird_start = $this->early_bird_start->format('F d, Y');
+        $early_bird_end   = $this->early_bird_end->format('F d, Y');
+        $reguler_start    = $this->reguler_start->format('F d, Y');
+        $reguler_end      = $this->reguler_end->format('F d, Y');
+
+
+        $data = [
+            'event_name'          => $event_name,
+            'event_date'          => $event_date,
+            'event_time'          => $event_time,
+            'location_name'       => $location_name,
+            'location_address'    => $location_address,
+            'google_maps_url'     => $google_maps_url,
+            'google_maps_embed'   => $google_maps_embed,
+            'ticket_price_idr'    => $ticket_price_idr,
+            'admin_fee_idr'       => $admin_fee_idr,
+            'total_price_idr'     => $total_price_idr,
+            'no_rekening'         => $no_rekening,
+            'bank_rekening'       => $bank_rekening,
+            'nama_rekening'       => $nama_rekening,
+            'wa_pic'              => $wa_pic,
+            'registration_status' => $registration_status,
+            'early_bird_start'    => $early_bird_start,
+            'early_bird_end'      => $early_bird_end,
+            'reguler_start'       => $reguler_start,
+            'reguler_end'         => $reguler_end,
+        ];
+
+        return view('landing', $data);
+        // return view('partials.landing.form_registration', $data);
+    }
+
+    public function standings(Request $request)
     {
         $page_title = "Standing";
 
@@ -226,59 +279,6 @@ class LandingController extends Controller
                 'message' => $e->getMessage(),
             ], 500);
         }
-    }
-
-    public function register()
-    {
-        $event_name          = $this->event_name;
-        $event_date          = $this->event_date;
-        $event_time          = $this->event_time;
-        $location_name       = $this->location_name;
-        $location_address    = $this->location_address;
-        $google_maps_url     = $this->google_maps_url;
-        $google_maps_embed   = $this->google_maps_embed;
-        $ticket_price        = $this->ticket_price;
-        $ticket_price_idr    = number_format($ticket_price, 0);
-        $admin_fee           = $this->admin_fee;
-        $admin_fee_idr       = number_format($admin_fee, 0);
-        $total_price         = $ticket_price + $admin_fee;
-        $total_price_idr     = number_format($total_price, 0);
-        $no_rekening         = $this->no_rekening;
-        $bank_rekening       = $this->bank_rekening;
-        $nama_rekening       = $this->nama_rekening;
-        $wa_pic              = $this->wa_pic;
-        $registration_status = $this->registration_status;
-
-        $early_bird_start = $this->early_bird_start->format('F d, Y');
-        $early_bird_end   = $this->early_bird_end->format('F d, Y');
-        $reguler_start    = $this->reguler_start->format('F d, Y');
-        $reguler_end      = $this->reguler_end->format('F d, Y');
-
-
-        $data = [
-            'event_name'          => $event_name,
-            'event_date'          => $event_date,
-            'event_time'          => $event_time,
-            'location_name'       => $location_name,
-            'location_address'    => $location_address,
-            'google_maps_url'     => $google_maps_url,
-            'google_maps_embed'   => $google_maps_embed,
-            'ticket_price_idr'    => $ticket_price_idr,
-            'admin_fee_idr'       => $admin_fee_idr,
-            'total_price_idr'     => $total_price_idr,
-            'no_rekening'         => $no_rekening,
-            'bank_rekening'       => $bank_rekening,
-            'nama_rekening'       => $nama_rekening,
-            'wa_pic'              => $wa_pic,
-            'registration_status' => $registration_status,
-            'early_bird_start'    => $early_bird_start,
-            'early_bird_end'      => $early_bird_end,
-            'reguler_start'       => $reguler_start,
-            'reguler_end'         => $reguler_end,
-        ];
-
-        return view('register', $data);
-        // return view('partials.landing.form_registration', $data);
     }
 
     // public function register_store(RegisterRequest $request)

@@ -20,9 +20,12 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-    <link href="https://cdn.datatables.net/v/bs4/jszip-3.10.1/dt-2.1.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/datatables.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.datatables.net/v/bs4/jszip-3.10.1/dt-2.1.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/datatables.min.css"
+        rel="stylesheet">
 
     <!-- Theme style -->
     {{-- <link rel="stylesheet" href="{{ asset('asset/adminlte/css/adminlte.min.css') }}"> --}}
@@ -53,7 +56,8 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Bootstrap 4 -->
     {{-- <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
     <!-- AdminLTE App -->
@@ -68,7 +72,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/v/bs4/jszip-3.10.1/dt-2.1.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/datatables.min.js"></script>
+    <script
+        src="https://cdn.datatables.net/v/bs4/jszip-3.10.1/dt-2.1.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/datatables.min.js">
+    </script>
 
 
     <script>
@@ -78,6 +84,18 @@
             }
         });
 
+        async function copyToClipboard(text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Copied!',
+                    text: `Promo Code ${text} copied to clipboard`
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        }
     </script>
     @yield('skrip_jawa')
 </body>

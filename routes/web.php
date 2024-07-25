@@ -11,6 +11,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MasterLocationController;
 use App\Http\Controllers\PlayerManagementController;
 use App\Http\Controllers\PlayerScoreController;
+use App\Http\Controllers\PromoCodeController;
 use App\Http\Controllers\UserAdminController;
 
 /*
@@ -24,9 +25,7 @@ use App\Http\Controllers\UserAdminController;
 |
 */
 
-// Route::get('/ty', [LandingController::class, 'ty'])->name('ty');
-Route::get('/', [LandingController::class, 'register'])->name('home');
-// Route::post('/register_store', [LandingController::class, 'register_store'])->name('register_store');
+Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/register', [ApjiiTournamentController::class, 'index'])->name('register_index');
 Route::post('/register', [ApjiiTournamentController::class, 'store'])->name('register_store');
 Route::get('/register/check', [ApjiiTournamentController::class, 'check'])->name('register_check');
@@ -56,11 +55,8 @@ Route::get('/gobar-0', [LandingController::class, 'gobar_0'])->name('gobar_0');
 Route::get('/apjii-golf-6', [LandingController::class, 'apjii_golf_6'])->name('apjii_golf_6');
 Route::get('/apjii-golf-5', [LandingController::class, 'apjii_golf_5'])->name('apjii_golf_5');
 
-Route::get('/home', [LandingController::class, 'register'])->name('home');
-
-Route::get('/standings', [LandingController::class, 'index'])->name('standings');
+Route::get('/standings', [LandingController::class, 'standings'])->name('standings');
 Route::get('/pairing', [LandingController::class, 'pairing'])->name('pairing');
-// Route::get('/home', [LandingController::class, 'index'])->name('home');
 Route::get('/player/event/history/{player_id}', [LandingController::class, 'player_event_history'])->name('player.event.history');
 Route::get('/player/event/history/score/{player_histories_id}', [LandingController::class, 'player_event_history_score'])->name('player.event.history.score');
 
@@ -122,6 +118,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     ]);
 
     Route::get('/tournament', [AdminApjiiTournamentController::class, 'index'])->name('admin.tournament');
+    Route::get('/tournament/checkin', [AdminApjiiTournamentController::class, 'checkin'])->name('admin.tournament.checkin');
+    Route::post('/tournament/checkin/store', [AdminApjiiTournamentController::class, 'checkin_store'])->name('admin.tournament.checkin.store');
+
+    Route::resource('/promo-code', PromoCodeController::class)->names([
+        'index'   => 'admin.promo_code',
+        'create'  => 'admin.promo_code.create',
+        'store'   => 'admin.promo_code.store',
+        'edit'    => 'admin.promo_code.edit',
+        'update'  => 'admin.promo_code.update',
+        'destroy' => 'admin.promo_code.destroy',
+    ]);
 });
 
 Auth::routes([

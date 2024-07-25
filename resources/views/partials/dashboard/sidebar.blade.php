@@ -28,6 +28,7 @@
                         </p>
                     </a>
                 </li>
+                @if(auth()->user()->role == 'admin')
                 <li class="nav-item">
                     <a href="{{ route('admin.master_location') }}" class="nav-link {{ request()->route()->named('admin.master_location')? 'active': '' }}">
                         <i class="nav-icon fas fa-map"></i>
@@ -61,6 +62,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.admin') }}" class="nav-link {{ request()->route()->named('admin.admin')? 'active': '' }}">
+                        <i class="nav-icon fas fa-user-secret"></i>
+                        <p>
+                            Admin Management
+                        </p>
+                    </a>
+                </li>
+
+                @endif
+
+                <li class="nav-item">
                     <a href="{{ route('admin.tournament') }}" class="nav-link {{ request()->route()->named('admin.tournament')? 'active': '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -70,13 +82,26 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.admin') }}" class="nav-link {{ request()->route()->named('admin.admin')? 'active': '' }}">
-                        <i class="nav-icon fas fa-user-secret"></i>
+                    <a href="{{ route('admin.tournament.checkin') }}" class="nav-link {{ request()->route()->named('admin.tournament.checkin')? 'active': '' }}">
+
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Admin Management
+                            APJII 7 Checkin
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.promo_code') }}" class="nav-link {{ request()->route()->named('admin.promo_code')? 'active': '' }}">
+
+                        <i class="nav-icon fa-solid fa-receipt"></i>
+                        <p>
+                            APJII 7 Promo Code
+                        </p>
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="document.getElementById(`form_logout`).submit()">
                         <i class="nav-icon fa-solid fa-right-from-bracket"></i>

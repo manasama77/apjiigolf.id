@@ -7,7 +7,7 @@
             </a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ route('home') }}" class="nav-link">
+            <a href="{{ route('home') }}" class="nav-link" target="_blank">
                 <i class="fas fa-fw fa-globe"></i> Landing Page
             </a>
         </li>
