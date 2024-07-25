@@ -50,28 +50,28 @@
                                                         Registration Fee
                                                     </h4>
                                                     <p class="word-art text-center mb-0">
-                                                        <span class="text">Rp{{ $member_price_idr }}<sup
-                                                                class="text-danger">*</sup>
+                                                        <span class="text">Rp{{ $member_price_idr }}
+                                                            {{-- <sup class="text-danger">*</sup> --}}
                                                         </span>
                                                     </p>
                                                     <p class="text-center fw-bold">APJII Member</p>
                                                     <p class="word-art text-center mb-0">
-                                                        <span class="text">Rp{{ $reguler_price_idr }}<sup
-                                                                class="text-danger">*</sup>
+                                                        <span class="text">Rp{{ $reguler_price_idr }}
+                                                            {{-- <sup class="text-danger">*</sup> --}}
                                                         </span>
                                                     </p>
                                                     <p class="text-center fw-bold">Regular</p>
                                                 </td>
                                             </tr>
                                         </tbody>
-                                        <tfoot>
+                                        {{-- <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-end">
                                                     <small><i><span class="text-danger">*</span> Exclude Admin
                                                             Fee & Transfer Fee</i></small>
                                                 </td>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> --}}
                                     </table>
                                 </div>
 
@@ -105,16 +105,16 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <p class="word-art mb-0">
-                                                                <span class="text">Rp{{ $member_price_idr }}<sup
-                                                                        class="text-danger">*</sup>
+                                                                <span class="text">Rp{{ $member_price_idr }}
+                                                                    {{-- <sup class="text-danger">*</sup> --}}
                                                                 </span>
                                                             </p>
                                                             <p class="text-center fw-bold">APJII Member</p>
                                                         </div>
                                                         <div class="col">
                                                             <p class="word-art mb-0">
-                                                                <span class="text">Rp{{ $reguler_price_idr }}<sup
-                                                                        class="text-danger">*</sup>
+                                                                <span class="text">Rp{{ $reguler_price_idr }}
+                                                                    {{-- <sup class="text-danger">*</sup> --}}
                                                                 </span>
                                                             </p>
                                                             <p class="text-center fw-bold">Regular</p>
@@ -123,14 +123,14 @@
                                                 </td>
                                             </tr>
                                         </tbody>
-                                        <tfoot>
+                                        {{-- <tfoot>
                                             <tr>
                                                 <td colspan="3" class="text-end">
                                                     <small><i><span class="text-danger">*</span> Exclude Fee
                                                             Transfer</i></small>
                                                 </td>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> --}}
                                     </table>
                                 </div>
                             </div>
