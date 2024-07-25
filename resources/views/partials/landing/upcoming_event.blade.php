@@ -38,8 +38,9 @@
                                                     </strong>
                                                     <br />
                                                     <a href="{{ $google_maps_url }}" target="_blank">
-                                                        {{ $location_name }}<br />
-                                                        {{ $location_address }}
+                                                        {{ $location_name }}
+                                                        {{-- <br />
+                                                        {{ $location_address }} --}}
                                                     </a>
                                                 </td>
                                             </tr>
@@ -48,11 +49,18 @@
                                                     <h4 class="fw-bold">
                                                         Registration Fee
                                                     </h4>
-                                                    <p class="word-art">
-                                                        <span class="text">Rp{{ $ticket_price_idr }}<sup
+                                                    <p class="word-art text-center mb-0">
+                                                        <span class="text">Rp{{ $member_price_idr }}<sup
                                                                 class="text-danger">*</sup>
                                                         </span>
                                                     </p>
+                                                    <p class="text-center fw-bold">APJII Member</p>
+                                                    <p class="word-art text-center mb-0">
+                                                        <span class="text">Rp{{ $reguler_price_idr }}<sup
+                                                                class="text-danger">*</sup>
+                                                        </span>
+                                                    </p>
+                                                    <p class="text-center fw-bold">Regular</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -94,11 +102,24 @@
                                                 <td>Registration Fee</td>
                                                 <td>:</td>
                                                 <td class="text-start">
-                                                    <p class="word-art">
-                                                        <span class="text">Rp{{ $ticket_price_idr }}<sup
-                                                                class="text-danger">*</sup>
-                                                        </span>
-                                                    </p>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <p class="word-art mb-0">
+                                                                <span class="text">Rp{{ $member_price_idr }}<sup
+                                                                        class="text-danger">*</sup>
+                                                                </span>
+                                                            </p>
+                                                            <p class="text-center fw-bold">APJII Member</p>
+                                                        </div>
+                                                        <div class="col">
+                                                            <p class="word-art mb-0">
+                                                                <span class="text">Rp{{ $reguler_price_idr }}<sup
+                                                                        class="text-danger">*</sup>
+                                                                </span>
+                                                            </p>
+                                                            <p class="text-center fw-bold">Regular</p>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         </tbody>

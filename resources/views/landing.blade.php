@@ -69,7 +69,7 @@
             <div class="modal-content" style="background-color: transparent; border: none;">
                 <div class="modal-body position-relative">
                     <a href="javascript:;" data-bs-dismiss="modal" aria-label="Close"
-                        style="position: absolute; top: -15px; right: -15px; font-size: 24px; box-shadow: none; color: white;">
+                        style="position: absolute; top: -5px; right: -5px; font-size: 24px; box-shadow: none; color: white;">
                         <i class="fas fa-times"></i>
                     </a>
                     <a href="{{ route('register_index') }}">

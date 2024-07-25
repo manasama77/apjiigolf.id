@@ -58,15 +58,15 @@ class ApjiiTournamentController extends Controller
         $this->location_address    = 'Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310';
         $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
         $this->google_maps_embed   = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15863.835569909455!2d106.7849619!3d-6.2691368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a490b60e41%3A0xaf08accee7decdf8!2sPondok%20Indah%20Golf%20Course!5e0!3m2!1sen!2sid!4v1720757045886!5m2!1sen!2sid";
-        // $this->early_price         = 3_500_000;
-        $this->early_price         = 10_000;
-        // $this->reguler_price       = 3_750_000;
-        $this->reguler_price       = 20_000;
+        $this->early_price         = 3_500_000;
+        // $this->early_price         = 10_000;
+        $this->reguler_price       = 3_750_000;
+        // $this->reguler_price       = 20_000;
         $this->admin_fee           = 0;
         $this->no_rekening         = "6630306017";
         $this->bank_rekening       = "BCA";
         $this->nama_rekening       = "Victor Henry Raymond";
-        $this->wa_pic              = '628569016901';
+        $this->wa_pic              = '6282210069526';
         $this->registration_status = $this->registration_status();
         $this->early_bird_start    = Carbon::parse('2024-07-21');
         $this->early_bird_end      = Carbon::parse('2024-08-05');
@@ -92,7 +92,6 @@ class ApjiiTournamentController extends Controller
 
     public function index()
     {
-        dump(env('APP_ENV'));
         $event_name          = $this->event_name;
         $event_date          = $this->event_date;
         $event_time          = $this->event_time;

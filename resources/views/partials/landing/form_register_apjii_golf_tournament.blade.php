@@ -49,8 +49,9 @@
                                                             </strong>
                                                             <br />
                                                             <a href="{{ $google_maps_url }}" target="_blank">
-                                                                {{ $location_name }}<br />
-                                                                {{ $location_address }}
+                                                                {{ $location_name }}
+                                                                {{-- <br />
+                                                                {{ $location_address }} --}}
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -59,11 +60,18 @@
                                                             <h4 class="fw-bold">
                                                                 Registration Fee
                                                             </h4>
-                                                            <p class="word-art">
+                                                            <p class="word-art text-center mb-0">
+                                                                <span class="text">Rp{{ $early_price_idr }}<sup
+                                                                        class="text-danger">*</sup>
+                                                                </span>
+                                                            </p>
+                                                            <p class="text-center fw-bold">APJII Member</p>
+                                                            <p class="word-art text-center mb-0">
                                                                 <span class="text">Rp{{ $reguler_price_idr }}<sup
                                                                         class="text-danger">*</sup>
                                                                 </span>
                                                             </p>
+                                                            <p class="text-center fw-bold">Regular</p>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -97,8 +105,9 @@
                                                         <td>:</td>
                                                         <td class="text-start">
                                                             <a href="{{ $google_maps_url }}">
-                                                                {{ $location_name }}<br />
-                                                                {{ $location_address }}
+                                                                {{ $location_name }}
+                                                                {{-- <br />
+                                                                {{ $location_address }} --}}
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -106,11 +115,26 @@
                                                         <td>Registration Fee</td>
                                                         <td>:</td>
                                                         <td>
-                                                            <p class="word-art">
-                                                                <span class="text">Rp{{ $reguler_price_idr }}<sup
-                                                                        class="text-danger">*</sup>
-                                                                </span>
-                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <p class="word-art mb-0">
+                                                                        <span
+                                                                            class="text">Rp{{ $early_price_idr }}<sup
+                                                                                class="text-danger">*</sup>
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="text-center fw-bold">APJII Member</p>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p class="word-art mb-0">
+                                                                        <span
+                                                                            class="text">Rp{{ $reguler_price_idr }}<sup
+                                                                                class="text-danger">*</sup>
+                                                                        </span>
+                                                                    </p>
+                                                                    <p class="text-center fw-bold">Regular</p>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -183,9 +207,9 @@
                                     </div>
 
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="company_name" name="company_name" type="text"
-                                            placeholder="Enter your company name" value="{{ old('company_name') }}"
-                                            required />
+                                        <input class="form-control" id="company_name" name="company_name"
+                                            type="text" placeholder="Enter your company name"
+                                            value="{{ old('company_name') }}" required />
                                         <label for="company_name">Company Name</label>
                                     </div>
 
