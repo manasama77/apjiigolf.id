@@ -1,6 +1,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style>
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Thin.ttf') }}) format("truetype");
+        font-weight: 100;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-ExtraLight.ttf') }}) format("truetype");
+        font-weight: 200;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Light.ttf') }}) format("truetype");
+        font-weight: 300;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Regular.ttf') }}) format("truetype");
+        font-weight: 400;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Medium.ttf') }}) format("truetype");
+        font-weight: 400;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Medium.ttf') }}) format("truetype");
+        font-weight: 500;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-SemiBold.ttf') }}) format("truetype");
+        font-weight: 600;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Bold.ttf') }}) format("truetype");
+        font-weight: 700;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-BoldItalic.ttf') }}) format("truetype");
+        font-weight: 800;
+        font-style: normal; // use the matching font-style here
+    }
+
+    @font-face {
+        font-family: 'Poppins';
+        src: url({{ storage_path('fonts\Poppins-Black.ttf') }}) format("truetype");
+        font-weight: 900;
+        font-style: normal; // use the matching font-style here
+    }
+
+
     * {
         font-family: 'Poppins', sans-serif;
         font-size: 14px;
@@ -213,6 +284,10 @@
                 <tr>
                     <th style="width: 70%;">&nbsp;</th>
                     <th style="width: 30%; text-align: center">{{ $invoice_date }}</th>
+                </tr>
+                <tr>
+                    <th style="width: 30%; height: 150px;">&nbsp;</th>
+                    <th style="width: 30%; text-align: center">PGA</th>
                 </tr>
             </thead>
         </table>
