@@ -73,16 +73,16 @@ class ApjiiTournamentController extends Controller
         $this->reguler_start       = Carbon::parse('2024-08-06');
         $this->reguler_end         = Carbon::parse('2024-08-10');
 
-        $this->payment_url = "https://api-sandbox.doku.com/checkout/v1/payment";
-        $this->status_url = "https://api-sandbox.doku.com/orders/v1/status";
-        $this->client_id   = config('doku.client_id_sandbox');
-        $this->secret_key  = config('doku.secret_key_sandbox');
-        if (env('APP_ENV') == 'production') {
-            $this->payment_url = 'https://api.doku.com/checkout/v1/payment';
-            $this->status_url = "https://api.doku.com/orders/v1/status";
-            $this->client_id   = config('doku.client_id');
-            $this->secret_key  = config('doku.secret_key');
-        }
+        // $this->payment_url = "https://api-sandbox.doku.com/checkout/v1/payment";
+        // $this->status_url = "https://api-sandbox.doku.com/orders/v1/status";
+        // $this->client_id   = config('doku.client_id_sandbox');
+        // $this->secret_key  = config('doku.secret_key_sandbox');
+        // if (env('APP_ENV') == 'production') {
+        // }
+        $this->payment_url = 'https://api.doku.com/checkout/v1/payment';
+        $this->status_url  = "https://api.doku.com/orders/v1/status";
+        $this->client_id   = config('doku.client_id');
+        $this->secret_key  = config('doku.secret_key');
 
         // $this->ticket_type = 'reguler';
         // if (Carbon::now() >= $this->early_bird_start && Carbon::now() <= $this->early_bird_end) {
