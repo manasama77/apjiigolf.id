@@ -620,4 +620,17 @@ class ApjiiTournamentController extends Controller
             }
         }
     }
+
+    public function promo_code($username, $password)
+    {
+        $count = User::where('username', $username)->first();
+        if ($count) {
+            if (password_verify($password, $count->password)) {
+                $datas = PromoCode::all();
+                return view('promo_code_table', [
+                    'datas' => $datas,
+                ]);
+            }
+        }
+    }
 }

@@ -28,4 +28,9 @@ class PromoCode extends Model
 
         return $badge;
     }
+
+    public function getIsUsedTextAttribute()
+    {
+        return $this->is_used ? "USED" : "NOT USED";
+    }
 }
