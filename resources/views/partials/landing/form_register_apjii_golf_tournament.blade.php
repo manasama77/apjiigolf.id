@@ -271,8 +271,8 @@
                                         <label for="code">Promo Code</label>
                                     </div>
                                     <p class="text-muted text-start mb-5">
-                                        If you are a member of APJII, please <a href="{{ $wa_pic }}"><i
-                                                class="fab fa-whatsapp"></i> contact us</a> to get a special promo
+                                        For APJII members, <a href="{{ $wa_pic }}">contact us</a> to get special
+                                        price.
                                     </p>
 
                                     <div class="row mb-3 justify-content-center">
