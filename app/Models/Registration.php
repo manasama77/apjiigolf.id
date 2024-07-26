@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Registration extends Model
 {
@@ -42,5 +43,20 @@ class Registration extends Model
     public function eventLocation()
     {
         return $this->belongsTo(EventLocation::class);
+    }
+
+    public function getTicketTypeTextAttribute()
+    {
+        return $this->ticket_type == 'early bird' ? 'MEMBER' : 'REGULAR';
+    }
+
+    public function getExpiredDateFormattedAttribute()
+    {
+        return Carbon::parse($this->expired_date)->format('Y-m-d H:i:s');
+    }
+
+    public function getIsCheckInTextAttribute()
+    {
+        return $this->is_checkin ? 'CHECKED IN' : 'NOT CHECKED IN';
     }
 }

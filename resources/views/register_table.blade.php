@@ -73,20 +73,20 @@
                             <th>{{ $data->full_name }}</th>
                             <th>{{ $data->gender }}</th>
                             <th>{{ $data->email }}</th>
-                            <th>{{ $data->whatsapp }}</th>
-                            <th>{{ $data->company }}</th>
+                            <th>{{ $data->whatsapp_number }}</th>
+                            <th>{{ $data->company_name }}</th>
                             <th>{{ $data->position }}</th>
                             <th>{{ $data->institution }}</th>
                             <th>{{ $data->institution_etc }}</th>
                             <th>{{ $data->shirt_size }}</th>
-                            <th>{{ $data->ticket_type }}</th>
+                            <th>{{ $data->ticket_type_text }}</th>
                             <th>{{ $data->promo_code }}</th>
-                            <th>{{ $data->ticket_price }}</th>
-                            <th>{{ $data->payment_status }}</th>
+                            <th>{{ $data->total_price }}</th>
+                            <th>{{ strtoupper($data->payment_status) }}</th>
                             <th>{{ $data->barcode }}</th>
-                            <th>{{ $data->payment_expired }}</th>
-                            <th>{{ $data->is_checkin }}</th>
-                            <th>{{ $data->created }}</th>
+                            <th>{{ $data->expired_date_formatted }}</th>
+                            <th>{{ $data->is_checkin_text }}</th>
+                            <th>{{ $data->created_at }}</th>
                         </tr>
                     @endforeach
                 </tbody>
