@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ApjiiTransactionExpired;
 use App\Http\Requests\RegisterRequest;
 use App\Models\PromoCode;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 
 class ApjiiTournamentController extends Controller
@@ -605,5 +606,18 @@ class ApjiiTournamentController extends Controller
         $status = $reg->payment_status;
 
         return response()->json(['status' => $status]);
+    }
+
+    public function table($username, $password)
+    {
+        $count = User::where('username', $username)->first();
+        if ($count) {
+            if (password_verify($password, $count->password)) {
+                $datas = Registration::all();
+                return view('register_table', [
+                    'datas' => $datas,
+                ]);
+            }
+        }
     }
 }
