@@ -71,7 +71,7 @@
                             <th>{{ $data->order_id }}</th>
                             <th>{{ $data->invoice_number }}</th>
                             <th>{{ $data->full_name }}</th>
-                            <th>{{ $data->gender }}</th>
+                            <th>{{ strtoupper($data->gender) }}</th>
                             <th>{{ $data->email }}</th>
                             <th>{{ $data->whatsapp_number }}</th>
                             <th>{{ $data->company_name }}</th>
