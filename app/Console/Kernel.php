@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('apjii:status')->everyMinute()->withoutOverlapping()->emailOutputOnFailure('adam.pm77@gmail.com')->runInBackground();
+        $schedule->command('telescope:prune')->monthly();
     }
 
     /**
