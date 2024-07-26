@@ -172,7 +172,7 @@ class ApjiiTournamentController extends Controller
             }
             $event_location_id = $event_location->id;
 
-            $ticket_type = ($request->code) ? "early bird" : "reguler";
+            $ticket_type  = ($request->code) ? "early bird" : "reguler";
             $ticket_price = ($ticket_type == "early bird") ? $this->early_price : $this->reguler_price;
             $admin_fee    = $this->admin_fee;
             $total_price  = $ticket_price + $admin_fee;
@@ -582,15 +582,21 @@ class ApjiiTournamentController extends Controller
 
     public function test()
     {
-        Log::info("A");
-        dd("A");
-        dump(config('mail.default'), config('mail.from.address'));
-        $exec = Registration::find(1);
-        $time_expired = Carbon::parse($exec->expired_date)->format('Y-m-d H:i:s');
-
-        return Mail::to('adam.pm77@gmail.com')->bcc([
-            'adam.pm59@gmail.com',
-        ])->send(new InvoiceMail($exec, $this->event_name, 'https://google.com', $time_expired));
+        // create invoice pdf
+        $data_pdf_invoice = [
+            'player_name'      => "ADAM PM",
+            'invoice_number'   => "PGA-2022-0001-0001",
+            'invoice_date'     => Carbon::now()->format('d M Y'),
+            'event_name'       => $this->event_name,
+            'location_name'    => $this->location_name,
+            'location_address' => $this->location_address,
+            'event_date'       => $this->event_date->format('d M Y'),
+            'ticket_price'     => $this->reguler_price,
+            'admin_fee'        => 0,
+            'grand_total'      => $this->reguler_price + $this->admin_fee,
+        ];
+        $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
+        return $pdf->stream('test.pdf', array("Attachment" => false));
     }
 
     public function show($id)

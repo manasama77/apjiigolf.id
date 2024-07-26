@@ -36,7 +36,7 @@ Route::get('/register/success/{id}', [ApjiiTournamentController::class, 'success
 Route::get('/register/cancel/{id}', [ApjiiTournamentController::class, 'cancel'])->name('register_cancel');
 Route::get('/download/invoice/{invoice_number}', [ApjiiTournamentController::class, 'download_invoice'])->name('register_download_invoice');
 Route::get('/download/eticket/{invoice_number}', [ApjiiTournamentController::class, 'download'])->name('register_download_eticket');
-// Route::get('/test', [ApjiiTournamentController::class, 'test']);
+Route::get('/test', [ApjiiTournamentController::class, 'test']);
 
 // Route::get('/check', [LandingController::class, 'register_check'])->name('register_check');
 Route::get('/error', [LandingController::class, 'register_error'])->name('register_error');
