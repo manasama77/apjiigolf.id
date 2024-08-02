@@ -116,7 +116,7 @@
 
         $(document).ready(() => {
             if (current_route == 'home') {
-                // $('#popup').modal('show')
+                $('#popup').modal('show')
             }
 
             $('#institution').on('change', e => {
