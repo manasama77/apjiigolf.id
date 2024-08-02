@@ -75,7 +75,7 @@
                     <a href="{{ route('register_index') }}">
                         <img src="{{ asset('pop up banner 1000x1000 px.jpg') }}" alt="APJII Tournament 7 Info"
                             class="img-fluid" />
-                        <div style="position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);">
+                        <div class="btn_register_now">
                             <button type="button" class="btn btn-primary bg-apjii">
                                 REGISTER NOW
                             </button>

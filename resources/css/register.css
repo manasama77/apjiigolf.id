@@ -11570,3 +11570,16 @@ header.masthead .h1 {
         padding-top: 0px;
     }
 }
+
+.btn_register_now {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 991.98px) {
+    .btn_register_now {
+        bottom: 60px;
+    }
+}
