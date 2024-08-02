@@ -37,7 +37,7 @@ class AdminApjiiTournamentController extends Controller
             'barcode' => ['required', 'exists:registrations,barcode'],
         ], [
             'barcode.required' => 'The barcode field is required.',
-            'barcode.exists'   => 'The barcode is not registered or expired.',
+            'barcode.exists'   => 'The barcode is not registered or payment expired.',
         ]);
 
         if ($validator->fails()) {
@@ -50,7 +50,7 @@ class AdminApjiiTournamentController extends Controller
 
         if (in_array($registration->payment_status, ['pending', 'expired'])) {
             return response()->json([
-                'message' => $validator->errors()->first(),
+                'message' => "The barcode is not registered or payment expired.",
             ], 400);
         }
 

@@ -11377,12 +11377,18 @@ hr.divider-light {
 header.masthead {
     padding-top: 10rem;
     padding-bottom: calc(10rem - 4.5rem);
-    background: linear-gradient(
+    /* background: linear-gradient(
             to bottom,
             rgba(255, 255, 255, 0.2) 0%,
             rgba(0, 0, 0, 0.699) 100%
         ),
-        url("../../public/golf-background.jpg");
+        url("../../public/golf-background.jpg"); */
+    /* background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(0, 0, 0, 0.699) 100%
+        ),
+        url("../../public/banner hero section.jpg"); */
     /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.699) 100%), url("https://4407-124-158-189-114.ngrok-free.app/golf-background.jpg"); */
     background-position: top center;
     background-repeat: no-repeat;
@@ -11544,11 +11550,11 @@ header.masthead .h1 {
 }
 
 .bg-apjii:hover {
-    background-color: #009DD6 !important;
+    background-color: #009dd6 !important;
 }
 
 .word-art {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     text-align: left;
     font-size: 35px;
     font-weight: 700;
