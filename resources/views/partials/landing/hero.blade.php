@@ -1,12 +1,14 @@
 <header class="custom-padding">
     {{-- <img src="{{ asset('banner hero section.jpg') }}" alt="" class="img-fluid" /> --}}
-    <picture>
-        <source media="(min-width: 1199.98px)" srcset="{{ asset('banner-hero-section-desktop.jpg') }}">
-        <source media="(min-width: 991.98px)" srcset="{{ asset('banner-hero-section-desktop.jpg') }}">
-        <source media="(min-width: 767.98px)" srcset="{{ asset('banner-hero-section-mobile.jpg') }}">
-        <source media="(min-width: 575.98px)" srcset="{{ asset('banner-hero-section-mobile.jpg') }}">
-        <img src="{{ asset('banner-hero-section-mobile.jpg') }}" alt="" class="img-fluid" />
-    </picture>
+    <a href="{{ route('register_index') }}">
+        <picture>
+            <source media="(min-width: 1199.98px)" srcset="{{ asset('banner-hero-section-desktop.jpg') }}">
+            <source media="(min-width: 991.98px)" srcset="{{ asset('banner-hero-section-desktop.jpg') }}">
+            <source media="(min-width: 767.98px)" srcset="{{ asset('banner-hero-section-mobile.jpg') }}">
+            <source media="(min-width: 575.98px)" srcset="{{ asset('banner-hero-section-mobile.jpg') }}">
+            <img src="{{ asset('banner-hero-section-mobile.jpg') }}" alt="" class="img-fluid" />
+        </picture>
+    </a>
 
     {{-- <div class="container px-4 px-lg-5 h-100">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
