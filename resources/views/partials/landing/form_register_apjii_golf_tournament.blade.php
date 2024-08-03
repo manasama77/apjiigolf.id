@@ -162,7 +162,7 @@
                             @csrf
 
                             <div class="card bg-light">
-                                <div class="card-body">
+                                <div class="card-body bg-white">
                                     <h2 class="text-center">Register Here!</h2>
                                     <hr class="divider" />
                                     <p class="text-muted mb-5">Experience the excitement of golf with PGA friends.</p>
@@ -280,19 +280,9 @@
                                             <h1>Choose Your Polo Shirt Size</h1>
                                         </div>
 
-                                        <div class="col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center">
-                                            <input type="radio" class="btn-check" name="shirt_size" id="size_xs"
-                                                value="XS" autocomplete="off" />
-                                            <label class="btn btn-outline-primary border-primary w-100 shadow-sm"
-                                                for="size_xs">
-                                                <h5>XS</h5>
-                                                <h6 class="small">
-                                                    Chest: 81-87 CM<br />
-                                                    {{-- Waist: 68-74 CM<br />
-                                                    Seat: 85-91 CM<br /> --}}
-                                                    Arm Length: 62 CM<br />
-                                                </h6>
-                                            </label>
+                                        <div class="col-12 justify-content-center">
+                                            <img src="{{ asset('size-chart.jpg') }}" alt="Size Chart"
+                                                class="img-fluid mb-3" style="max-width: 300px;" />
                                         </div>
 
                                         <div class="col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center">
@@ -302,10 +292,9 @@
                                                 for="size_s">
                                                 <h5>S</h5>
                                                 <h6 class="small">
-                                                    Chest: 87-93 CM<br />
-                                                    {{-- Waist: 74-80 CM<br />
-                                                    Seat: 91-97 CM<br /> --}}
-                                                    Arm Length: 63.5 CM<br />
+                                                    Length: 71 CM<br />
+                                                    Width: 48 CM<br />
+                                                    Sleeve: 23,5 CM<br />
                                                 </h6>
                                             </label>
                                         </div>
@@ -317,10 +306,9 @@
                                                 for="size_m">
                                                 <h5>M</h5>
                                                 <h6 class="small">
-                                                    Chest: 93-99 CM<br />
-                                                    {{-- Waist: 80-86 CM<br />
-                                                    Seat: 97-103 CM<br /> --}}
-                                                    Arm Length: 65 CM<br />
+                                                    Length: 73,5 CM<br />
+                                                    Width: 51 CM<br />
+                                                    Sleeve: 24 CM<br />
                                                 </h6>
                                             </label>
                                         </div>
@@ -332,10 +320,9 @@
                                                 for="size_l">
                                                 <h5>L</h5>
                                                 <h6 class="small">
-                                                    Chest: 99-105 CM<br />
-                                                    {{-- Waist: 86-92 CM<br />
-                                                    Seat: 103-109 CM<br /> --}}
-                                                    Arm Length: 66.5 CM<br />
+                                                    Length: 76 CM<br />
+                                                    Width: 52,5 CM<br />
+                                                    Sleeve: 24,5 CM<br />
                                                 </h6>
                                             </label>
                                         </div>
@@ -347,10 +334,9 @@
                                                 for="size_xl">
                                                 <h5>XL</h5>
                                                 <h6 class="small">
-                                                    Chest: 105-111 CM<br />
-                                                    {{-- Waist: 92-98 CM<br />
-                                                    Seat: 109-115 CM<br /> --}}
-                                                    Arm Length: 68 CM<br />
+                                                    Length: 79,5 CM<br />
+                                                    Width: 55 CM<br />
+                                                    Sleeve: 24,5 CM<br />
                                                 </h6>
                                             </label>
                                         </div>
@@ -362,113 +348,14 @@
                                                 for="size_xxl">
                                                 <h5>XXL</h5>
                                                 <h6 class="small">
-                                                    Chest: 111-117 CM<br />
-                                                    {{-- Waist: 98-104 CM<br />
-                                                    Seat: 115-121 CM<br /> --}}
-                                                    Arm Length: 69.5 CM<br />
-                                                </h6>
-                                            </label>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center">
-                                            <input type="radio" class="btn-check" name="shirt_size" id="size_xxxl"
-                                                value="XXXL" autocomplete="off" />
-                                            <label class="btn btn-outline-primary border-primary w-100 shadow-sm"
-                                                for="size_xxxl">
-                                                <h5>XXXL</h5>
-                                                <h6 class="small">
-                                                    Chest: 117-123 CM<br />
-                                                    {{-- Waist: 104-110 CM<br />
-                                                    Seat: 121-127 CM<br /> --}}
-                                                    Arm Length: 71 CM<br />
+                                                    Length: 80 CM<br />
+                                                    Width: 59 CM<br />
+                                                    Sleeve: 25,5 CM<br />
                                                 </h6>
                                             </label>
                                         </div>
 
                                     </div>
-
-                                    {{-- <div class="row mb-3">
-                                        <div class="col-12">
-                                            <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Size Guidance
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>SIZE<br /><small class="text-muted">EU</small></th>
-                                                                            <th>CHEST<br /><small class="text-muted">CM</small></th>
-                                                                            <th>WAIST<br /><small class="text-muted">CM</small></th>
-                                                                            <th>SEAT<br /><small class="text-muted">CM</small></th>
-                                                                            <th>ARM LENGTH<br /><small class="text-muted">CM</small></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <th>XS</th>
-                                                                            <td>81-87</td>
-                                                                            <td>66-74</td>
-                                                                            <td>85-91</td>
-                                                                            <td>62</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>S</th>
-                                                                            <td>87-93</td>
-                                                                            <td>74-80</td>
-                                                                            <td>91-97</td>
-                                                                            <td>63.5</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>M</th>
-                                                                            <td>93-99</td>
-                                                                            <td>80-86</td>
-                                                                            <td>91-103</td>
-                                                                            <td>65</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>L</th>
-                                                                            <td>99-105</td>
-                                                                            <td>86-92</td>
-                                                                            <td>103-109</td>
-                                                                            <td>66.5</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>XL</th>
-                                                                            <td>105-111</td>
-                                                                            <td>92-98</td>
-                                                                            <td>109-115</td>
-                                                                            <td>68</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>XXL</th>
-                                                                            <td>111-117</td>
-                                                                            <td>98-104</td>
-                                                                            <td>115-121</td>
-                                                                            <td>69.5</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th>XXXL</th>
-                                                                            <td>117-123</td>
-                                                                            <td>104-110</td>
-                                                                            <td>121-127</td>
-                                                                            <td>71</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                            <img src="https://www.jlindeberg.com/cdn/shop/t/225/assets/size-guide.webp?v=182594139253300845431719414016" alt="Size Guidance" class="img-fluid" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
 
                                 </div>
 

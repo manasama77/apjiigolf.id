@@ -271,7 +271,7 @@ class ApjiiTournamentController extends Controller
             ];
             $custom_paper = [0, 0, 1000, 1778];
             $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
-            // // DEBUG PURPOSE
+            // DEBUG PURPOSE
             // return $pdf->stream('test.pdf', array("Attachment" => false));
 
             $slug_location_name = Str::slug($this->event_name);

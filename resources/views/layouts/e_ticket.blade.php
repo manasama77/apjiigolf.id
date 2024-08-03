@@ -67,7 +67,7 @@
 
     .barcode-bg {
         position: absolute;
-        top: 45%;
+        top: 38%;
         left: 50%;
         transform: translate(-50%, 0%);
         background-color: white;
@@ -146,11 +146,11 @@
 <body style="position: relative;">
     <div class="container">
 
-        <div class="info-wrapper">
+        {{-- <div class="info-wrapper">
             <div class="nama_peserta_wrapper">
                 <p class="nama_peserta">Hi, {{ strtoupper($full_name) }}</p>
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="barcode-bg">
