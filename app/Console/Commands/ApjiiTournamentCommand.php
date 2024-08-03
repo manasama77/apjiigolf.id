@@ -36,15 +36,19 @@ class ApjiiTournamentCommand extends Command
      */
     public function handle()
     {
+        // $status_url = "https://api-sandbox.doku.com/orders/v1/status";
+        // $client_id   = config('doku.client_id_sandbox');
+        // $secret_key  = config('doku.secret_key_sandbox');
+        // if (env('APP_ENV') == 'production') {
+        //     $status_url = "https://api.doku.com/orders/v1/status";
+        //     $client_id   = config('doku.client_id');
+        //     $secret_key  = config('doku.secret_key');
+        // }
+
         $event_name = 'APJII GOLF TOURNAMENT 7';
-        $status_url = "https://api-sandbox.doku.com/orders/v1/status";
-        $client_id   = config('doku.client_id_sandbox');
-        $secret_key  = config('doku.secret_key_sandbox');
-        if (env('APP_ENV') == 'production') {
-            $status_url = "https://api.doku.com/orders/v1/status";
-            $client_id   = config('doku.client_id');
-            $secret_key  = config('doku.secret_key');
-        }
+        $status_url = "https://api.doku.com/orders/v1/status";
+        $client_id   = config('doku.client_id');
+        $secret_key  = config('doku.secret_key');
 
         $regs = Registration::where('payment_status', 'pending')->get();
         Log::info($regs);
