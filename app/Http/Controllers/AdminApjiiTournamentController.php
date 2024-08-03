@@ -58,7 +58,7 @@ class AdminApjiiTournamentController extends Controller
         $registration->save();
 
         return response()->json([
-            'message' => $registration->full_name . ' Checkin Successful',
+            'message' => $registration->first_name . ' ' . $registration->last_name . ' Checkin Successful',
         ], 200);
     }
 }

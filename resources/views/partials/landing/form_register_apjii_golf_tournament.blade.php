@@ -176,66 +176,96 @@
                                         </div>
                                     @endif
 
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="full_name" name="full_name" type="text"
-                                            placeholder="Enter your full name..." autocomplete="name"
-                                            value="{{ old('full_name') }}" required />
-                                        <label for="full_name">Full name</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select" id="gender" name="gender" required>
-                                            <option @selected(old('gender') == 'male') value="male">Male</option>
-                                            <option @selected(old('gender') == 'female') value="female">Female</option>
-                                        </select>
-                                        <label for="gender">Gender</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" name="email" type="email"
-                                            placeholder="name@example.com" value="{{ old('email') }}" required />
-                                        <label for="email">Email Address</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="whatsapp_number" name="whatsapp_number"
-                                            type="tel" placeholder="08XXXXXXXXX"
-                                            value="{{ old('whatsapp_number') }}" required />
-                                        <label for="whatsapp_number">Phone number / Mobile number</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="company_name" name="company_name"
-                                            type="text" placeholder="Enter your company name"
-                                            value="{{ old('company_name') }}" required />
-                                        <label for="company_name">Company Name</label>
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select" id="position" name="position" required>
-                                            <option value=""></option>
-                                            <option @selected(old('position') == 'Commissioner') value="Commissioner">Commissioner
-                                            </option>
-                                            <option @selected(old('position') == 'C Level') value="C Level">C Level</option>
-                                            <option @selected(old('position') == 'Vice President') value="Vice President">Vice President
-                                            </option>
-                                            <option @selected(old('position') == 'General Manager') value="General Manager">General
-                                                Manager
-                                            </option>
-                                            <option @selected(old('position') == 'Manager - Senior Manager') value="Manager - Senior Manager">
-                                                Manager -
-                                                Senior
-                                                Manager
-                                            </option>
-                                            <option @selected(old('position') == 'Staff - Supervisor') value="Staff - Supervisor">Staff -
-                                                Supervisor
-                                            </option>
-                                        </select>
-                                        <label for="position">Position</label>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="first_name" name="first_name"
+                                                    type="text" placeholder="Enter your full name..."
+                                                    autocomplete="name" value="{{ old('first_name') }}" required />
+                                                <label for="first_name">First name</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="last_name" name="last_name"
+                                                    type="text" placeholder="Enter your full name..."
+                                                    autocomplete="name" value="{{ old('last_name') }}" required />
+                                                <label for="last_name">Last name</label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row mb-3">
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" id="gender" name="gender" required>
+                                                    <option @selected(old('gender') == 'male') value="male">Male</option>
+                                                    <option @selected(old('gender') == 'female') value="female">Female</option>
+                                                </select>
+                                                <label for="gender">Gender</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="email" name="email"
+                                                    type="email" placeholder="name@example.com"
+                                                    value="{{ old('email') }}" required />
+                                                <label for="email">Email Address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="whatsapp_number"
+                                                    name="whatsapp_number" type="tel" placeholder="08XXXXXXXXX"
+                                                    value="{{ old('whatsapp_number') }}" required />
+                                                <label for="whatsapp_number">Phone number / Mobile number</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="company_name" name="company_name"
+                                                    type="text" placeholder="Enter your company name"
+                                                    value="{{ old('company_name') }}" required />
+                                                <label for="company_name">Company Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <div class="col-sm-12 col-md-4">
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select" id="position" name="position" required>
+                                                    <option value=""></option>
+                                                    <option @selected(old('position') == 'Commissioner') value="Commissioner">
+                                                        Commissioner
+                                                    </option>
+                                                    <option @selected(old('position') == 'C Level') value="C Level">C Level
+                                                    </option>
+                                                    <option @selected(old('position') == 'Vice President') value="Vice President">Vice
+                                                        President
+                                                    </option>
+                                                    <option @selected(old('position') == 'General Manager') value="General Manager">
+                                                        General
+                                                        Manager
+                                                    </option>
+                                                    <option @selected(old('position') == 'Manager - Senior Manager')
+                                                        value="Manager - Senior Manager">
+                                                        Manager -
+                                                        Senior
+                                                        Manager
+                                                    </option>
+                                                    <option @selected(old('position') == 'Staff - Supervisor') value="Staff - Supervisor">
+                                                        Staff -
+                                                        Supervisor
+                                                    </option>
+                                                </select>
+                                                <label for="position">Position</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-4">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" id="institution" name="institution"
                                                     required>
@@ -253,7 +283,7 @@
                                                 <label for="institution">Institution</label>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-sm-12 col-md-4">
                                             <div id="group_institution_etc" class="form-floating mb-3">
                                                 <input class="form-control disabled" id="institution_etc"
                                                     name="institution_etc" type="text"
@@ -265,15 +295,31 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-floating mb-3">
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <input class="form-control" id="handicap" name="handicap"
+                                                    type="number" placeholder="Have Promo Code"
+                                                    value="{{ old('handicap') }}" inputmode="numeric"
+                                                    min="0" max="99" required />
+                                                <label for="handicap">Handicap</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-muted text-start fw-bold">
+                                        For APJII members, contact us at
+                                        <a href="{{ $wa_pic }}">
+                                            <i class="fab fa-whatsapp fa-fw"></i>
+                                            +{{ $wa_pic }}
+                                        </a>
+                                        to get special prices
+                                    </p>
+                                    <div class="form-floating mb-5">
                                         <input class="form-control" id="code" name="code" type="text"
                                             placeholder="Have Promo Code" value="{{ old('code') }}" />
                                         <label for="code">Promo Code</label>
                                     </div>
-                                    <p class="text-muted text-start mb-5">
-                                        For APJII members, <a href="{{ $wa_pic }}">contact us</a> to get special
-                                        price.
-                                    </p>
 
                                     <div class="row mb-3 justify-content-center">
                                         <div class="col-12">
@@ -295,6 +341,7 @@
                                                     Width: 48 CM<br />
                                                     Sleeve: 23,5 CM<br />
                                                 </h6>
+                                                <span class="badge bg-primary">Choose</span>
                                             </label>
                                         </div>
 
@@ -309,6 +356,7 @@
                                                     Width: 51 CM<br />
                                                     Sleeve: 24 CM<br />
                                                 </h6>
+                                                <span class="badge bg-primary">Choose</span>
                                             </label>
                                         </div>
 
@@ -323,6 +371,7 @@
                                                     Width: 52,5 CM<br />
                                                     Sleeve: 24,5 CM<br />
                                                 </h6>
+                                                <span class="badge bg-primary">Choose</span>
                                             </label>
                                         </div>
 
@@ -337,6 +386,7 @@
                                                     Width: 55 CM<br />
                                                     Sleeve: 24,5 CM<br />
                                                 </h6>
+                                                <span class="badge bg-primary">Choose</span>
                                             </label>
                                         </div>
 
@@ -351,6 +401,7 @@
                                                     Width: 59 CM<br />
                                                     Sleeve: 25,5 CM<br />
                                                 </h6>
+                                                <span class="badge bg-primary">Choose</span>
                                             </label>
                                         </div>
 
@@ -358,7 +409,7 @@
 
                                 </div>
 
-                                <div class="card-footer">
+                                <div class="card-footer mb-3">
                                     {!! RecaptchaV3::field('register') !!}
                                     @if ($registration_status == true)
                                         <button id="btn_submit" type="submit"

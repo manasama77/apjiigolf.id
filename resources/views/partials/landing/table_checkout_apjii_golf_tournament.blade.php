@@ -19,7 +19,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>{{ $reg->full_name }}</th>
+                                                <th>{{ $reg->first_name }} {{ $reg->last_name }}</th>
                                             </tr>
                                             <tr>
                                                 <th>Ticket</th>
@@ -49,13 +49,17 @@
                         <div class="accordion mb-5" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Tournament Information
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}" alt="APJII Golf Tournament 7" class="img-fluid mb-4" style="max-width: 90%" />
+                                        <img src="{{ asset('apjii-golf-7/APJII Golf 7 - blue.png') }}"
+                                            alt="APJII Golf Tournament 7" class="img-fluid mb-4"
+                                            style="max-width: 90%" />
 
                                         <div class="table-responsive d-block d-md-none">
                                             <table class="table table-bordered table-striped">
@@ -124,7 +128,10 @@
 
                                         <div class="row">
                                             <div class="col-12">
-                                                <iframe src="{{ $google_maps_embed }}" width="100%" height="350" style="border:0; width: 100%; height: 350px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded border border-4 border-white shadow"></iframe>
+                                                <iframe src="{{ $google_maps_embed }}" width="100%" height="350"
+                                                    style="border:0; width: 100%; height: 350px;" allowfullscreen=""
+                                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                                    class="rounded border border-4 border-white shadow"></iframe>
                                             </div>
                                         </div>
 

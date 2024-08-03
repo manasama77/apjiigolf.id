@@ -28,16 +28,18 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'full_name'            => 'required',
-            'gender'               => 'required',
-            'email'                => ['required', 'email:rfc:dns'],
-            'whatsapp_number'      => ['required', new IndonesiaPhoneProviderRule],
-            'company_name'         => 'required',
-            'position'             => 'required',
-            'institution'          => 'required',
-            'institution_etc'      => 'required_if:institution,etc',
-            'shirt_size'           => 'required',
-            'code'                 => ['nullable', function ($attribute, $value, $fail) {
+            'first_name'      => 'required',
+            'last_name'       => 'required',
+            'gender'          => 'required',
+            'email'           => ['required', 'email:rfc:dns'],
+            'whatsapp_number' => ['required', new IndonesiaPhoneProviderRule],
+            'company_name'    => 'required',
+            'position'        => 'required',
+            'institution'     => 'required',
+            'institution_etc' => 'required_if:institution,etc',
+            'shirt_size'      => 'required',
+            'handicap'        => ['required', 'integer'],
+            'code'            => ['nullable', function ($attribute, $value, $fail) {
                 if ($value) {
                     $promo_code = PromoCode::where('code', $value)->first();
                     if (!$promo_code) {
@@ -56,7 +58,8 @@ class RegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'full_name.required'               => 'The full name field is required.',
+            'first_name.required'               => 'The first name field is required.',
+            'last_name.required'               => 'The first name field is required.',
             'gender.required'                  => 'The gender field is required.',
             'email.required'                   => 'The email field is required.',
             'email.email'                      => 'The email must be a valid email address.',
@@ -67,6 +70,8 @@ class RegisterRequest extends FormRequest
             'institution.required'             => 'The institution field is required.',
             'institution_etc.required_unless'  => 'The institution etc field is required when institution is not "Etc".',
             'shirt_size.required'              => 'Please select your polo shirt size.',
+            'handicap.required'                => 'Please enter your handicap.',
+            'handicap.integer'                 => 'The handicap must be an integer.',
             'code.exists'                      => 'Promo Code not found, please check again',
             'g-recaptcha-response.recaptchav3' => 'Google reCAPTCHA verification failed. Please refresh the page and try again.',
         ];

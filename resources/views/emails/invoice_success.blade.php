@@ -332,7 +332,8 @@
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">Hi,
-                                                                    {{ $registration->full_name ?? '' }}
+                                                                    {{ $registration->first_name ?? '' }}
+                                                                    {{ $registration->last_name ?? '' }}
                                                                 </p>
                                                                 <p style="line-height: 140%;"> </p>
                                                                 <p style="line-height: 140%;">Transaction for invoice

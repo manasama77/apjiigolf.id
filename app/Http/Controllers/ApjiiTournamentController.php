@@ -54,7 +54,7 @@ class ApjiiTournamentController extends Controller
     {
         $this->event_name          = 'APJII GOLF TOURNAMENT 7';
         $this->event_date          = Carbon::parse('2024-08-25');
-        $this->event_time          = '06:00 till end';
+        $this->event_time          = '06:00 AM';
         $this->location_name       = 'Pondok Indah Golf Course';
         $this->location_address    = 'Jl. Metro Pondok Indah No.16, RT.1/RW.16, Pd. Pinang, Kec. Kby. Lama, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12310';
         $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
@@ -155,7 +155,8 @@ class ApjiiTournamentController extends Controller
             $invoice_array  = $this->generate_invoice_number();
             $invoice_number = $invoice_array['invoice_number'];
 
-            $full_name       = $request->full_name;
+            $first_name      = $request->first_name;
+            $last_name       = $request->last_name;
             $gender          = $request->gender;
             $email           = $request->email;
             $whatsapp_number = $request->whatsapp_number;
@@ -163,13 +164,15 @@ class ApjiiTournamentController extends Controller
             $position        = $request->position;
             $institution     = $request->institution;
             $institution_etc = $request->institution_etc;
+            $handicap        = $request->handicap;
             $shirt_size      = $request->shirt_size;
+            $code            = $request->code ?? null;
 
             $event_location = EventLocation::with([
                 'location'
             ])->where('is_active', 1)->first();
             if (!$event_location) {
-                throw new Exception('No event active. Please contact admin for more information at contact +6282114578976.');
+                throw new Exception('No event active. Please contact admin for more information at contact +' . $this->wa_pic);
             }
             $event_location_id = $event_location->id;
 
@@ -185,18 +188,20 @@ class ApjiiTournamentController extends Controller
             $exec = Registration::create([
                 'order_id'          => $order_id,
                 'invoice_number'    => $invoice_number,
-                'full_name'         => $request->full_name,
-                'gender'            => $request->gender,
-                'email'             => $request->email,
-                'whatsapp_number'   => $request->whatsapp_number,
-                'company_name'      => $request->company_name,
-                'position'          => $request->position,
-                'institution'       => $request->institution,
-                'institution_etc'   => $request->institution_etc,
-                'shirt_size'        => $request->shirt_size,
+                'first_name'        => $first_name,
+                'last_name'         => $last_name,
+                'gender'            => $gender,
+                'email'             => $email,
+                'whatsapp_number'   => $whatsapp_number,
+                'company_name'      => $company_name,
+                'position'          => $position,
+                'institution'       => $institution,
+                'institution_etc'   => $institution_etc,
+                'handicap'          => $handicap,
+                'shirt_size'        => $shirt_size,
                 'event_location_id' => $event_location_id,
                 'ticket_type'       => $ticket_type,
-                'promo_code'        => $request->code ?? null,
+                'promo_code'        => $code ?? null,
                 'ticket_price'      => $ticket_price,
                 'admin_fee'         => $this->admin_fee,
                 'total_price'       => $ticket_price + $this->admin_fee,
@@ -207,18 +212,18 @@ class ApjiiTournamentController extends Controller
             ]);
 
             if (!$exec) {
-                throw new Exception("Failed to register. Please contact admin for more information at contact +6282114578976.");
+                throw new Exception("Failed to register. Please contact admin for more information at contact +" . $this->wa_pic);
             }
 
-            if ($request->code) {
-                PromoCode::where('code', $request->code)->update(['is_used' => 1]);
+            if ($code) {
+                PromoCode::where('code', $code)->update(['is_used' => 1]);
             }
 
             $register_id   = $exec->id;
-            $doku_checkout = $this->doku_checkout($order_id, $total_price, $invoice_number, $register_id, $full_name, $whatsapp_number, $email);
+            $doku_checkout = $this->doku_checkout($order_id, $total_price, $invoice_number, $register_id, $first_name, $last_name, $whatsapp_number, $email, $shirt_size);
 
             if ($doku_checkout->failed()) {
-                throw new Exception("Failed to register. Please contact admin for more information at contact +6282114578976.");
+                throw new Exception("Failed to register. Please contact admin for more information at contact +" . $this->wa_pic);
             }
 
             $responses    = $doku_checkout->json();
@@ -236,7 +241,7 @@ class ApjiiTournamentController extends Controller
 
             // create invoice pdf
             $data_pdf_invoice = [
-                'player_name'      => $request->full_name,
+                'player_name'      => $first_name . ' ' . $last_name,
                 'invoice_number'   => $invoice_number,
                 'invoice_date'     => Carbon::now()->format('d M Y'),
                 'event_name'       => $this->event_name,
@@ -267,7 +272,7 @@ class ApjiiTournamentController extends Controller
             $data_pdf = [
                 'bar'       => $bar,
                 'barcode'   => $barcode,
-                'full_name' => $request->full_name,
+                'full_name' => $first_name . ' ' . $last_name,
             ];
             $custom_paper = [0, 0, 1000, 1778];
             $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
@@ -275,8 +280,8 @@ class ApjiiTournamentController extends Controller
             // return $pdf->stream('test.pdf', array("Attachment" => false));
 
             $slug_location_name = Str::slug($this->event_name);
-            $content = $pdf->download()->getOriginalContent();
-            $nama_file = Str::slug($request->full_name . "-" . $barcode) . ".pdf";
+            $content            = $pdf->download()->getOriginalContent();
+            $nama_file          = Str::slug($first_name . "-" . $last_name . "-" . $barcode) . ".pdf";
             Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
 
             $exec->eticket = $nama_file;
@@ -347,9 +352,8 @@ class ApjiiTournamentController extends Controller
         ];
     }
 
-    protected function doku_checkout($order_id, $total_price, $invoice_number, $register_id, $full_name, $whatsapp_number, $email)
+    protected function doku_checkout($order_id, $total_price, $invoice_number, $register_id, $first_name, $last_name, $whatsapp_number, $email, $shirt_size)
     {
-        // adam
         $request_timestamp = Carbon::now('UTC')->toIso8601ZuluString();
 
         $order_object = [
@@ -368,8 +372,8 @@ class ApjiiTournamentController extends Controller
                     'name'     => 'Registration APJII Golf 7 Tournament',
                     'price'    => $total_price,
                     'quantity' => 1,
-                    'category' => 41,
-                ]
+                    'category' => "ticketing",
+                ],
             ]
         ];
 
@@ -396,12 +400,13 @@ class ApjiiTournamentController extends Controller
         ];
 
         $customer_object = [
-            "id"      => $register_id,
-            "name"    => $full_name,
-            "email"   => $email,
-            "phone"   => $whatsapp_number,
-            "address" => '-',
-            "country" => "ID"
+            "id"        => $register_id,
+            "name"      => $first_name . ' ' . $last_name,
+            'last_name' => $last_name,
+            "email"     => $email,
+            "phone"     => $whatsapp_number,
+            "address"   => '-',
+            "country"   => "ID"
         ];
 
         $body_request = [

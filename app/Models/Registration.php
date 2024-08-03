@@ -13,7 +13,8 @@ class Registration extends Model
     protected $fillable = [
         'order_id',
         'invoice_number',
-        'full_name',
+        'first_name',
+        'last_name',
         'gender',
         'email',
         'whatsapp_number',
@@ -22,6 +23,7 @@ class Registration extends Model
         'institution',
         'institution_etc',
         'shirt_size',
+        'handicap',
         'event_location_id',
         'ticket_type',
         'promo_code',
@@ -45,9 +47,9 @@ class Registration extends Model
         return $this->belongsTo(EventLocation::class);
     }
 
-    public function getTicketTypeTextAttribute()
+    public function getTicketTypeAttribute($value)
     {
-        return $this->ticket_type == 'early bird' ? 'MEMBER' : 'REGULAR';
+        return $value == 'early bird' ? 'APJII MEMBER' : 'REGULAR';
     }
 
     public function getExpiredDateFormattedAttribute()

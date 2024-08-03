@@ -333,7 +333,8 @@
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">Hi,
-                                                                    {{ $registrations->full_name }}
+                                                                    {{ $registrations->first_name }}
+                                                                    {{ $registrations->last_name }}
                                                                 </p>
                                                                 <p style="line-height: 140%;"> </p>
                                                                 <p style="line-height: 140%;">Immediately make

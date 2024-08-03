@@ -46,7 +46,8 @@
                     <tr>
                         <th>ORDER ID</th>
                         <th>INVOICE NUMBER</th>
-                        <th>FULL NAME</th>
+                        <th>FIRST NAME</th>
+                        <th>LAST NAME</th>
                         <th>GENDER</th>
                         <th>EMAIL</th>
                         <th>WHATSAPP</th>
@@ -54,6 +55,8 @@
                         <th>POSITION</th>
                         <th>INSTUTUTION</th>
                         <th>INSTUTUTION ETC</th>
+                        <th>HANDICAP FROM</th>
+                        <th>HANDICAP TO</th>
                         <th>SHIRT SIZE</th>
                         <th>TICKET TYPE</th>
                         <th>PROMO CODE</th>
@@ -70,7 +73,8 @@
                         <tr>
                             <th>{{ $data->order_id }}</th>
                             <th>{{ $data->invoice_number }}</th>
-                            <th>{{ $data->full_name }}</th>
+                            <th>{{ $data->first_name }}</th>
+                            <th>{{ $data->last_name }}</th>
                             <th>{{ strtoupper($data->gender) }}</th>
                             <th>{{ $data->email }}</th>
                             <th>{{ $data->whatsapp_number }}</th>
@@ -78,8 +82,10 @@
                             <th>{{ $data->position }}</th>
                             <th>{{ $data->institution }}</th>
                             <th>{{ $data->institution_etc }}</th>
+                            <th>{{ $data->handicap_from }}</th>
+                            <th>{{ $data->handicap_to }}</th>
                             <th>{{ $data->shirt_size }}</th>
-                            <th>{{ $data->ticket_type_text }}</th>
+                            <th>{{ $data->ticket_type }}</th>
                             <th>{{ $data->promo_code }}</th>
                             <th>{{ $data->total_price }}</th>
                             <th>{{ strtoupper($data->payment_status) }}</th>
