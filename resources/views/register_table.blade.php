@@ -55,8 +55,7 @@
                         <th>POSITION</th>
                         <th>INSTUTUTION</th>
                         <th>INSTUTUTION ETC</th>
-                        <th>HANDICAP FROM</th>
-                        <th>HANDICAP TO</th>
+                        <th>HANDICAP</th>
                         <th>SHIRT SIZE</th>
                         <th>TICKET TYPE</th>
                         <th>PROMO CODE</th>
@@ -82,8 +81,7 @@
                             <th>{{ $data->position }}</th>
                             <th>{{ $data->institution }}</th>
                             <th>{{ $data->institution_etc }}</th>
-                            <th>{{ $data->handicap_from }}</th>
-                            <th>{{ $data->handicap_to }}</th>
+                            <th>{{ $data->handicap }}</th>
                             <th>{{ $data->shirt_size }}</th>
                             <th>{{ $data->ticket_type }}</th>
                             <th>{{ $data->promo_code }}</th>
