@@ -281,6 +281,10 @@
                                         </div>
 
                                         <div class="col-12 justify-content-center">
+                                            <img src="{{ asset('PG Logo.jpg') }}" alt="PG Logo"
+                                                class="img-fluid mb-3" />
+                                        </div>
+                                        <div class="col-12 justify-content-center">
                                             <img src="{{ asset('size-chart.jpg') }}" alt="Size Chart"
                                                 class="img-fluid mb-3" style="max-width: 300px;" />
                                         </div>
