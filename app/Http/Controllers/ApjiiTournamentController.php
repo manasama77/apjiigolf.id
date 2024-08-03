@@ -60,9 +60,7 @@ class ApjiiTournamentController extends Controller
         $this->google_maps_url     = "https://maps.app.goo.gl/zCLyP7rDaVCm3HoN8";
         $this->google_maps_embed   = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15863.835569909455!2d106.7849619!3d-6.2691368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a490b60e41%3A0xaf08accee7decdf8!2sPondok%20Indah%20Golf%20Course!5e0!3m2!1sen!2sid!4v1720757045886!5m2!1sen!2sid";
         $this->early_price         = 3_500_000;
-        // $this->early_price         = 10_000;
         $this->reguler_price       = 3_750_000;
-        // $this->reguler_price       = 20_000;
         $this->admin_fee           = 0;
         $this->no_rekening         = "6630306017";
         $this->bank_rekening       = "BCA";
@@ -298,7 +296,22 @@ class ApjiiTournamentController extends Controller
 
     protected function registration_status()
     {
-        return RegistrationStatus::find(1) ? RegistrationStatus::find(1)->is_active : false;
+        $rs = RegistrationStatus::find(1);
+        $count_registrant = Registration::whereIn('payment_status', ['pending', 'success'])->count();
+
+        if ($rs->is_active == 1) {
+            if ($count_registrant < $rs->limit_peserta) {
+                return true;
+            }
+            $rs->is_active = 0;
+            $rs->save();
+        } else {
+            if ($count_registrant < $rs->limit_peserta) {
+                $rs->is_active = 1;
+                $rs->save();
+            }
+        }
+        return false;
     }
 
     protected function generate_barcode(int $length = 64, string $keyspace = '123456789'): string

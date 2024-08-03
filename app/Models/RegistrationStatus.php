@@ -14,5 +14,6 @@ class RegistrationStatus extends Model
 
     protected $fillable = [
         'is_active',
+        'limit_peserta'
     ];
 }
