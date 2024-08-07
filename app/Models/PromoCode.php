@@ -14,6 +14,7 @@ class PromoCode extends Model
         'code',
         'name',
         'is_used',
+        'tipe', // promo / compliment
     ];
 
     public function getIsUsedBadgeAttribute()
@@ -32,5 +33,11 @@ class PromoCode extends Model
     public function getIsUsedTextAttribute()
     {
         return $this->is_used ? "USED" : "NOT USED";
+    }
+
+    public function getTipeBadgeAttribute()
+    {
+        $tipe = strtoupper($this->tipe);
+        return $tipe == 'PROMO' ? '<div class="badge badge-info">' . $tipe . '</div>' : '<div class="badge badge-warning">' . $tipe . '</div>';
     }
 }

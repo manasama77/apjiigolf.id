@@ -25,7 +25,7 @@ class Registration extends Model
         'shirt_size',
         'handicap',
         'event_location_id',
-        'ticket_type',
+        'ticket_type', // early bird, regular, compliment
         'promo_code',
         'ticket_price',
         'admin_fee',
@@ -49,7 +49,10 @@ class Registration extends Model
 
     public function getTicketTypeAttribute($value)
     {
-        return $value == 'early bird' ? 'APJII MEMBER' : 'REGULAR';
+        if ($value == 'early bird') {
+            return 'APJII MEMBER';
+        }
+        return strtoupper($value);
     }
 
     public function getExpiredDateFormattedAttribute()

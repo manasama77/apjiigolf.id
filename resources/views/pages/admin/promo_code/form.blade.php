@@ -47,6 +47,14 @@
                                     <input type="text" class="form-control" id="name" name="name"
                                         value="{{ old('name') }}" required />
                                 </div>
+                                <div class="mb-3">
+                                    <label for="tipe">Tipe</label>
+                                    <select class="form-control" id="tipe" name="tipe" @checked(old('tipe'))
+                                        required>
+                                        <option value="promo">Promo</option>
+                                        <option value="compliment">Compliment</option>
+                                    </select>
+                                </div>
                                 <button type="submit" class="btn btn-success btn-block">
                                     <i class="fas fa-fw fa-save"></i> Save
                                 </button>

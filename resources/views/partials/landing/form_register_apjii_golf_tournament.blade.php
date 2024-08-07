@@ -203,7 +203,8 @@
                                                 <div class="form-floating mb-3">
                                                     <input class="form-control" id="first_name" name="first_name"
                                                         type="text" placeholder="Enter your full name..."
-                                                        autocomplete="name" value="{{ old('first_name') }}" required />
+                                                        autocomplete="given-name" value="{{ old('first_name') }}"
+                                                        required />
                                                     <label for="first_name">First name</label>
                                                 </div>
                                             </div>
@@ -211,7 +212,8 @@
                                                 <div class="form-floating mb-3">
                                                     <input class="form-control" id="last_name" name="last_name"
                                                         type="text" placeholder="Enter your full name..."
-                                                        autocomplete="name" value="{{ old('last_name') }}" required />
+                                                        autocomplete="family-name" value="{{ old('last_name') }}"
+                                                        required />
                                                     <label for="last_name">Last name</label>
                                                 </div>
                                             </div>

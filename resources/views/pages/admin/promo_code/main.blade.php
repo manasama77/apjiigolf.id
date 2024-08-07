@@ -33,6 +33,9 @@
                                     <th>Name</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">
+                                        Tipe
+                                    </th>
+                                    <th class="text-center">
                                         <i class="fas fa-cogs"></i>
                                     </th>
                                 </tr>
@@ -54,6 +57,7 @@
                                         </td>
                                         <td>{{ $l->name }}</td>
                                         <td class="text-center">{!! $l->is_used_badge !!}</td>
+                                        <td class="text-center">{!! $l->tipe_badge !!}</td>
                                         <td class="text-center">
                                             @unless ($l->is_used)
                                                 <button type="button" class="btn btn-danger"

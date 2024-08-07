@@ -1,0 +1,8 @@
+Rapat 2024-08-07
+
+- Update DB table registrations ticket_type tambah option compliment
+- Update DB promo_code tambah ticket_type ENUM [promo, compliment], set default promo untuk existing registrant
+- Registrasi ketika tipe code == compliment code, maka bypass proses pembayaran redirect ke halaman download e-ticket dan proses kirim email
+- Rename file e-ticket dengan affix COMPLIMENT untuk registrant dengan kode == compliment
+- Admin Panel - Update fitur create code dengan menambahkan optional tipe kode [promo / compliment]
+- Update ticket_type tambah badge tipe compliment

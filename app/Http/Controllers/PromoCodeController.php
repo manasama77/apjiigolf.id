@@ -43,12 +43,13 @@ class PromoCodeController extends Controller
         $request->validate([
             'code' => ['required', 'unique:promo_codes,code'],
             'name' => 'required',
+            'tipe' => ['required', 'in:promo,compliment'],
         ]);
 
         // append to $request
         $request->merge(['is_used' => false]);
 
-        PromoCode::create($request->only('code', 'name'));
+        PromoCode::create($request->only('code', 'name', 'tipe', 'is_used'));
 
         return redirect()->route('admin.promo_code')->with('success', 'Create Success for Promo Code ' . $request->code);
     }

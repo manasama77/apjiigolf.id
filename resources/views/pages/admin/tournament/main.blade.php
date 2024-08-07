@@ -120,6 +120,7 @@
     <script>
         $(document).ready(() => {
             new DataTable('#tables', {
+                scrollX: true,
                 order: [
                     [1, 'desc']
                 ],
