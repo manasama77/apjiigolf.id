@@ -130,7 +130,8 @@
 
     function swap_array() {
         let x = dataPeserta[0]['name'];
-        let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+        // let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+        let y = [];
 
         if (y.includes(x)) {
             // swap data from dataPeserta index 0 to random number equal to dataPeserta.length
@@ -152,7 +153,8 @@
 
     function make_sure_xxx() {
         let x = dataPeserta[0]['name'];
-        let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+        // let y = ["ILHAM EFENDI", "YUDIE HARYANTO"];
+        let y = [];
         return y.includes(x) ? true : false;
     }
 
@@ -188,7 +190,7 @@
 
             tempData.forEach(x => {
                 let id = x.id
-                let name = x.name.toUpperCase()
+                let name = x.first_name.toUpperCase() + " " + x.last_name.toUpperCase()
                 htmlnya += `
                 <div class="col-sm-6 mb-3">
                     <div class="card">
@@ -225,7 +227,7 @@
 
             tempData.forEach(x => {
                 let id = x.id
-                let name = x.name.toUpperCase()
+                let name = x.first_name.toUpperCase() + " " + x.last_name.toUpperCase()
 
                 let nested = {
                     id: id,

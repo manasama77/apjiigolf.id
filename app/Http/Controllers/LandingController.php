@@ -238,8 +238,14 @@ class LandingController extends Controller
 
     public function undian_winner()
     {
-        $data  = Undian::select('id', 'name')
-            ->where('winner', 1)
+        // $data  = Undian::select('id', 'name')
+        //     ->where('winner', 1)
+        //     ->orderBy('updated_at', 'desc')
+        //     ->get();
+        // $count = $data->count();
+
+        $data  = Registration::select('id', 'first_name', 'last_name')
+            ->where('is_winner', 1)
             ->orderBy('updated_at', 'desc')
             ->get();
         $count = $data->count();
@@ -252,8 +258,13 @@ class LandingController extends Controller
 
     public function undian_peserta()
     {
-        $data  = Undian::select('id', 'name')
-            ->where('winner', 0)
+        // $data  = Undian::select('id', 'name')
+        //     ->where('winner', 0)
+        //     ->get();
+
+        $data  = Registration::select('id', 'first_name', 'last_name')
+            ->where('is_winner', 0)
+            ->where('is_checkin', 1)
             ->get();
 
         $count = $data->count();
@@ -270,8 +281,12 @@ class LandingController extends Controller
             $id = $request->id;
 
             if ($id) {
-                $exec = Undian::find($id);
-                $exec->winner = 1;
+                // $exec = Undian::find($id);
+                // $exec->winner = 1;
+                // $exec->save();
+
+                $exec = Registration::find($id);
+                $exec->is_winner = 1;
                 $exec->save();
             }
 
