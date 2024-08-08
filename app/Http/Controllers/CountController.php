@@ -35,6 +35,8 @@ class CountController extends Controller
             $count_apjii_7_shirt_xxxl = $a->where('payment_status', 'success')->where('shirt_size', 'xxxl')->count();
         }
 
+        $apjii7_checked = Registration::where('is_checkin', true)->orderBy('updated_at', 'desc')->get();
+
         $data = [
             'count_admin'              => $count_admin,
             'count_location'           => $count_location,
@@ -52,6 +54,7 @@ class CountController extends Controller
             'count_apjii_7_shirt_xl'   => $count_apjii_7_shirt_xl,
             'count_apjii_7_shirt_xxl'  => $count_apjii_7_shirt_xxl,
             'count_apjii_7_shirt_xxxl' => $count_apjii_7_shirt_xxxl,
+            'apjii7_checked'           => $apjii7_checked,
         ];
 
         return response()->json([

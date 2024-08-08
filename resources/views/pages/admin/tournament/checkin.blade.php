@@ -69,6 +69,31 @@
                 </div>
 
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td>NAMA</td>
+                                            <td>CHECKIN</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="vbody">
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -142,6 +167,24 @@
                 console.log(e.data)
                 $('#count_apjii_7_paid').text(e.data.count_apjii_7_paid)
                 $('#count_apjii_7_checkin').text(e.data.count_apjii_7_checkin)
+
+                let htmlnya = ``;
+                let apjii7_checked = e.data.apjii7_checked
+                apjii7_checked.forEach(l => {
+                    let first_name = l.first_name;
+                    let last_name = l.last_name;
+                    let full_name = `${first_name} ${last_name}`
+                    let updated_at = moment(l.updated_at).format('YYYY-MM-DD HH:mm:ss');
+
+                    htmlnya += `
+                    <tr>
+                        <td>${full_name}</td>
+                        <td>${updated_at}</td>
+                    </tr>
+                    `
+                });
+
+                $('#vbody').html(htmlnya)
             })
         }
     </script>

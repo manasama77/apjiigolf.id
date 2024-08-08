@@ -19,61 +19,68 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->route()->named('admin.dashboard')? 'active': '' }}">
+                    <a href="{{ route('admin.dashboard') }}"
+                        class="nav-link {{ request()->route()->named('admin.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                @if(auth()->user()->role == 'admin')
-                <li class="nav-item">
-                    <a href="{{ route('admin.master_location') }}" class="nav-link {{ request()->route()->named('admin.master_location')? 'active': '' }}">
-                        <i class="nav-icon fas fa-map"></i>
-                        <p>
-                            Master Location
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.event_location') }}" class="nav-link {{ request()->route()->named('admin.event_location')? 'active': '' }}">
-                        <i class="nav-icon fas fa-calendar"></i>
-                        <p>
-                            Event Location
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.player_management') }}" class="nav-link {{ request()->route()->named('admin.player_management')? 'active': '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Player Management
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.player_score') }}" class="nav-link {{ request()->route()->named('admin.player_score')? 'active': '' }}">
-                        <i class="nav-icon fa-solid fa-golf-ball-tee"></i>
-                        <p>
-                            Player Score
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.admin') }}" class="nav-link {{ request()->route()->named('admin.admin')? 'active': '' }}">
-                        <i class="nav-icon fas fa-user-secret"></i>
-                        <p>
-                            Admin Management
-                        </p>
-                    </a>
-                </li>
-
+                @if (auth()->user()->role == 'admin')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.master_location') }}"
+                            class="nav-link {{ request()->route()->named('admin.master_location') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-map"></i>
+                            <p>
+                                Master Location
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.event_location') }}"
+                            class="nav-link {{ request()->route()->named('admin.event_location') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-calendar"></i>
+                            <p>
+                                Event Location
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.player_management') }}"
+                            class="nav-link {{ request()->route()->named('admin.player_management') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>
+                                Player Management
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.player_score') }}"
+                            class="nav-link {{ request()->route()->named('admin.player_score') ? 'active' : '' }}">
+                            <i class="nav-icon fa-solid fa-golf-ball-tee"></i>
+                            <p>
+                                Player Score
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.admin') }}"
+                            class="nav-link {{ request()->route()->named('admin.admin') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-user-secret"></i>
+                            <p>
+                                Admin Management
+                            </p>
+                        </a>
+                    </li>
                 @endif
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.tournament') }}" class="nav-link {{ request()->route()->named('admin.tournament')? 'active': '' }}">
+                    <a href="{{ route('admin.tournament') }}"
+                        class="nav-link {{ request()->route()->named('admin.tournament') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             APJII 7
@@ -82,7 +89,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('admin.tournament.checkin') }}" class="nav-link {{ request()->route()->named('admin.tournament.checkin')? 'active': '' }}">
+                    <a href="{{ route('admin.tournament.checkin') }}"
+                        class="nav-link {{ request()->route()->named('admin.tournament.checkin') ? 'active' : '' }}">
 
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -91,15 +99,18 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('admin.promo_code') }}" class="nav-link {{ request()->route()->named('admin.promo_code')? 'active': '' }}">
+                @if (in_array(auth()->user()->role, ['admin', 'staff']))
+                    <li class="nav-item">
+                        <a href="{{ route('admin.promo_code') }}"
+                            class="nav-link {{ request()->route()->named('admin.promo_code') ? 'active' : '' }}">
 
-                        <i class="nav-icon fa-solid fa-receipt"></i>
-                        <p>
-                            APJII 7 Promo Code
-                        </p>
-                    </a>
-                </li>
+                            <i class="nav-icon fa-solid fa-receipt"></i>
+                            <p>
+                                APJII 7 Promo Code
+                            </p>
+                        </a>
+                    </li>
+                @endif
 
 
                 <li class="nav-item">

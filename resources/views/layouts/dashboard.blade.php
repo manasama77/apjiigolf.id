@@ -76,6 +76,7 @@
         src="https://cdn.datatables.net/v/bs4/jszip-3.10.1/dt-2.1.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/datatables.min.js">
     </script>
 
+    <script src="{{ asset('moment.min.js') }}"></script>
 
     <script>
         $.ajaxSetup({
