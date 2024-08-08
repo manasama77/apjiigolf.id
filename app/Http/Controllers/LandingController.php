@@ -64,7 +64,7 @@ class LandingController extends Controller
         $this->no_rekening         = "6630306017";
         $this->bank_rekening       = "BCA";
         $this->nama_rekening       = "Victor Henry Raymond";
-        $this->wa_pic              = '6282210069526';
+        $this->wa_pic              = '6282258285597';
         $this->registration_status = $this->registration_status();
         $this->early_bird_start    = Carbon::parse('2024-07-21');
         $this->early_bird_end      = Carbon::parse('2024-07-31');
@@ -696,9 +696,7 @@ class LandingController extends Controller
         return view('apjii_golf_5', $data);
     }
 
-    public function generate_invoice()
-    {
-    }
+    public function generate_invoice() {}
 
     protected function generate_secret_key(int $length = 64, string $keyspace = '123456789'): string
     {

@@ -2,10 +2,10 @@
   'app' => 
   array (
     'name' => 'PGA',
-    'env' => 'production',
-    'debug' => false,
-    'url' => 'https://apjiigolf.id',
-    'asset_url' => 'https://apjiigolf.id',
+    'env' => 'local',
+    'debug' => true,
+    'url' => 'https://apjii.test',
+    'asset_url' => 'https://apjii.test',
     'timezone' => 'Asia/Jakarta',
     'locale' => 'en',
     'fallback_locale' => 'en',
@@ -136,7 +136,7 @@
   ),
   'barcode' => 
   array (
-    'store_path' => '/var/www/apjiigolf/public/',
+    'store_path' => 'D:\\laragon\\www\\apjii\\public\\/',
   ),
   'broadcasting' => 
   array (
@@ -184,7 +184,7 @@
   ),
   'cache' => 
   array (
-    'default' => 'redis',
+    'default' => 'file',
     'stores' => 
     array (
       'apc' => 
@@ -206,8 +206,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/var/www/apjiigolf/storage/framework/cache/data',
-        'lock_path' => '/var/www/apjiigolf/storage/framework/cache/data',
+        'path' => 'D:\\laragon\\www\\apjii\\storage\\framework/cache/data',
+        'lock_path' => 'D:\\laragon\\www\\apjii\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -303,7 +303,7 @@
         'port' => '3306',
         'database' => 'apjiidb',
         'username' => 'root',
-        'password' => 'jalalintas-@#$',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -323,7 +323,7 @@
         'port' => '3306',
         'database' => 'apjiidb',
         'username' => 'root',
-        'password' => 'jalalintas-@#$',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -338,7 +338,7 @@
         'port' => '3306',
         'database' => 'apjiidb',
         'username' => 'root',
-        'password' => 'jalalintas-@#$',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -387,10 +387,10 @@
     'convert_entities' => true,
     'options' => 
     array (
-      'font_dir' => '/var/www/apjiigolf/storage/fonts',
-      'font_cache' => '/var/www/apjiigolf/storage/fonts',
-      'temp_dir' => '/tmp',
-      'chroot' => '/var/www/apjiigolf',
+      'font_dir' => 'D:\\laragon\\www\\apjii\\storage\\fonts',
+      'font_cache' => 'D:\\laragon\\www\\apjii\\storage\\fonts',
+      'temp_dir' => 'C:\\Users\\adamp\\AppData\\Local\\Temp',
+      'chroot' => 'D:\\laragon\\www\\apjii',
       'allowed_protocols' => 
       array (
         'file://' => 
@@ -435,22 +435,22 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/apjiigolf/storage/app',
+        'root' => 'D:\\laragon\\www\\apjii\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/apjiigolf/storage/app/public',
-        'url' => 'https://apjiigolf.id/storage',
+        'root' => 'D:\\laragon\\www\\apjii\\storage\\app/public',
+        'url' => 'https://apjii.test/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
       'events' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/apjiigolf/public/events',
-        'url' => 'https://apjiigolf.id/events',
+        'root' => 'D:\\laragon\\www\\apjii\\public\\events',
+        'url' => 'https://apjii.test/events',
         'visibility' => 'public',
         'throw' => false,
       ),
@@ -469,7 +469,7 @@
     ),
     'links' => 
     array (
-      '/var/www/apjiigolf/public/storage' => '/var/www/apjiigolf/storage/app/public',
+      'D:\\laragon\\www\\apjii\\public\\storage' => 'D:\\laragon\\www\\apjii\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -508,14 +508,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/var/www/apjiigolf/storage/logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\apjii\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/var/www/apjiigolf/storage/logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\apjii\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -580,7 +580,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/var/www/apjiigolf/storage/logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\apjii\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -606,7 +606,7 @@
         'transport' => 'smtp',
         'host' => 'sandbox.smtp.mailtrap.io',
         'port' => '2525',
-        'encryption' => 'tls',
+        'encryption' => NULL,
         'username' => '1fbb19b40b41dc',
         'password' => '83ea0541531542',
         'timeout' => NULL,
@@ -652,14 +652,14 @@
     'from' => 
     array (
       'address' => 'noreply@apjiigolf.id',
-      'name' => 'APJII GOLF',
+      'name' => 'PGA',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/var/www/apjiigolf/resources/views/vendor/mail',
+        0 => 'D:\\laragon\\www\\apjii\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -747,7 +747,7 @@
       2 => '127.0.0.1',
       3 => '127.0.0.1:8000',
       4 => '::1',
-      5 => 'apjiigolf.id',
+      5 => 'apjii.test',
     ),
     'guard' => 
     array (
@@ -788,11 +788,11 @@
   ),
   'session' => 
   array (
-    'driver' => 'redis',
+    'driver' => 'file',
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/var/www/apjiigolf/storage/framework/sessions',
+    'files' => 'D:\\laragon\\www\\apjii\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -932,9 +932,9 @@
   array (
     'paths' => 
     array (
-      0 => '/var/www/apjiigolf/resources/views',
+      0 => 'D:\\laragon\\www\\apjii\\resources\\views',
     ),
-    'compiled' => '/var/www/apjiigolf/storage/framework/views',
+    'compiled' => 'D:\\laragon\\www\\apjii\\storage\\framework\\views',
   ),
   'lara-lens' => 
   array (
@@ -1020,7 +1020,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => '/var/www/apjiigolf',
+    'remote_sites_path' => 'D:\\laragon\\www\\apjii',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
