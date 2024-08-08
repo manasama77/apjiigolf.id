@@ -55,6 +55,7 @@ class AdminApjiiTournamentController extends Controller
         }
 
         $registration->is_checkin = 1;
+        $registration->updated_at = now();
         $registration->save();
 
         return response()->json([
