@@ -47,6 +47,7 @@
                         <th>PROMO CODE</th>
                         <th>COMPANY</th>
                         <th>STATUS</th>
+                        <th>TIPE</th>
                         <th>CREATED AT</th>
                     </tr>
                 </thead>
@@ -56,6 +57,7 @@
                             <th>{{ $data->code }}</th>
                             <th>{{ $data->name }}</th>
                             <th>{{ $data->is_used_text }}</th>
+                            <th>{{ $data->tipe_text }}</th>
                             <th>{{ $data->created_at }}</th>
                         </tr>
                     @endforeach

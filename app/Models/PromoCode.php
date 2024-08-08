@@ -40,4 +40,9 @@ class PromoCode extends Model
         $tipe = strtoupper($this->tipe);
         return $tipe == 'PROMO' ? '<div class="badge badge-info">' . $tipe . '</div>' : '<div class="badge badge-warning">' . $tipe . '</div>';
     }
+
+    public function getTipeTextAttribute()
+    {
+        return strtoupper($this->tipe);
+    }
 }
