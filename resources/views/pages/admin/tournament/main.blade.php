@@ -54,13 +54,14 @@
                                                             Download
                                                         </button>
                                                         <div class="dropdown-menu">
+                                                            @if (in_array($r->ticket_type, ['APJII MEMBER', 'REGULER']))
+                                                                <a href="{{ route('register_download_invoice', $r->invoice_number) }}"
+                                                                    class="dropdown-item">
+                                                                    <i class="fas fa-file-pdf"></i> Invoice
+                                                                </a>
+                                                            @endif
                                                             <a href="{{ route('register_download_eticket', $r->invoice_number) }}"
                                                                 class="dropdown-item">
-                                                                <i class="fas fa-file-pdf"></i> Invoice
-                                                            </a>
-                                                            <a href="{{ route('register_download_eticket', $r->invoice_number) }}"
-                                                                class="dropdown-item">
-
                                                                 <i class="fas fa-file-pdf"></i> Eticket
                                                             </a>
                                                         </div>
@@ -98,7 +99,7 @@
                                                     {{ strtoupper($r->shirt_size) }}
 
                                                 </td>
-                                                <td>{{ strtoupper($r->ticket_type) }}</td>
+                                                <td>{{ $r->ticket_type }}</td>
                                                 <td>{{ $r->barcode }}</td>
                                                 <td>{{ $r->handicap }}</td>
                                                 <td>{{ $r->created_at->diffForHumans() }}</td>
