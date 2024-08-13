@@ -360,10 +360,10 @@
                                             <div class="col-12">
                                                 <h1>Choose Your Polo Shirt Size</h1>
                                             </div>
-                                            <div class="col-12 justify-content-center">
+                                            {{-- <div class="col-12 justify-content-center">
                                                 <img src="{{ asset('size-chart.jpg') }}" alt="Size Chart"
                                                     class="img-fluid mb-3" style="max-width: 300px;" />
-                                            </div>
+                                            </div> --}}
 
                                             <div
                                                 class="col-sm-12 col-md-6 col-lg-4 mb-3 d-flex justify-content-center">
@@ -373,9 +373,11 @@
                                                     for="size_s">
                                                     <h5>S</h5>
                                                     <h6 class="small">
-                                                        Length: 71 CM<br />
+                                                        {{-- Length: 71 CM<br />
                                                         Width: 48 CM<br />
-                                                        Sleeve: 23,5 CM<br />
+                                                        Sleeve: 23,5 CM<br /> --}}
+                                                        Chest: 90 CM<br />
+                                                        Arm Length: 63 CM<br />
                                                     </h6>
                                                     <span class="badge bg-primary">Choose</span>
                                                 </label>
@@ -389,9 +391,12 @@
                                                     for="size_m">
                                                     <h5>M</h5>
                                                     <h6 class="small">
-                                                        Length: 73,5 CM<br />
+                                                        {{-- Length: 73,5 CM<br />
                                                         Width: 51 CM<br />
-                                                        Sleeve: 24 CM<br />
+                                                        Sleeve: 24 CM<br /> --}}
+
+                                                        Chest: 96 CM<br />
+                                                        Arm Length: 65 CM<br />
                                                     </h6>
                                                     <span class="badge bg-primary">Choose</span>
                                                 </label>
@@ -405,9 +410,12 @@
                                                     for="size_l">
                                                     <h5>L</h5>
                                                     <h6 class="small">
-                                                        Length: 76 CM<br />
+                                                        {{-- Length: 76 CM<br />
                                                         Width: 52,5 CM<br />
-                                                        Sleeve: 24,5 CM<br />
+                                                        Sleeve: 24,5 CM<br /> --}}
+
+                                                        Chest: 102 CM<br />
+                                                        Arm Length: 66,5 CM<br />
                                                     </h6>
                                                     <span class="badge bg-primary">Choose</span>
                                                 </label>
@@ -421,9 +429,12 @@
                                                     for="size_xl">
                                                     <h5>XL</h5>
                                                     <h6 class="small">
-                                                        Length: 79,5 CM<br />
+                                                        {{-- Length: 79,5 CM<br />
                                                         Width: 55 CM<br />
-                                                        Sleeve: 24,5 CM<br />
+                                                        Sleeve: 24,5 CM<br /> --}}
+
+                                                        Length: 108 CM<br />
+                                                        Width: 68 CM<br />
                                                     </h6>
                                                     <span class="badge bg-primary">Choose</span>
                                                 </label>
@@ -437,9 +448,12 @@
                                                     for="size_xxl">
                                                     <h5>XXL</h5>
                                                     <h6 class="small">
-                                                        Length: 80 CM<br />
+                                                        {{-- Length: 80 CM<br />
                                                         Width: 59 CM<br />
-                                                        Sleeve: 25,5 CM<br />
+                                                        Sleeve: 25,5 CM<br /> --}}
+
+                                                        Chest: 114 CM<br />
+                                                        Arm Length: 69,5 CM<br />
                                                     </h6>
                                                     <span class="badge bg-primary">Choose</span>
                                                 </label>
