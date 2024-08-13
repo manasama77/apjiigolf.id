@@ -360,6 +360,10 @@
                                             <div class="col-12">
                                                 <h1>Choose Your Polo Shirt Size</h1>
                                             </div>
+                                            <div class="col-12 justify-content-center">
+                                                <img src="{{ asset('jlindeberg.png') }}" alt="J.Lindeberg"
+                                                    class="img-fluid mb-3" style="max-width: 300px;" />
+                                            </div>
                                             {{-- <div class="col-12 justify-content-center">
                                                 <img src="{{ asset('size-chart.jpg') }}" alt="Size Chart"
                                                     class="img-fluid mb-3" style="max-width: 300px;" />
