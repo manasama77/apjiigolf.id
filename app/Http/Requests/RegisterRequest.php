@@ -51,7 +51,7 @@ class RegisterRequest extends FormRequest
                     }
                 }
             }],
-            'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
+            // 'g-recaptcha-response' => ['required', 'recaptchav3:register,0.5'],
         ];
     }
 
