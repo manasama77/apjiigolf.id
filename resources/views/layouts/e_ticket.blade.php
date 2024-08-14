@@ -25,7 +25,7 @@
     body {
         margin: 0px;
         padding: 0px;
-        background: url('{{ public_path('apjii-golf-7/e-ticket-2.jpg') }}') center no-repeat;
+        background: url('{{ public_path('apjii-golf-7/e-ticket-3.jpg') }}') center no-repeat;
         background-size: cover;
     }
 
