@@ -2,11 +2,11 @@
     {{-- <img src="{{ asset('banner hero section.jpg') }}" alt="" class="img-fluid" /> --}}
     <a href="{{ route('register_index') }}">
         <picture>
-            <source media="(min-width: 1199.98px)" srcset="{{ asset('banner-hero-section-desktop_3.jpg') }}">
-            <source media="(min-width: 991.98px)" srcset="{{ asset('banner-hero-section-desktop_3.jpg') }}">
-            <source media="(min-width: 767.98px)" srcset="{{ asset('banner-hero-section-mobile_3.jpg') }}">
-            <source media="(min-width: 575.98px)" srcset="{{ asset('banner-hero-section-mobile_3.jpg') }}">
-            <img src="{{ asset('banner-hero-section-mobile_3.jpg') }}" alt="" class="img-fluid" />
+            <source media="(min-width: 1199.98px)" srcset="{{ asset('banner-hero-section-desktop_4.jpg') }}">
+            <source media="(min-width: 991.98px)" srcset="{{ asset('banner-hero-section-desktop_4.jpg') }}">
+            <source media="(min-width: 767.98px)" srcset="{{ asset('banner-hero-section-mobile_4.jpg') }}">
+            <source media="(min-width: 575.98px)" srcset="{{ asset('banner-hero-section-mobile_4.jpg') }}">
+            <img src="{{ asset('banner-hero-section-mobile_4.jpg') }}" alt="" class="img-fluid" />
         </picture>
     </a>
 

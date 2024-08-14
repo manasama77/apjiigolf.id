@@ -8,7 +8,7 @@
     <meta name="author" content="@adampm from JLM" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <title>{{ config('app.name') }} - GOBAR Registration</title>
+    <title>{{ config('app.name') }}</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
