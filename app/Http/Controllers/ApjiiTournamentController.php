@@ -252,7 +252,7 @@ class ApjiiTournamentController extends Controller
                 $doku_checkout = $this->doku_checkout($order_id, $total_price, $invoice_number, $register_id, $first_name, $last_name, $whatsapp_number, $email, $shirt_size);
 
                 if ($doku_checkout->failed()) {
-                    throw new Exception("Failed to register. Please contact admin for more information at contact +" . $this->wa_pic);
+                    throw new Exception("Connection to payment server failed. Please try again.");
                 }
 
                 $responses    = $doku_checkout->json();
@@ -329,7 +329,6 @@ class ApjiiTournamentController extends Controller
             return redirect()->route('register_status', [$exec->id]);
         } catch (Exception $e) {
             DB::rollBack();
-            dd($e);
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
