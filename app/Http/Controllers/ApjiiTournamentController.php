@@ -670,7 +670,7 @@ class ApjiiTournamentController extends Controller
         $count = User::where('username', $username)->first();
         if ($count) {
             if (password_verify($password, $count->password)) {
-                $datas = Registration::where('payment_status', 'success')->all();
+                $datas = Registration::where('payment_status', 'success')->get();
                 return view('register_table', [
                     'datas' => $datas,
                 ]);
@@ -683,7 +683,7 @@ class ApjiiTournamentController extends Controller
         $count = User::where('username', $username)->first();
         if ($count) {
             if (password_verify($password, $count->password)) {
-                $datas = Registration::where('payment_status', 'expired')->all();
+                $datas = Registration::where('payment_status', 'expired')->get();
                 return view('register_table', [
                     'datas' => $datas,
                 ]);
