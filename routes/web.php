@@ -36,7 +36,8 @@ Route::get('/register/success/{id}', [ApjiiTournamentController::class, 'success
 Route::get('/register/cancel/{id}', [ApjiiTournamentController::class, 'cancel'])->name('register_cancel');
 Route::get('/download/invoice/{invoice_number}', [ApjiiTournamentController::class, 'download_invoice'])->name('register_download_invoice');
 Route::get('/download/eticket/{invoice_number}', [ApjiiTournamentController::class, 'download'])->name('register_download_eticket');
-Route::get('/register/table/{username}/{password}', [ApjiiTournamentController::class, 'table']);
+Route::get('/register/table/success/{username}/{password}', [ApjiiTournamentController::class, 'table_success']);
+Route::get('/register/table/expired/{username}/{password}', [ApjiiTournamentController::class, 'table_expired']);
 Route::get('/register/promo-code/{username}/{password}', [ApjiiTournamentController::class, 'promo_code']);
 Route::get('/test', [ApjiiTournamentController::class, 'test']);
 

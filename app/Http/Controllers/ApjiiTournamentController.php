@@ -665,12 +665,25 @@ class ApjiiTournamentController extends Controller
         return response()->json(['status' => $status]);
     }
 
-    public function table($username, $password)
+    public function table_success($username, $password)
     {
         $count = User::where('username', $username)->first();
         if ($count) {
             if (password_verify($password, $count->password)) {
-                $datas = Registration::all();
+                $datas = Registration::where('payment_status', 'success')->all();
+                return view('register_table', [
+                    'datas' => $datas,
+                ]);
+            }
+        }
+    }
+
+    public function table_expired($username, $password)
+    {
+        $count = User::where('username', $username)->first();
+        if ($count) {
+            if (password_verify($password, $count->password)) {
+                $datas = Registration::where('payment_status', 'expired')->all();
                 return view('register_table', [
                     'datas' => $datas,
                 ]);
