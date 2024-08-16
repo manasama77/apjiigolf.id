@@ -114,7 +114,7 @@
             })
 
             $('#barcode').on('change', e => {
-                storeBarcode()
+                $('#form').submit()
             })
         })
 
@@ -142,7 +142,7 @@
                     title: "Success",
                     text: response.message,
                     icon: "success",
-                    timer: 2000,
+                    timer: 1800,
                     showConfirmButton: false
                 }).then(() => {
                     $('#barcode').val('').focus()

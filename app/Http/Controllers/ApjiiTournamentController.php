@@ -344,13 +344,15 @@ class ApjiiTournamentController extends Controller
             }
             $rs->is_active = 0;
             $rs->save();
+            return false;
         } else {
             if ($count_registrant < $rs->limit_peserta) {
                 $rs->is_active = 1;
                 $rs->save();
+                return true;
             }
+            return false;
         }
-        return false;
     }
 
     protected function generate_barcode(int $length = 64, string $keyspace = '123456789'): string
