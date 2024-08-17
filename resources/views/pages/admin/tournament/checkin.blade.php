@@ -101,6 +101,7 @@
 @section('skrip_jawa')
     <script>
         $(document).ready(() => {
+            $('#barcode').focus();
             getCount()
 
             setInterval(() => {
@@ -113,9 +114,9 @@
                 storeBarcode()
             })
 
-            $('#barcode').on('change', e => {
-                $('#form').submit()
-            })
+            // $('#barcode').on('change', e => {
+            //     $('#form').submit()
+            // })
         })
 
         function storeBarcode() {
