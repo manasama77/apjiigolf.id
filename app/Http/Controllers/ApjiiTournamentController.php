@@ -705,4 +705,248 @@ class ApjiiTournamentController extends Controller
             }
         }
     }
+
+    public function index_internal()
+    {
+        $event_name          = $this->event_name;
+        $event_date          = $this->event_date;
+        $event_time          = $this->event_time;
+        $location_name       = $this->location_name;
+        $location_address    = $this->location_address;
+        $google_maps_url     = $this->google_maps_url;
+        $google_maps_embed   = $this->google_maps_embed;
+        $reguler_price       = $this->reguler_price;
+        $early_price         = $this->early_price;
+        $reguler_price_idr   = number_format($reguler_price, 0);
+        $early_price_idr     = number_format($early_price, 0);
+        $admin_fee           = $this->admin_fee;
+        $admin_fee_idr       = number_format($admin_fee, 0);
+        $total_price         = $reguler_price + $admin_fee;
+        $total_price_idr     = number_format($total_price, 0);
+        $no_rekening         = $this->no_rekening;
+        $bank_rekening       = $this->bank_rekening;
+        $nama_rekening       = $this->nama_rekening;
+        $wa_pic              = $this->wa_pic;
+        $registration_status = $this->registration_status;
+
+        $early_bird_start = $this->early_bird_start->format('F d, Y');
+        $early_bird_end   = $this->early_bird_end->format('F d, Y');
+        $reguler_start    = $this->reguler_start->format('F d, Y');
+        $reguler_end      = $this->reguler_end->format('F d, Y');
+
+        $data = [
+            'page_title'          => 'APJII 7 Register',
+            'event_name'          => $event_name,
+            'event_date'          => $event_date,
+            'event_time'          => $event_time,
+            'location_name'       => $location_name,
+            'location_address'    => $location_address,
+            'google_maps_url'     => $google_maps_url,
+            'google_maps_embed'   => $google_maps_embed,
+            'reguler_price_idr'   => $reguler_price_idr,
+            'early_price_idr'     => $early_price_idr,
+            'admin_fee_idr'       => $admin_fee_idr,
+            'total_price_idr'     => $total_price_idr,
+            'no_rekening'         => $no_rekening,
+            'bank_rekening'       => $bank_rekening,
+            'nama_rekening'       => $nama_rekening,
+            'wa_pic'              => $wa_pic,
+            'registration_status' => $registration_status,
+            'early_bird_start'    => $early_bird_start,
+            'early_bird_end'      => $early_bird_end,
+            'reguler_start'       => $reguler_start,
+            'reguler_end'         => $reguler_end,
+        ];
+
+        return view('pages.admin.register.form', $data);
+    }
+
+    public function store_internal(RegisterRequest $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            $order_id = $this->generate_order_id();
+
+            $invoice_array  = $this->generate_invoice_number();
+            $invoice_number = $invoice_array['invoice_number'];
+
+            $first_name      = $request->first_name;
+            $last_name       = $request->last_name;
+            $gender          = $request->gender;
+            $email           = $request->email;
+            $whatsapp_number = $request->whatsapp_number;
+            $company_name    = $request->company_name;
+            $position        = $request->position;
+            $institution     = $request->institution;
+            $institution_etc = $request->institution_etc;
+            $handicap        = $request->handicap;
+            $shirt_size      = $request->shirt_size;
+            $code            = $request->code ?? null;
+
+            $event_location = EventLocation::with([
+                'location'
+            ])->where('is_active', 1)->first();
+            if (!$event_location) {
+                throw new Exception('No event active. Please contact admin for more information at contact +' . $this->wa_pic);
+            }
+            $event_location_id = $event_location->id;
+
+            $ticket_type = "reguler";
+            if ($code) {
+                $pc = PromoCode::where('code', $code)->first();
+                if (!$pc) {
+                    throw new Exception('Promo code not found. Please contact admin for more information at contact +' . $this->wa_pic);
+                }
+
+                if ($pc->is_used == 1) {
+                    throw new Exception('Promo code already used. Please contact admin for more information at contact +' . $this->wa_pic);
+                }
+
+                $tipe = $pc->tipe;
+                if ($tipe == 'compliment') {
+                    $ticket_type = "compliment";
+                } elseif ($tipe == 'promo') {
+                    $ticket_type = "early bird";
+                }
+            }
+
+            $ticket_price = $this->reguler_price;
+            if ($ticket_type == "compliment") {
+                $ticket_price = 0;
+            } elseif ($ticket_type == "early bird") {
+                $ticket_price = $this->early_price;
+            }
+
+            $admin_fee   = $this->admin_fee;
+            $total_price = $ticket_price + $admin_fee;
+
+            $payment_status = 'pending';
+            if ($ticket_type == "compliment") {
+                $payment_status = 'success';
+            }
+
+            $barcode        = $this->generate_barcode(6);
+            $seq            = $invoice_array['seq'];
+
+            $exec = Registration::create([
+                'order_id'          => $order_id,
+                'invoice_number'    => $invoice_number,
+                'first_name'        => $first_name,
+                'last_name'         => $last_name,
+                'gender'            => $gender,
+                'email'             => $email,
+                'whatsapp_number'   => $whatsapp_number,
+                'company_name'      => $company_name,
+                'position'          => $position,
+                'institution'       => $institution,
+                'institution_etc'   => $institution_etc,
+                'handicap'          => $handicap,
+                'shirt_size'        => $shirt_size,
+                'event_location_id' => $event_location_id,
+                'ticket_type'       => $ticket_type,
+                'promo_code'        => $code ?? null,
+                'ticket_price'      => $ticket_price,
+                'admin_fee'         => $this->admin_fee,
+                'total_price'       => $ticket_price + $this->admin_fee,
+                'payment_status'    => $payment_status,
+                'barcode'           => $barcode,
+                'seq'               => $seq,
+                'eticket'           => null,
+            ]);
+
+            if (!$exec) {
+                throw new Exception("Failed to register. Please contact admin for more information at contact +" . $this->wa_pic);
+            }
+
+            if ($code) {
+                PromoCode::where('code', $code)->update(['is_used' => 1]);
+            }
+
+            $register_id   = $exec->id;
+
+            if ($ticket_type != "compliment") {
+                $doku_checkout = $this->doku_checkout($order_id, $total_price, $invoice_number, $register_id, $first_name, $last_name, $whatsapp_number, $email, $shirt_size);
+
+                if ($doku_checkout->failed()) {
+                    throw new Exception("Connection to payment server failed. Please try again.");
+                }
+
+                $responses    = $doku_checkout->json();
+                $token_id     = $responses['response']['payment']['token_id'];
+                $url          = $responses['response']['payment']['url'];
+                $expired_date = $responses['response']['payment']['expired_date'];
+
+                $exec->update([
+                    'token_id'     => $token_id,
+                    'url'          => $url,
+                    'expired_date' => $expired_date,
+                ]);
+
+                $time_expired = Carbon::parse($expired_date)->format('Y-m-d H:i:s');
+
+                // create invoice pdf
+                $data_pdf_invoice = [
+                    'player_name'      => $first_name . ' ' . $last_name,
+                    'invoice_number'   => $invoice_number,
+                    'invoice_date'     => Carbon::now()->format('d M Y'),
+                    'event_name'       => $this->event_name,
+                    'location_name'    => $this->location_name,
+                    'location_address' => $this->location_address,
+                    'event_date'       => $this->event_date->format('d M Y'),
+                    'ticket_price'     => $ticket_price,
+                    'admin_fee'        => $this->admin_fee,
+                    'grand_total'      => $ticket_price + $this->admin_fee,
+                ];
+                $pdf = Pdf::loadView('layouts.invoice', $data_pdf_invoice)->setPaper('A4', 'portrait');
+                // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+                Storage::disk('public')->put('invoice/' . $invoice_number . '.pdf', $pdf->output());
+
+                // debug purpose
+                // return (new InvoiceMail($exec, $this->event_name, $url, $time_expired))->render();
+                Mail::to($request->email)->bcc([
+                    'adam.pm77@gmail.com',
+                    'victormalawau@gmail.com',
+                    'betharifarisha@gmail.com',
+                ])->send(new InvoiceMail($exec, $this->event_name, $url, $time_expired));
+            }
+
+
+            $plugin_barcode = new DNS2D();
+            $bar            = '<img src="data:image/png;base64,' . $plugin_barcode->getBarcodePNG($barcode, 'QRCODE', 20, 20, [0, 0, 0]) . '" alt="barcode"   />';
+
+            $data_pdf = [
+                'bar'       => $bar,
+                'barcode'   => $barcode,
+                'full_name' => $first_name . ' ' . $last_name,
+            ];
+            $custom_paper = [0, 0, 1000, 1778];
+            $pdf          = Pdf::loadView('layouts.e_ticket', $data_pdf)->setPaper($custom_paper);
+            // DEBUG PURPOSE
+            // return $pdf->stream('test.pdf', array("Attachment" => false));
+
+            $slug_location_name = Str::slug($this->event_name);
+            $content            = $pdf->download()->getOriginalContent();
+            $nama_file          = Str::slug($first_name . "-" . $last_name . "-" . $barcode) . ".pdf";
+            Storage::disk('public')->put('eticket/' . $slug_location_name . '/' . $nama_file, $content);
+
+            $exec->eticket = $nama_file;
+            $exec->save();
+
+            if ($ticket_type == "compliment") {
+                Mail::to($email)->bcc([
+                    'adam.pm77@gmail.com',
+                    'victormalawau@gmail.com',
+                    'betharifarisha@gmail.com',
+                ])->send(new ApjiiTransactionSuccess($exec, $exec->eticket, $this->event_name));
+            }
+
+            DB::commit();
+            return redirect()->route('admin.tournament');
+        } catch (Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+    }
 }

@@ -110,6 +110,17 @@
                             </p>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('register_internal_index') }}"
+                            class="nav-link {{ request()->route()->named('register_internal_index') ? 'active' : '' }}">
+
+                            <i class="nav-icon fa-solid fa-plus"></i>
+                            <p>
+                                APJII 7 Register
+                            </p>
+                        </a>
+                    </li>
                 @endif
 
 

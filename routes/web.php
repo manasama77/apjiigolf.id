@@ -133,6 +133,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         'update'  => 'admin.promo_code.update',
         'destroy' => 'admin.promo_code.destroy',
     ]);
+
+    Route::get('/register/internal', [ApjiiTournamentController::class, 'index_internal'])->name('register_internal_index');
+    Route::post('/register/internal', [ApjiiTournamentController::class, 'store_internal'])->name('register_internal_store');
 });
 
 Auth::routes([
