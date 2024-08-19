@@ -122,7 +122,7 @@
                                         max="99" value="{{ old('handicap') }}" required />
                                 </div>
                                 <div class="mb-3">
-                                    <label for="code">Promo / Compliment Code</label>
+                                    <label for="code">Compliment Code</label>
                                     <input type="text" class="form-control" id="code" name="code"
                                         value="{{ old('code') }}" required />
                                 </div>

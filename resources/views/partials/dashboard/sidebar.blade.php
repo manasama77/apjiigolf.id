@@ -117,7 +117,7 @@
 
                             <i class="nav-icon fa-solid fa-plus"></i>
                             <p>
-                                APJII 7 Register
+                                APJII 7 Register Compliment
                             </p>
                         </a>
                     </li>

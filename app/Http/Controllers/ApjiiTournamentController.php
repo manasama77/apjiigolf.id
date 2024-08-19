@@ -808,7 +808,10 @@ class ApjiiTournamentController extends Controller
                     $ticket_type = "compliment";
                 } elseif ($tipe == 'promo') {
                     $ticket_type = "early bird";
+                    throw new Exception('Hanya code dengan tipe Compliment Code');
                 }
+            } else {
+                throw new Exception('Compliment Code wajib diisi');
             }
 
             $ticket_price = $this->reguler_price;
