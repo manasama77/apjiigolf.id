@@ -727,7 +727,6 @@ class ApjiiTournamentController extends Controller
         $bank_rekening       = $this->bank_rekening;
         $nama_rekening       = $this->nama_rekening;
         $wa_pic              = $this->wa_pic;
-        $registration_status = $this->registration_status;
 
         $early_bird_start = $this->early_bird_start->format('F d, Y');
         $early_bird_end   = $this->early_bird_end->format('F d, Y');
@@ -751,7 +750,6 @@ class ApjiiTournamentController extends Controller
             'bank_rekening'       => $bank_rekening,
             'nama_rekening'       => $nama_rekening,
             'wa_pic'              => $wa_pic,
-            'registration_status' => $registration_status,
             'early_bird_start'    => $early_bird_start,
             'early_bird_end'      => $early_bird_end,
             'reguler_start'       => $reguler_start,
@@ -808,7 +806,7 @@ class ApjiiTournamentController extends Controller
                     $ticket_type = "compliment";
                 } elseif ($tipe == 'promo') {
                     $ticket_type = "early bird";
-                    throw new Exception('Hanya code dengan tipe Compliment Code');
+                    return throw new Exception('Promo Code tidak dapat digunakan, silahkan gunakan code dengan tipe Compliment');
                 }
             } else {
                 throw new Exception('Compliment Code wajib diisi');
@@ -949,7 +947,7 @@ class ApjiiTournamentController extends Controller
             return redirect()->route('admin.tournament');
         } catch (Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->withErrors($e->getMessage())->withInput();
         }
     }
 }
