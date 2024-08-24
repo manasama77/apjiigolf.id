@@ -124,6 +124,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/tournament', [AdminApjiiTournamentController::class, 'index'])->name('admin.tournament');
     Route::get('/tournament/checkin', [AdminApjiiTournamentController::class, 'checkin'])->name('admin.tournament.checkin');
     Route::post('/tournament/checkin/store', [AdminApjiiTournamentController::class, 'checkin_store'])->name('admin.tournament.checkin.store');
+    Route::get('/tournament/checkin/get_player_name', [AdminApjiiTournamentController::class, 'get_player_name'])->name('admin.tournament.get_player_name');
 
     Route::resource('/promo-code', PromoCodeController::class)->names([
         'index'   => 'admin.promo_code',

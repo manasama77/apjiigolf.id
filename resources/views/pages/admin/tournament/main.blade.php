@@ -31,6 +31,7 @@
                                             <th>Invoice Number</th>
                                             <th>Payment Status</th>
                                             <th>Name</th>
+                                            <th>Barcode</th>
                                             <th>Gender</th>
                                             <th>Email</th>
                                             <th>WhatsApp</th>
@@ -39,7 +40,6 @@
                                             <th>Institution</th>
                                             <th>Shirt Size</th>
                                             <th>Ticket Type</th>
-                                            <th>Barcode</th>
                                             <th>Handicap</th>
                                             <th>Created At</th>
                                         </tr>
@@ -76,6 +76,7 @@
                                                 <td>
                                                     {{ strtoupper($r->first_name) }} {{ strtoupper($r->last_name) }}
                                                 </td>
+                                                <td>{{ $r->barcode }}</td>
                                                 <td>
                                                     {{ strtoupper($r->gender) }}
 
@@ -100,7 +101,6 @@
 
                                                 </td>
                                                 <td>{{ $r->ticket_type }}</td>
-                                                <td>{{ $r->barcode }}</td>
                                                 <td>{{ $r->handicap }}</td>
                                                 <td>{{ $r->created_at->diffForHumans() }}</td>
                                             </tr>

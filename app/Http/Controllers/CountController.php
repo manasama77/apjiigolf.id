@@ -17,8 +17,14 @@ class CountController extends Controller
         $count_location       = Location::count();
         $count_event_location = EventLocation::count();
         $count_player         = Player::count();
+        $count_merokok_0      = 0;
+        $count_merokok_1      = 0;
+        $count_merokok_2      = 0;
 
-        $apjii_7 = Registration::get();
+        $apjii_7         = Registration::get();
+        $count_merokok_0 = Registration::where('merokok', 0)->count();
+        $count_merokok_1 = Registration::where('merokok', 1)->count();
+        $count_merokok_2 = Registration::where('merokok', 2)->count();
 
         foreach ($apjii_7 as $a) {
             $count_apjii_7_register   = $a->count();
@@ -55,6 +61,9 @@ class CountController extends Controller
             'count_apjii_7_shirt_xxl'  => $count_apjii_7_shirt_xxl,
             'count_apjii_7_shirt_xxxl' => $count_apjii_7_shirt_xxxl,
             'apjii7_checked'           => $apjii7_checked,
+            'count_merokok_0'          => $count_merokok_0,
+            'count_merokok_1'          => $count_merokok_1,
+            'count_merokok_2'          => $count_merokok_2,
         ];
 
         return response()->json([

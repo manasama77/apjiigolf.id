@@ -35,6 +35,41 @@ class AdminApjiiTournamentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'barcode' => ['required', 'exists:registrations,barcode'],
+            'merokok' => ['required'],
+        ], [
+            'barcode.required' => 'The barcode field is required.',
+            'barcode.exists'   => 'The barcode is not registered or payment expired.',
+            'merokok.required' => 'Pertanyaan merokok belum dijawab...',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors()->first(),
+            ], 400);
+        }
+
+        $registration = Registration::where('barcode', $request->barcode)->first();
+
+        if (in_array($registration->payment_status, ['pending', 'expired'])) {
+            return response()->json([
+                'message' => "The barcode is not registered or payment expired.",
+            ], 400);
+        }
+
+        $registration->is_checkin = 1;
+        $registration->merokok    = $request->merokok;
+        $registration->updated_at = now();
+        $registration->save();
+
+        return response()->json([
+            'message' => $registration->first_name . ' ' . $registration->last_name . ' Checkin Successful',
+        ], 200);
+    }
+
+    public function get_player_name(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'barcode' => ['required', 'exists:registrations,barcode'],
         ], [
             'barcode.required' => 'The barcode field is required.',
             'barcode.exists'   => 'The barcode is not registered or payment expired.',
@@ -54,12 +89,9 @@ class AdminApjiiTournamentController extends Controller
             ], 400);
         }
 
-        $registration->is_checkin = 1;
-        $registration->updated_at = now();
-        $registration->save();
-
+        $player_name = $registration->first_name . ' ' . $registration->last_name;
         return response()->json([
-            'message' => $registration->first_name . ' ' . $registration->last_name . ' Checkin Successful',
+            'player_name' => $player_name,
         ], 200);
     }
 }

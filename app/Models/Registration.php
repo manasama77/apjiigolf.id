@@ -40,6 +40,7 @@ class Registration extends Model
         'notification',
         'is_checkin',
         'is_winner',
+        'merokok',
     ];
 
     public function eventLocation()
