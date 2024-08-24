@@ -28,17 +28,17 @@
                                             <th>
                                                 <i class="fas fa-cogs"></i>
                                             </th>
-                                            <th>Invoice Number</th>
-                                            <th>Payment Status</th>
                                             <th>Name</th>
                                             <th>Barcode</th>
+                                            <th>Shirt Size</th>
+                                            <th>Invoice Number</th>
+                                            <th>Payment Status</th>
                                             <th>Gender</th>
                                             <th>Email</th>
                                             <th>WhatsApp</th>
                                             <th>Company</th>
                                             <th>Position</th>
                                             <th>Institution</th>
-                                            <th>Shirt Size</th>
                                             <th>Ticket Type</th>
                                             <th>Handicap</th>
                                             <th>Created At</th>
@@ -68,15 +68,19 @@
                                                     </div>
                                                 </td>
                                                 <td>
+                                                    {{ strtoupper($r->first_name) }} {{ strtoupper($r->last_name) }}
+                                                </td>
+                                                <td>{{ $r->barcode }}</td>
+                                                <td>
+                                                    {{ strtoupper($r->shirt_size) }}
+
+                                                </td>
+                                                <td>
                                                     {{ $r->invoice_number }}
                                                 </td>
                                                 <td>
                                                     {{ strtoupper($r->payment_status) }}
                                                 </td>
-                                                <td>
-                                                    {{ strtoupper($r->first_name) }} {{ strtoupper($r->last_name) }}
-                                                </td>
-                                                <td>{{ $r->barcode }}</td>
                                                 <td>
                                                     {{ strtoupper($r->gender) }}
 
@@ -95,10 +99,6 @@
                                                 </td>
                                                 <td>
                                                     {{ $r->institution }} {{ $r->institution_etc }}
-                                                </td>
-                                                <td>
-                                                    {{ strtoupper($r->shirt_size) }}
-
                                                 </td>
                                                 <td>{{ $r->ticket_type }}</td>
                                                 <td>{{ $r->handicap }}</td>
