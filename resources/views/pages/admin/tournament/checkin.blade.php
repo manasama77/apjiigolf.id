@@ -240,10 +240,11 @@
                 console.log(response);
 
                 temp_player_name = response.player_name;
+                temp_shirt_size = response.shirt_size;
 
                 Swal.fire({
                     title: `Apakah player ${temp_player_name} merokok ?`,
-                    text: "jangan lupa tanyakan ini pada peserta",
+                    text: `Size Baju ${temp_shirt_size}`,
                     icon: "question",
                     showDenyButton: true,
                     showCancelButton: true,

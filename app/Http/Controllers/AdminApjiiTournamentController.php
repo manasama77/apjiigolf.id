@@ -90,8 +90,10 @@ class AdminApjiiTournamentController extends Controller
         }
 
         $player_name = $registration->first_name . ' ' . $registration->last_name;
+        $shirt_size  = $registration->shirt_size;
         return response()->json([
             'player_name' => $player_name,
+            'shirt_size'  => $shirt_size,
         ], 200);
     }
 }
