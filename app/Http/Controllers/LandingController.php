@@ -225,7 +225,8 @@ class LandingController extends Controller
 
     public function pairing()
     {
-        return view('pairing_gobar_2024_07_05');
+        return view('pairing_gobar_2024_09_23');
+        // return view('pairing_gobar_2024_07_05');
         // return view('pairing_gobar_2024_06_15');
         // return view('pairing_gobar_3');
         // return view('pairing_coming_soon');

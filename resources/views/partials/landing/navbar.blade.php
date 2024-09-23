@@ -15,20 +15,21 @@
                         Standings <i class="fa-solid fa-ranking-star ms-1"></i>
                     </a>
                 </li>
-                <li class="nav-item ms-3">
+                {{-- <li class="nav-item ms-3">
                     <a class="nav-link mt-0 mt-md-2 btn btn-info px-3 py-1" href="{{ route('register_index') }}">
                         APJII Golf Tournament 2024
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
                         href="https://wa.me/{{ $wa_pic }}" target="_blank">Register
                         Now</a>
                 </li> --}}
-                {{-- <li class="nav-item"><a class="btn btn-primary rounded-pill mt-3 mt-md-0 ms-md-2"
-                        href="{{ route('pairing') }}" target="_blank">
+                <li class="nav-item ms-3">
+                    <a class="nav-link mt-0 mt-md-2 btn btn-info px-3 py-1" href="{{ route('pairing') }}"
+                        target="_blank">
                         Pairing Table
                     </a>
-                </li> --}}
+                </li>
             </ul>
         </div>
     </div>
