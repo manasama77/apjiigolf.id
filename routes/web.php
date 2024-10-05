@@ -46,6 +46,7 @@ Route::get('/error', [LandingController::class, 'register_error'])->name('regist
 Route::get('/thumb', [LandingController::class, 'thumb']);
 Route::get('/ori', [LandingController::class, 'ori']);
 
+Route::get('/2024/gobar-6', [LandingController::class, 'gobar_6'])->name('gobar-6');
 Route::get('/2024/gobar-5', [LandingController::class, 'gobar_5'])->name('gobar-5');
 Route::get('/2024/gobar-pga-series-1', [LandingController::class, 'gobar_pga_series_1'])->name('gobar-pga-series-1');
 Route::get('/gobar-3-5', [LandingController::class, 'gobar_3_5'])->name('gobar_3_5');

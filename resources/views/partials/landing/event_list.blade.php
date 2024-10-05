@@ -7,6 +7,16 @@
                 <div class="row my-3">
                     <div class="col-sm-12 col-md-4 mt-3">
                         <div class="card shadow">
+                            <img src="{{ asset('events/gobar-6-bukit-darmo-golf-surabaya-2024-09-23.jpg') }}"
+                                class="card-img-top" alt="GOBAR 6 @BUKIT DARMO GOLF">
+                            <div class="card-body">
+                                <h5 class="card-title">GOBAR 6 - Bukit Darmo Golf Surabaya</h5>
+                                <a href="{{ route('gobar-6') }}" class="btn btn-primary">View Highlight</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mt-3">
+                        <div class="card shadow">
                             <img src="{{ asset('events/GOBAR-5-Permata-Sentul-Golf-Club-thumbnail.jpg') }}"
                                 class="card-img-top" alt="GOBAR PGA SERIES @BOGOR RAYA">
                             <div class="card-body">

@@ -786,6 +786,27 @@ class LandingController extends Controller
         return view('gobar_5', $data);
     }
 
+    public function gobar_6()
+    {
+        $page_title = "GOBAR 6 - BUKIT DARMO GOLF SURABAYA";
+
+        // get file from folder events/gobar-5-permata-sentul-golf-club-2024-07-06
+        $files = Storage::disk('events')->files('gobar-6-bukit-darmo-golf-surabaya-2024-09-23');
+
+        // reorder by file name from $files
+        $files = collect($files)->map(function ($item) {
+            return pathinfo($item, PATHINFO_BASENAME);
+        })->sort()->values()->all();
+
+        // dd($files);
+
+        $data = [
+            'page_title' => $page_title,
+            'images'     => $files,
+        ];
+        return view('gobar_6', $data);
+    }
+
     public function thumb()
     {
         // read all file from folder events/gobar-5-permata-sentul-golf-club-2024-07-06
